@@ -154,11 +154,11 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(90deg, rgba(0,53,31,.10) 0%, rgba(0,53,31,.24) 48%, rgba(0,53,31,.74) 100%),
+        linear-gradient(90deg, rgba(0,53,31,.82) 0%, rgba(0,53,31,.64) 38%, rgba(0,53,31,.24) 72%, rgba(0,53,31,.08) 100%),
         url("hero-mate.jpg.png");
       background-size: cover;
       background-position: center center;
-      filter: brightness(.92);
+      filter: brightness(.9);
       transform: scale(1.01);
     }
 
@@ -169,21 +169,21 @@
       min-height: 680px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr minmax(460px, 620px);
+      grid-template-columns: minmax(460px, 680px) 1fr;
       align-items: center;
     }
 
     .hero-copy {
-      grid-column: 2;
+      grid-column: 1;
       color: #fff;
-      text-align: center;
-      padding-top: 30px;
+      text-align: left;
+      padding-top: 20px;
     }
 
     .hero-kicker {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 18px;
       margin-bottom: 28px;
       color: rgba(255,255,255,.78);
@@ -221,7 +221,7 @@
     .hero-buttons {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 16px;
       flex-wrap: wrap;
     }
@@ -826,7 +826,10 @@
       }
 
       .hero-bg {
-        background-position: center left;
+        background-image:
+          linear-gradient(180deg, rgba(0,53,31,.80) 0%, rgba(0,53,31,.58) 54%, rgba(0,53,31,.28) 100%),
+          url("hero-mate.jpg.png");
+        background-position: center center;
       }
 
       .hero-content {
@@ -857,7 +860,7 @@
       }
 
       h1 {
-        font-size: 46px;
+        font-size: 43px;
         line-height: .92;
         letter-spacing: -.04em;
         margin-bottom: 24px;
@@ -1115,9 +1118,9 @@
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-content">
         <div class="hero-copy">
-          <div class="hero-kicker">South American ritual</div>
-          <h1>More than<br>a drink.</h1>
-          <p>A ritual of presence, sharing and slow living — thoughtfully brought to Australia through yerba mate, gourds, bombillas and starter kits.</p>
+          <div class="hero-kicker">Yerba mate in Australia</div>
+          <h1>Your first mate<br>ritual starts here.</h1>
+          <p>Yerba mate, gourds, bombillas, and beginner-friendly starter kits curated for Australia.</p>
           <div class="hero-buttons">
             <a class="primary-btn" href="#shop">Shop starter kits</a>
             <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book a tasting</a>
