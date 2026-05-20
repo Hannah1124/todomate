@@ -155,7 +155,7 @@
       inset: 0;
       background-image:
         linear-gradient(90deg, rgba(0,53,31,.82) 0%, rgba(0,53,31,.64) 38%, rgba(0,53,31,.24) 72%, rgba(0,53,31,.08) 100%),
-        url("hero-mate.jpg.png");
+        url("./hero-mate.jpg.png");
       background-size: cover;
       background-position: center center;
       filter: brightness(.9);
@@ -205,7 +205,7 @@
       margin: 0 0 32px;
       font-size: clamp(64px, 6.4vw, 112px);
       line-height: .88;
-      font-weight: 500;
+      font-weight: 800;
       letter-spacing: -.035em;
     }
 
@@ -426,7 +426,7 @@
       inset: 0;
       background-image:
         linear-gradient(90deg, rgba(0,53,31,.88) 0%, rgba(0,53,31,.74) 42%, rgba(0,53,31,.22) 100%),
-        url("mate-cultural-scene.png");
+        url("./mate-cultural-scene.png");
       background-size: cover;
       background-position: center center;
       filter: brightness(.9);
@@ -774,6 +774,99 @@
       border-radius: 2px;
     }
 
+
+    /* Clean desktop header: navigation links are inside menu icon */
+    .header-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 4px;
+    }
+
+    .menu-dropdown {
+      position: absolute;
+      top: calc(100% - 10px);
+      right: 0;
+      min-width: 260px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0,66,37,.16);
+      display: none;
+      flex-direction: column;
+      z-index: 80;
+      overflow: hidden;
+    }
+
+    .menu-dropdown a {
+      padding: 18px 22px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0,66,37,.08);
+    }
+
+    .menu-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    .menu-dropdown a:hover {
+      background: #f4f8f5;
+    }
+
+    body.menu-open .menu-dropdown {
+      display: flex;
+    }
+
+    /* Hero copy: smaller and placed in the lower-left third */
+    .hero-content {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .hero-copy {
+      max-width: 34%;
+      min-width: 360px;
+      padding-top: 0;
+      padding-bottom: 78px;
+    }
+
+    .hero-kicker {
+      display: none;
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 20px;
+      font-size: clamp(40px, 4.6vw, 62px);
+      line-height: .96;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .hero-copy p {
+      margin: 0 0 26px;
+      max-width: 420px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
     @media (max-width: 900px) {
       .top-strip {
         height: 8px;
@@ -828,7 +921,7 @@
       .hero-bg {
         background-image:
           linear-gradient(180deg, rgba(0,53,31,.80) 0%, rgba(0,53,31,.58) 54%, rgba(0,53,31,.28) 100%),
-          url("hero-mate.jpg.png");
+          url("./hero-mate.jpg.png");
         background-position: center center;
       }
 
@@ -915,49 +1008,25 @@
         line-height: 1.65;
       }
 
-      /* Mobile product grid: clean 2-column product cards */
+      /* Mobile product grid: 2 columns for a tighter shop feel */
       .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 12px;
-        align-items: stretch;
-      }
-
-      .product-card {
-        background: #fff;
-        border: 1px solid rgba(0,66,37,.12);
-        box-shadow: 0 10px 24px rgba(0,66,37,.055);
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
+        gap: 32px 16px;
       }
 
       .product-image {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / .88;
-        padding: 12px;
-        background: #fff;
-      }
-
-      .product-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        height: 172px;
+        padding: 16px;
       }
 
       .product-body {
-        padding: 14px 12px 12px;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+        padding-top: 14px;
       }
 
       .product-body h3 {
-        font-size: 15.5px;
+        font-size: 17px;
         line-height: 1.18;
         margin-bottom: 8px;
-        min-height: 38px;
-        letter-spacing: -.02em;
       }
 
       .product-desc {
@@ -965,21 +1034,20 @@
       }
 
       .product-price {
-        font-size: 16px;
-        margin: auto 0 5px;
+        font-size: 17px;
+        margin-bottom: 6px;
       }
 
       .product-stock {
-        font-size: 12px;
-        margin-bottom: 10px;
+        font-size: 12.5px;
+        margin-bottom: 12px;
       }
 
       .add-btn {
-        min-height: 40px;
-        font-size: 9.5px;
-        letter-spacing: .055em;
-        padding: 0 6px;
-        margin-top: auto;
+        min-height: 42px;
+        font-size: 10.5px;
+        letter-spacing: .06em;
+        padding: 0 8px;
       }
 
       .story-layout {
@@ -1005,7 +1073,7 @@
       .story-layout::before {
         background-image:
           linear-gradient(180deg, rgba(0,53,31,.86) 0%, rgba(0,53,31,.66) 52%, rgba(0,53,31,.36) 100%),
-          url("mate-cultural-scene.png");
+          url("./mate-cultural-scene.png");
       }
 
       .services-grid {
@@ -1096,36 +1164,82 @@
       }
     }
 
-    @media (max-width: 380px) {
-      .product-grid {
-        gap: 16px 10px;
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
-      .product-image {
-        aspect-ratio: 1 / .9;
-        padding: 10px;
+      .nav {
+        display: none;
+      }
+
+      .search-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+
+      .menu-toggle {
+        font-size: 24px;
+      }
+
+      .menu-dropdown {
+        top: calc(100% - 2px);
+        right: 0;
+        left: auto;
+        min-width: 220px;
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+      }
+
+      .hero-copy {
+        max-width: 78%;
+        min-width: 0;
+        padding-bottom: 24px;
+      }
+
+      .hero-copy h1 {
+        font-size: 34px;
+        line-height: .96;
+        margin-bottom: 16px;
+      }
+
+      .hero-copy p {
+        margin: 0 0 22px;
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 100%;
+      }
+
+      .product-card {
+        background: #fff;
+        border: 1px solid rgba(0,66,37,.12);
+        box-shadow: 0 10px 24px rgba(0,66,37,.055);
+        padding: 0 0 12px;
       }
 
       .product-body {
-        padding: 12px 10px 10px;
+        padding: 14px 12px 0;
+      }
+
+    @media (max-width: 380px) {
+      .product-grid {
+        gap: 28px 12px;
+      }
+
+      .product-image {
+        height: 155px;
       }
 
       .product-body h3 {
-        font-size: 14.5px;
-        min-height: 36px;
-      }
-
-      .product-price {
-        font-size: 15px;
-      }
-
-      .product-stock {
-        font-size: 11.5px;
-      }
-
-      .add-btn {
-        min-height: 38px;
-        font-size: 9px;
+        font-size: 16px;
       }
 
       .outline-btn,
@@ -1143,16 +1257,17 @@
     <div class="header-inner">
       <a class="brand" href="#home">ToDo Mate</a>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#shop">Mate Shop</a>
-        <a href="#services">Cultural Experience</a>
-      </nav>
-
       <div class="header-actions">
         <button class="cart-btn" type="button" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
         <a class="outline-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book now</a>
         <a class="search-icon" href="#shop" aria-label="Search">⌕</a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      </div>
+
+      <div class="menu-dropdown" id="menuDropdown">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#shop" onclick="closeMenu()">Mate Shop</a>
+        <a href="#services" onclick="closeMenu()">Cultural Experience</a>
       </div>
     </div>
   </header>
@@ -1162,7 +1277,6 @@
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-content">
         <div class="hero-copy">
-          <div class="hero-kicker">Yerba mate in Australia</div>
           <h1>Your first mate<br>ritual starts here.</h1>
           <p>Yerba mate, gourds, bombillas, and beginner-friendly starter kits curated for Australia.</p>
           <div class="hero-buttons">
@@ -1186,7 +1300,7 @@
         <div class="product-grid">
           <article class="product-card">
             <div class="product-image">
-              <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
+              <img src="./product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
             </div>
             <div class="product-body">
               <h3>Playadito Yerba Mate 500g</h3>
@@ -1199,7 +1313,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
+              <img src="./product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
             </div>
             <div class="product-body">
               <h3>Baldo Yerba Mate 1kg</h3>
@@ -1212,7 +1326,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
+              <img src="./product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
             </div>
             <div class="product-body">
               <h3>Canarias Yerba Mate 1kg</h3>
@@ -1225,7 +1339,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo" onerror="this.onerror=null;this.src='product-mate-kit-torpedo.png';">
+              <img src="./product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo">
             </div>
             <div class="product-body">
               <h3>Mate Kit | Torpedo</h3>
@@ -1238,7 +1352,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-pro.jpg" alt="Mate Kit Pro" onerror="this.onerror=null;this.src='product-mate-kit-pro.png';">
+              <img src="./product-mate-kit-pro.jpg" alt="Mate Kit Pro">
             </div>
             <div class="product-body">
               <h3>Mate Kit | Pro</h3>
@@ -1251,7 +1365,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-advanced.jpg" alt="Mate Kit Advanced" onerror="this.onerror=null;this.src='product-mate-kit-advanced.png';">
+              <img src="./product-mate-kit-advanced.jpg" alt="Mate Kit Advanced">
             </div>
             <div class="product-body">
               <h3>Mate Kit | Advanced</h3>
@@ -1414,32 +1528,32 @@
       playadito: {
         name: 'Playadito Yerba Mate 500g',
         price: 12.9,
-        image: 'product-playadito-500g.jpg'
+        image: './product-playadito-500g.jpg'
       },
       baldo: {
         name: 'Baldo Yerba Mate 1kg',
         price: 13.5,
-        image: 'product-baldo-1kg.jpg'
+        image: './product-baldo-1kg.jpg'
       },
       canarias: {
         name: 'Canarias Yerba Mate 1kg',
         price: 14.5,
-        image: 'product-canarias-1kg.jpg'
+        image: './product-canarias-1kg.jpg'
       },
       kitTorpedo: {
         name: 'Mate Kit | Torpedo',
         price: 58,
-        image: 'product-mate-kit-torpedo.jpg'
+        image: './product-mate-kit-torpedo.jpg'
       },
       kitPro: {
         name: 'Mate Kit | Pro',
         price: 110,
-        image: 'product-mate-kit-pro.jpg'
+        image: './product-mate-kit-pro.jpg'
       },
       kitAdvanced: {
         name: 'Mate Kit | Advanced',
         price: 78,
-        image: 'product-mate-kit-advanced.jpg'
+        image: './product-mate-kit-advanced.jpg'
       }
     };
 
@@ -1489,7 +1603,30 @@
 
     function openCart() {
       document.body.classList.add('cart-open');
-      renderCart();
+  
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('menuDropdown');
+      const toggle = document.querySelector('.menu-toggle');
+
+      if (!dropdown || !toggle) return;
+
+      const clickedInsideMenu = dropdown.contains(event.target);
+      const clickedToggle = toggle.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedToggle) {
+        closeMenu();
+      }
+    });
+
+    renderCart();
     }
 
     function closeCart() {
@@ -1499,7 +1636,30 @@
     function addToCart(productId) {
       cart[productId] = (cart[productId] || 0) + 1;
       saveCart();
-      renderCart();
+  
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('menuDropdown');
+      const toggle = document.querySelector('.menu-toggle');
+
+      if (!dropdown || !toggle) return;
+
+      const clickedInsideMenu = dropdown.contains(event.target);
+      const clickedToggle = toggle.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedToggle) {
+        closeMenu();
+      }
+    });
+
+    renderCart();
       openCart();
     }
 
@@ -1507,7 +1667,30 @@
       cart[productId] = (cart[productId] || 0) + change;
       if (cart[productId] <= 0) delete cart[productId];
       saveCart();
-      renderCart();
+  
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('menuDropdown');
+      const toggle = document.querySelector('.menu-toggle');
+
+      if (!dropdown || !toggle) return;
+
+      const clickedInsideMenu = dropdown.contains(event.target);
+      const clickedToggle = toggle.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedToggle) {
+        closeMenu();
+      }
+    });
+
+    renderCart();
     }
 
     function openCheckout() {
@@ -1590,6 +1773,29 @@
         placeholder.innerHTML = 'Secure payment is not connected yet. The checkout backend and payment client key still need to be configured.';
       }
     }
+
+
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('menuDropdown');
+      const toggle = document.querySelector('.menu-toggle');
+
+      if (!dropdown || !toggle) return;
+
+      const clickedInsideMenu = dropdown.contains(event.target);
+      const clickedToggle = toggle.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedToggle) {
+        closeMenu();
+      }
+    });
 
     renderCart();
   </script>
