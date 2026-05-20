@@ -34,13 +34,8 @@
       --container: 1240px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -51,27 +46,11 @@
       text-rendering: geometricPrecision;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font-family: inherit; }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font-family: inherit;
-    }
-
-    .top-strip {
-      height: 14px;
-      background: #d8efd8;
-    }
+    .top-strip { height: 14px; background: #d8efd8; }
 
     .site-header {
       position: sticky;
@@ -110,13 +89,8 @@
       letter-spacing: .08em;
     }
 
-    .nav a {
-      opacity: .92;
-    }
-
-    .nav a:hover {
-      opacity: 1;
-    }
+    .nav a { opacity: .92; }
+    .nav a:hover { opacity: 1; }
 
     .header-actions {
       display: flex;
@@ -272,10 +246,7 @@
       color: #fff;
     }
 
-    .primary-btn:hover {
-      background: #004b2c;
-      transform: translateY(-2px);
-    }
+    .primary-btn:hover { background: #004b2c; transform: translateY(-2px); }
 
     .secondary-btn {
       border: 1px solid rgba(255,255,255,.72);
@@ -283,14 +254,9 @@
       color: #fff;
     }
 
-    .secondary-btn:hover {
-      background: rgba(255,255,255,.12);
-      transform: translateY(-2px);
-    }
+    .secondary-btn:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
 
-    .section {
-      padding: 104px 0;
-    }
+    .section { padding: 104px 0; }
 
     .container {
       width: min(var(--container), calc(100% - 92px));
@@ -365,9 +331,7 @@
       filter: drop-shadow(0 10px 14px rgba(0,0,0,.08));
     }
 
-    .product-body {
-      padding: 38px;
-    }
+    .product-body { padding: 38px; }
 
     .product-meta {
       display: flex;
@@ -412,6 +376,10 @@
       cursor: pointer;
       transition: all .22s ease;
       border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .add-btn:hover {
@@ -443,10 +411,6 @@
       filter: brightness(.9);
     }
 
-    .story-image {
-      display: none;
-    }
-
     .story-panel {
       position: relative;
       z-index: 2;
@@ -460,19 +424,9 @@
       border: none;
     }
 
-    .story-panel .label {
-      color: rgba(255,255,255,.64);
-    }
-
-    .story-panel h2 {
-      color: #fff;
-      margin-bottom: 34px;
-    }
-
-    .story-panel p {
-      color: rgba(255,255,255,.74);
-      font-size: 18px;
-    }
+    .story-panel .label { color: rgba(255,255,255,.64); }
+    .story-panel h2 { color: #fff; margin-bottom: 34px; }
+    .story-panel p { color: rgba(255,255,255,.74); font-size: 18px; }
 
     .services-grid {
       display: grid;
@@ -554,14 +508,8 @@
       border-radius: 0;
     }
 
-    body.cart-open .cart-overlay {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    body.cart-open .cart-drawer {
-      transform: translateX(0);
-    }
+    body.cart-open .cart-overlay { opacity: 1; pointer-events: auto; }
+    body.cart-open .cart-drawer { transform: translateX(0); }
 
     .cart-header {
       padding: 28px;
@@ -571,10 +519,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .cart-header h3 {
-      margin: 0;
-      font-size: 30px;
-    }
+    .cart-header h3 { margin: 0; font-size: 30px; }
 
     .close-btn {
       border: 0;
@@ -681,9 +626,7 @@
       background: rgba(0,20,12,.62);
     }
 
-    body.checkout-open .checkout-modal {
-      display: flex;
-    }
+    body.checkout-open .checkout-modal { display: flex; }
 
     .checkout-card {
       width: min(760px, 100%);
@@ -702,10 +645,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .checkout-header h3 {
-      margin: 0;
-      font-size: 34px;
-    }
+    .checkout-header h3 { margin: 0; font-size: 34px; }
 
     .checkout-body {
       padding: 32px;
@@ -714,9 +654,7 @@
       gap: 18px;
     }
 
-    .form-full {
-      grid-column: 1 / -1;
-    }
+    .form-full { grid-column: 1 / -1; }
 
     label {
       display: block;
@@ -745,7 +683,7 @@
     }
 
     .checkout-summary,
-    .adyen-placeholder {
+    .payment-placeholder {
       grid-column: 1 / -1;
       padding: 18px;
       border: 1px solid var(--border);
@@ -755,7 +693,7 @@
       line-height: 1.6;
     }
 
-    .adyen-placeholder {
+    .payment-placeholder {
       border-style: dashed;
       background: #fff;
     }
@@ -775,9 +713,7 @@
     }
 
     @media (max-width: 900px) {
-      .top-strip {
-        height: 10px;
-      }
+      .top-strip { height: 10px; }
 
       .header-inner {
         height: 82px;
@@ -785,17 +721,9 @@
         grid-template-columns: 1fr auto;
       }
 
-      .brand {
-        font-size: 21px;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .search-icon {
-        display: none;
-      }
+      .brand { font-size: 21px; }
+      .nav { display: none; }
+      .search-icon { display: none; }
 
       .outline-btn,
       .cart-btn {
@@ -804,13 +732,8 @@
         font-size: 12px;
       }
 
-      .hero {
-        min-height: 700px;
-      }
-
-      .hero-bg {
-        background-position: center left;
-      }
+      .hero { min-height: 700px; }
+      .hero-bg { background-position: center left; }
 
       .hero-content {
         width: min(100% - 40px, var(--container));
@@ -825,34 +748,20 @@
         text-align: left;
       }
 
-      .hero-buttons {
-        justify-content: flex-start;
-      }
+      .hero-buttons { justify-content: flex-start; }
+      h1 { font-size: 58px; }
 
-      h1 {
-        font-size: 58px;
-      }
+      .container { width: min(100% - 40px, var(--container)); }
 
-      .container {
-        width: min(100% - 40px, var(--container));
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-copy {
-        margin-top: 20px;
-      }
+      .section-head { display: block; }
+      .section-copy { margin-top: 20px; }
 
       .product-grid,
       .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .story-layout {
-        min-height: 620px;
-      }
+      .story-layout { min-height: 620px; }
 
       .story-panel {
         min-height: 620px;
@@ -866,18 +775,14 @@
           url("mate-cultural-scene.png");
       }
 
-      .checkout-body {
-        grid-template-columns: 1fr;
-      }
+      .checkout-body { grid-template-columns: 1fr; }
 
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .footer-links {
-        flex-wrap: wrap;
-      }
+      .footer-links { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -897,7 +802,7 @@
 
       <div class="header-actions">
         <button class="cart-btn" type="button" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
-        <a class="outline-btn" href="#services">Book now</a>
+        <a class="outline-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book now</a>
         <a class="search-icon" href="#shop" aria-label="Search">⌕</a>
       </div>
     </div>
@@ -913,7 +818,7 @@
           <p>A ritual of presence, sharing and slow living — thoughtfully brought to Australia through yerba mate, gourds, bombillas and starter kits.</p>
           <div class="hero-buttons">
             <a class="primary-btn" href="#shop">Shop starter kits</a>
-            <a class="secondary-btn" href="#services">Book a tasting</a>
+            <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book a tasting</a>
           </div>
         </div>
       </div>
@@ -926,7 +831,7 @@
             <div class="label">Most popular</div>
             <h2>Yerba mate favourites.</h2>
           </div>
-          <p class="section-copy">Choose your mate, add it to cart and complete payment through Adyen. Customer details and delivery address are collected before payment.</p>
+          <p class="section-copy">Choose your mate, add it to cart, enter your delivery details and continue to secure payment.</p>
         </div>
 
         <div class="product-grid">
@@ -987,7 +892,7 @@
             <p>Yerba mate is more than a drink. Across South America, it is a daily ritual shared between friends, family and community — one gourd, one bombilla, passed from hand to hand.</p>
             <p>It is a simple invitation to slow down, talk honestly and be present with each other. More than a beverage, mate carries a culture of sharing, warmth and connection.</p>
             <p>ToDo Mate brings this ritual to Australia for people who are curious about a different way of gathering: slower, warmer and more meaningful.</p>
-            <a class="secondary-btn" href="#services" style="width: fit-content; margin-top: 18px;">Explore the ritual</a>
+            <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener" style="width: fit-content; margin-top: 18px;">Explore the ritual</a>
           </div>
         </div>
       </div>
@@ -1008,27 +913,27 @@
             <div>
               <div class="service-number">01 / Tasting</div>
               <h3>Mate Tasting Experience</h3>
-              <p>A beginner-friendly guided tasting for people who want to understand mate, its flavour and its ritual.</p>
+              <p>A beginner-friendly mate tasting experience. Learn what yerba mate is, how to prepare it, and how people share it in South American culture.</p>
             </div>
-            <button class="add-btn" type="button" onclick="bookExperience('Mate Tasting Experience', 49)">Book an Experience</button>
+            <a class="add-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book an Experience</a>
           </article>
 
           <article class="service-card">
             <div>
               <div class="service-number">02 / Private</div>
               <h3>Private Mate Gathering</h3>
-              <p>A small cultural gathering for friends, couples or families who want a slower shared experience.</p>
+              <p>A private mate experience for small groups. Enjoy a relaxed cultural gathering with mate tasting, simple preparation guidance, and slow conversation.</p>
             </div>
-            <button class="add-btn" type="button" onclick="bookExperience('Private Mate Gathering', 149)">Book an Experience</button>
+            <a class="add-btn" href="https://reservo-five.vercel.app/booking/ed8e88b3-4ed6-4acf-b962-4956c8d8c967" target="_blank" rel="noopener">Book an Experience</a>
           </article>
 
           <article class="service-card">
             <div>
               <div class="service-number">03 / Corporate</div>
-              <h3>Corporate Session</h3>
-              <p>A unique cultural session for team events, community groups and brand activations in Melbourne.</p>
+              <h3>Corporate Mate Session</h3>
+              <p>A cultural mate session for teams and groups. A relaxed way to introduce South American mate culture, encourage conversation, and create a shared team experience.</p>
             </div>
-            <button class="add-btn" type="button" onclick="bookExperience('Corporate Session', 299)">Book an Experience</button>
+            <a class="add-btn" href="https://reservo-five.vercel.app/booking/2fec5085-8c48-4961-bc23-be47b51dffdf" target="_blank" rel="noopener">Book an Experience</a>
           </article>
         </div>
       </div>
@@ -1055,14 +960,20 @@
       <h3>Your cart</h3>
       <button class="close-btn" type="button" onclick="closeCart()" aria-label="Close cart">×</button>
     </div>
+
     <div class="cart-items" id="cartItems"></div>
+
     <div class="cart-footer">
       <div class="cart-total">
         <span>Total</span>
         <span id="cartTotal">A$0</span>
       </div>
-      <button class="checkout-btn" type="button" onclick="openCheckout()">Checkout with Adyen</button>
-      <p class="cart-note">MVP checkout: customer details and delivery address are collected first, then the website creates an Adyen payment session through your backend API.</p>
+
+      <button class="checkout-btn" type="button" onclick="openCheckout()">Checkout</button>
+
+      <p class="cart-note">
+        Customer details and delivery address will be collected before secure payment.
+      </p>
     </div>
   </aside>
 
@@ -1073,7 +984,7 @@
         <button class="close-btn" type="button" onclick="closeCheckout()" aria-label="Close checkout">×</button>
       </div>
 
-      <form class="checkout-body" onsubmit="startAdyenCheckout(event)">
+      <form class="checkout-body" onsubmit="startSecureCheckout(event)">
         <div>
           <label for="checkoutName">Name</label>
           <input id="checkoutName" type="text" required placeholder="Your name">
@@ -1106,11 +1017,11 @@
 
         <div class="checkout-summary" id="checkoutSummary"></div>
 
-        <div class="adyen-placeholder" id="adyenCheckoutContainer">
-          Adyen Drop-in will load here after customer details are submitted.
+        <div class="payment-placeholder" id="paymentContainer">
+          Secure payment will load here after customer details are submitted.
         </div>
 
-        <button class="pay-btn" type="submit">Continue to Adyen payment</button>
+        <button class="pay-btn" type="submit">Continue to payment</button>
       </form>
     </div>
   </div>
@@ -1223,11 +1134,11 @@
         <strong>Order summary</strong><br>
         ${items.map(item => `${item.qty} × ${item.name} — A$${(item.qty * item.price).toFixed(2)}`).join('<br>')}
         <br><br><strong>Product total: A$${total.toFixed(2)}</strong><br>
-        Delivery fee can be calculated by postcode or added as a flat shipping fee in your backend.
+        Delivery fee can be calculated by postcode or added as a flat shipping fee.
       `;
     }
 
-    async function startAdyenCheckout(event) {
+    async function startSecureCheckout(event) {
       event.preventDefault();
 
       const items = getCartSummary();
@@ -1250,8 +1161,8 @@
         returnUrl: window.location.origin + '/payment-result'
       };
 
-      const placeholder = document.getElementById('adyenCheckoutContainer');
-      placeholder.innerHTML = 'Creating secure Adyen checkout session...';
+      const placeholder = document.getElementById('paymentContainer');
+      placeholder.innerHTML = 'Creating secure checkout session...';
 
       try {
         const response = await fetch('/api/adyen/sessions', {
@@ -1260,11 +1171,11 @@
           body: JSON.stringify(payload)
         });
 
-        if (!response.ok) throw new Error('Unable to create Adyen session');
+        if (!response.ok) throw new Error('Unable to create secure session');
 
         const session = await response.json();
 
-        placeholder.innerHTML = '<div id="adyen-dropin"></div>';
+        placeholder.innerHTML = '<div id="payment-dropin"></div>';
 
         const checkout = await AdyenCheckout({
           environment: 'test',
@@ -1278,15 +1189,10 @@
           }
         });
 
-        checkout.create('dropin').mount('#adyen-dropin');
+        checkout.create('dropin').mount('#payment-dropin');
       } catch (error) {
-        placeholder.innerHTML = 'Adyen checkout is not connected yet. Developer needs to connect /api/adyen/sessions and add the Adyen client key.';
+        placeholder.innerHTML = 'Secure payment is not connected yet. The checkout backend and payment client key still need to be configured.';
       }
-    }
-
-    function bookExperience(service, amount) {
-      const params = new URLSearchParams({ service, amount });
-      window.location.href = `https://reservo-five.vercel.app/?${params.toString()}`;
     }
 
     renderCart();
