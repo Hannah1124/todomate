@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Todo Mate | Yerba Mate in Australia</title>
-  <meta name="description" content="Todo Mate brings yerba mate, gourds, bombillas, starter kits and mate tasting experiences to Australia." />
+
+  <title>ToDo Mate | Yerba Mate in Australia</title>
+  <meta name="description" content="ToDo Mate brings yerba mate, gourds, bombillas, starter kits and mate tasting experiences to Australia." />
   <meta name="keywords" content="yerba mate Australia, mate starter kit, bombilla, mate gourd, mate tasting Melbourne" />
-  <meta property="og:title" content="Todo Mate | More than a drink" />
+
+  <meta property="og:title" content="ToDo Mate | More than a drink" />
   <meta property="og:description" content="Yerba mate, gourds, bombillas and starter kits — thoughtfully curated in Australia." />
   <meta property="og:type" content="website" />
 
-  <!-- Font: unified clean brand style, matching the Todo Mate wordmark -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Adyen Drop-in placeholder styles. Replace with your preferred Adyen SDK version if needed. -->
   <link rel="stylesheet" href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/6.10.0/adyen.css" />
 
   <style>
@@ -34,8 +34,14 @@
       --container: 1240px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -45,9 +51,22 @@
       text-rendering: geometricPrecision;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    button, input, textarea, select { font-family: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
 
     .top-strip {
       height: 14px;
@@ -77,7 +96,7 @@
       font-size: 27px;
       line-height: 1;
       font-weight: 600;
-      letter-spacing: -.01em;
+      letter-spacing: .02em;
       white-space: nowrap;
     }
 
@@ -91,8 +110,13 @@
       letter-spacing: .08em;
     }
 
-    .nav a { opacity: .92; }
-    .nav a:hover { opacity: 1; }
+    .nav a {
+      opacity: .92;
+    }
+
+    .nav a:hover {
+      opacity: 1;
+    }
 
     .header-actions {
       display: flex;
@@ -111,11 +135,13 @@
       border: 2px solid rgba(255,255,255,.82);
       background: transparent;
       color: #fff;
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: .08em;
+      letter-spacing: .09em;
+      text-transform: uppercase;
       cursor: pointer;
       position: relative;
+      border-radius: 2px;
     }
 
     .cart-count {
@@ -153,7 +179,7 @@
       inset: 0;
       background-image:
         linear-gradient(90deg, rgba(0,53,31,.10) 0%, rgba(0,53,31,.24) 48%, rgba(0,53,31,.74) 100%),
-        url("/mnt/data/e3964ab5-d141-427e-b3e6-da91c6f295f0.png");
+        url("hero-mate.jpg.png");
       background-size: cover;
       background-position: center center;
       filter: brightness(.92);
@@ -201,7 +227,6 @@
 
     h1 {
       margin: 0 0 32px;
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
       font-size: clamp(64px, 6.4vw, 112px);
       line-height: .88;
       font-weight: 500;
@@ -232,12 +257,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 17px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: .08em;
+      letter-spacing: .09em;
       text-transform: uppercase;
       cursor: pointer;
       transition: all .22s ease;
+      border-radius: 2px;
     }
 
     .primary-btn {
@@ -246,7 +272,10 @@
       color: #fff;
     }
 
-    .primary-btn:hover { background: #004b2c; transform: translateY(-2px); }
+    .primary-btn:hover {
+      background: #004b2c;
+      transform: translateY(-2px);
+    }
 
     .secondary-btn {
       border: 1px solid rgba(255,255,255,.72);
@@ -254,7 +283,10 @@
       color: #fff;
     }
 
-    .secondary-btn:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+    .secondary-btn:hover {
+      background: rgba(255,255,255,.12);
+      transform: translateY(-2px);
+    }
 
     .section {
       padding: 104px 0;
@@ -276,16 +308,15 @@
     .label {
       margin-bottom: 12px;
       color: var(--green-button);
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: .18em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
     h2 {
       margin: 0;
       max-width: 760px;
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
       font-size: clamp(48px, 4.8vw, 76px);
       line-height: .95;
       font-weight: 500;
@@ -312,6 +343,7 @@
       border: 1px solid var(--border);
       box-shadow: 0 10px 26px rgba(0,66,37,.06);
       overflow: hidden;
+      border-radius: 0;
     }
 
     .product-image {
@@ -325,31 +357,32 @@
     }
 
     .product-image img {
-      width: 100%;
-      height: 100%;
+      width: 180px;
+      height: 240px;
       object-fit: contain;
-      mix-blend-mode: multiply;
+      object-position: center;
+      display: block;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,.08));
     }
 
     .product-body {
-      padding: 34px;
+      padding: 38px;
     }
 
     .product-meta {
       display: flex;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       margin-bottom: 22px;
       color: var(--green-button);
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: .16em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
     h3 {
       margin: 0 0 18px;
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
       font-size: 34px;
       line-height: 1.02;
       font-weight: 500;
@@ -372,13 +405,19 @@
       border: 1px solid var(--green);
       background: transparent;
       color: var(--green);
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
       cursor: pointer;
       transition: all .22s ease;
+      border-radius: 2px;
     }
 
-    .add-btn:hover { background: var(--green); color: #fff; }
+    .add-btn:hover {
+      background: var(--green);
+      color: #fff;
+    }
 
     .story-section {
       background: var(--green);
@@ -398,7 +437,7 @@
       inset: 0;
       background-image:
         linear-gradient(90deg, rgba(0,53,31,.88) 0%, rgba(0,53,31,.74) 42%, rgba(0,53,31,.22) 100%),
-        url("/mnt/data/e3964ab5-d141-427e-b3e6-da91c6f295f0.png");
+        url("mate-cultural-scene.png");
       background-size: cover;
       background-position: center center;
       filter: brightness(.9);
@@ -421,9 +460,19 @@
       border: none;
     }
 
-    .story-panel .label { color: rgba(255,255,255,.64); }
-    .story-panel h2 { color: #fff; margin-bottom: 34px; }
-    .story-panel p { color: rgba(255,255,255,.74); font-size: 18px; }
+    .story-panel .label {
+      color: rgba(255,255,255,.64);
+    }
+
+    .story-panel h2 {
+      color: #fff;
+      margin-bottom: 34px;
+    }
+
+    .story-panel p {
+      color: rgba(255,255,255,.74);
+      font-size: 18px;
+    }
 
     .services-grid {
       display: grid;
@@ -440,14 +489,15 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 10px 26px rgba(0,66,37,.06);
+      border-radius: 0;
     }
 
     .service-number {
       margin-bottom: 56px;
       color: var(--green-button);
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: .16em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
@@ -478,7 +528,6 @@
       font-weight: 800;
     }
 
-    /* Cart drawer */
     .cart-overlay {
       position: fixed;
       inset: 0;
@@ -502,10 +551,17 @@
       display: flex;
       flex-direction: column;
       box-shadow: -24px 0 80px rgba(0,30,17,.22);
+      border-radius: 0;
     }
 
-    body.cart-open .cart-overlay { opacity: 1; pointer-events: auto; }
-    body.cart-open .cart-drawer { transform: translateX(0); }
+    body.cart-open .cart-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.cart-open .cart-drawer {
+      transform: translateX(0);
+    }
 
     .cart-header {
       padding: 28px;
@@ -515,9 +571,24 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .cart-header h3 { margin: 0; font-size: 30px; }
-    .close-btn { border: 0; background: transparent; color: var(--green); font-size: 30px; cursor: pointer; }
-    .cart-items { flex: 1; overflow: auto; padding: 18px 28px; }
+    .cart-header h3 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .close-btn {
+      border: 0;
+      background: transparent;
+      color: var(--green);
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow: auto;
+      padding: 18px 28px;
+    }
 
     .cart-item {
       display: grid;
@@ -536,8 +607,16 @@
       border: 1px solid var(--border);
     }
 
-    .cart-item-title { font-weight: 600; line-height: 1.2; margin-bottom: 6px; }
-    .cart-item-meta { color: var(--muted); font-size: 13px; }
+    .cart-item-title {
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .cart-item-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     .qty-control {
       display: flex;
@@ -576,18 +655,21 @@
       border: 0;
       background: var(--green-button);
       color: #fff;
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
       cursor: pointer;
+      border-radius: 2px;
     }
 
-    .cart-note, .empty-cart {
+    .cart-note,
+    .empty-cart {
       color: var(--muted);
       font-size: 13px;
       line-height: 1.55;
     }
 
-    /* Checkout modal */
     .checkout-modal {
       position: fixed;
       inset: 0;
@@ -599,7 +681,9 @@
       background: rgba(0,20,12,.62);
     }
 
-    body.checkout-open .checkout-modal { display: flex; }
+    body.checkout-open .checkout-modal {
+      display: flex;
+    }
 
     .checkout-card {
       width: min(760px, 100%);
@@ -607,6 +691,7 @@
       overflow: auto;
       background: #fff;
       box-shadow: var(--shadow);
+      border-radius: 0;
     }
 
     .checkout-header {
@@ -617,7 +702,10 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .checkout-header h3 { margin: 0; font-size: 34px; }
+    .checkout-header h3 {
+      margin: 0;
+      font-size: 34px;
+    }
 
     .checkout-body {
       padding: 32px;
@@ -626,7 +714,9 @@
       gap: 18px;
     }
 
-    .form-full { grid-column: 1 / -1; }
+    .form-full {
+      grid-column: 1 / -1;
+    }
 
     label {
       display: block;
@@ -638,7 +728,8 @@
       text-transform: uppercase;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       border: 1px solid var(--border);
       background: #fff;
@@ -648,7 +739,10 @@
       outline: none;
     }
 
-    textarea { min-height: 110px; resize: vertical; }
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
 
     .checkout-summary,
     .adyen-placeholder {
@@ -661,7 +755,10 @@
       line-height: 1.6;
     }
 
-    .adyen-placeholder { border-style: dashed; background: #fff; }
+    .adyen-placeholder {
+      border-style: dashed;
+      background: #fff;
+    }
 
     .pay-btn {
       grid-column: 1 / -1;
@@ -669,69 +766,128 @@
       border: 0;
       background: var(--green-button);
       color: #fff;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-
-
-    /* Premium typography polish */
-    .brand { letter-spacing: .02em; text-transform: none; }
-    .nav, .outline-btn, .cart-btn, .primary-btn, .secondary-btn, .add-btn, .checkout-btn, .pay-btn {
-      border-radius: 2px;
-    }
-    .primary-btn, .secondary-btn, .add-btn, .checkout-btn, .pay-btn {
-      text-transform: uppercase;
-      letter-spacing: .09em;
       font-size: 13px;
       font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
     }
-    .label, .product-meta, .service-number {
-      font-weight: 600;
-      letter-spacing: .22em;
-      font-size: 11px;
-    }
-    .product-body { padding: 38px; }
-    .product-card, .service-card, .checkout-card, .cart-drawer { border-radius: 0; }
-    .hero-kicker { text-transform: uppercase; }
 
     @media (max-width: 900px) {
-      .top-strip { height: 10px; }
-      .header-inner { height: 82px; width: min(100% - 40px, var(--container)); grid-template-columns: 1fr auto; }
-      .brand { font-size: 21px; }
-      .nav { display: none; }
-      .search-icon { display: none; }
-      .outline-btn, .cart-btn { height: 46px; padding: 0 16px; font-size: 14px; }
-      .hero { min-height: 700px; }
-      .hero-bg { background-position: center left; }
-      .hero-content { width: min(100% - 40px, var(--container)); min-height: 700px; grid-template-columns: 1fr; align-items: end; padding-bottom: 60px; }
-      .hero-copy { grid-column: 1; text-align: left; }
-      .hero-buttons { justify-content: flex-start; }
-      h1 { font-size: 58px; }
-      .container { width: min(100% - 40px, var(--container)); }
-      .section-head { display: block; }
-      .section-copy { margin-top: 20px; }
-      .product-grid, .story-layout, .services-grid { grid-template-columns: 1fr; }
-      .story-layout { min-height: 620px; }
-      .story-panel { min-height: 620px; width: 100%; padding: 44px 28px; }
+      .top-strip {
+        height: 10px;
+      }
+
+      .header-inner {
+        height: 82px;
+        width: min(100% - 40px, var(--container));
+        grid-template-columns: 1fr auto;
+      }
+
+      .brand {
+        font-size: 21px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .search-icon {
+        display: none;
+      }
+
+      .outline-btn,
+      .cart-btn {
+        height: 46px;
+        padding: 0 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 700px;
+      }
+
+      .hero-bg {
+        background-position: center left;
+      }
+
+      .hero-content {
+        width: min(100% - 40px, var(--container));
+        min-height: 700px;
+        grid-template-columns: 1fr;
+        align-items: end;
+        padding-bottom: 60px;
+      }
+
+      .hero-copy {
+        grid-column: 1;
+        text-align: left;
+      }
+
+      .hero-buttons {
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .container {
+        width: min(100% - 40px, var(--container));
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-copy {
+        margin-top: 20px;
+      }
+
+      .product-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-layout {
+        min-height: 620px;
+      }
+
+      .story-panel {
+        min-height: 620px;
+        width: 100%;
+        padding: 44px 28px;
+      }
+
       .story-layout::before {
         background-image:
           linear-gradient(180deg, rgba(0,53,31,.82) 0%, rgba(0,53,31,.62) 52%, rgba(0,53,31,.26) 100%),
-          url("/mnt/data/e3964ab5-d141-427e-b3e6-da91c6f295f0.png");
+          url("mate-cultural-scene.png");
       }
-      .checkout-body { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-      .footer-links { flex-wrap: wrap; }
+
+      .checkout-body {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="top-strip"></div>
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#home">Todo Mate</a>
+      <a class="brand" href="#home">ToDo Mate</a>
 
       <nav class="nav" aria-label="Main navigation">
         <a href="#home">Home</a>
@@ -775,19 +931,29 @@
 
         <div class="product-grid">
           <article class="product-card">
-            <div class="product-image"><img src="/mnt/data/51cE4foP7QL._AC_UL348_SR348,348_.jpg" alt="Playadito Yerba Mate 1kg"></div>
+            <div class="product-image">
+              <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
+            </div>
             <div class="product-body">
-              <div class="product-meta"><span>Argentina</span><span>A$26</span></div>
-              <h3>Playadito Yerba Mate 1kg</h3>
+              <div class="product-meta">
+                <span>Argentina</span>
+                <span>A$12.90</span>
+              </div>
+              <h3>Playadito Yerba Mate 500g</h3>
               <p>A smooth and approachable yerba mate from Argentina. A great first choice for beginners and everyday drinking.</p>
               <button class="add-btn" type="button" onclick="addToCart('playadito')">Add to cart</button>
             </div>
           </article>
 
           <article class="product-card">
-            <div class="product-image"><img src="/mnt/data/61xdfjDncoL._AC_UL348_SR348,348_.jpg" alt="Baldo Uruguayan Yerba Mate 1kg"></div>
+            <div class="product-image">
+              <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
+            </div>
             <div class="product-body">
-              <div class="product-meta"><span>Uruguay</span><span>A$24</span></div>
+              <div class="product-meta">
+                <span>Uruguay</span>
+                <span>A$13.50</span>
+              </div>
               <h3>Baldo Yerba Mate 1kg</h3>
               <p>A traditional Uruguayan-style yerba mate with a stronger profile, ideal for people who enjoy a deeper taste.</p>
               <button class="add-btn" type="button" onclick="addToCart('baldo')">Add to cart</button>
@@ -795,9 +961,14 @@
           </article>
 
           <article class="product-card">
-            <div class="product-image"><img src="/mnt/data/613clESYQnL._AC_UL330_SR330,330_.jpg" alt="Canarias Yerba Mate 1kg"></div>
+            <div class="product-image">
+              <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
+            </div>
             <div class="product-body">
-              <div class="product-meta"><span>Uruguay</span><span>A$27</span></div>
+              <div class="product-meta">
+                <span>Uruguay</span>
+                <span>A$14.50</span>
+              </div>
               <h3>Canarias Yerba Mate 1kg</h3>
               <p>A bold and iconic Uruguayan yerba mate. Best for experienced mate drinkers or customers wanting a stronger ritual.</p>
               <button class="add-btn" type="button" onclick="addToCart('canarias')">Add to cart</button>
@@ -815,7 +986,7 @@
             <h2>Why mate?</h2>
             <p>Yerba mate is more than a drink. Across South America, it is a daily ritual shared between friends, family and community — one gourd, one bombilla, passed from hand to hand.</p>
             <p>It is a simple invitation to slow down, talk honestly and be present with each other. More than a beverage, mate carries a culture of sharing, warmth and connection.</p>
-            <p>Todo Mate brings this ritual to Australia for people who are curious about a different way of gathering: slower, warmer and more meaningful.</p>
+            <p>ToDo Mate brings this ritual to Australia for people who are curious about a different way of gathering: slower, warmer and more meaningful.</p>
             <a class="secondary-btn" href="#services" style="width: fit-content; margin-top: 18px;">Explore the ritual</a>
           </div>
         </div>
@@ -866,7 +1037,7 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">Todo Mate</div>
+      <div class="footer-brand">ToDo Mate</div>
       <div class="footer-links">
         <a href="#shop">Shop</a>
         <a href="#culture">Culture</a>
@@ -878,6 +1049,7 @@
   </footer>
 
   <div class="cart-overlay" onclick="closeCart()"></div>
+
   <aside class="cart-drawer" aria-label="Shopping cart">
     <div class="cart-header">
       <h3>Your cart</h3>
@@ -885,7 +1057,10 @@
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-footer">
-      <div class="cart-total"><span>Total</span><span id="cartTotal">A$0</span></div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">A$0</span>
+      </div>
       <button class="checkout-btn" type="button" onclick="openCheckout()">Checkout with Adyen</button>
       <p class="cart-note">MVP checkout: customer details and delivery address are collected first, then the website creates an Adyen payment session through your backend API.</p>
     </div>
@@ -897,55 +1072,67 @@
         <h3>Secure checkout</h3>
         <button class="close-btn" type="button" onclick="closeCheckout()" aria-label="Close checkout">×</button>
       </div>
+
       <form class="checkout-body" onsubmit="startAdyenCheckout(event)">
         <div>
           <label for="checkoutName">Name</label>
           <input id="checkoutName" type="text" required placeholder="Your name">
         </div>
+
         <div>
           <label for="checkoutEmail">Email</label>
           <input id="checkoutEmail" type="email" required placeholder="you@email.com">
         </div>
+
         <div>
           <label for="checkoutPhone">Phone</label>
           <input id="checkoutPhone" type="tel" placeholder="Your phone number">
         </div>
+
         <div>
           <label for="checkoutPostcode">Postcode</label>
           <input id="checkoutPostcode" type="text" required placeholder="e.g. 3000">
         </div>
+
         <div class="form-full">
           <label for="checkoutAddress">Delivery address</label>
           <input id="checkoutAddress" type="text" required placeholder="Street, suburb, state">
         </div>
+
         <div class="form-full">
           <label for="checkoutNote">Delivery note</label>
           <textarea id="checkoutNote" placeholder="Optional delivery notes"></textarea>
         </div>
+
         <div class="checkout-summary" id="checkoutSummary"></div>
-        <div class="adyen-placeholder" id="adyenCheckoutContainer">Adyen Drop-in will load here after customer details are submitted.</div>
+
+        <div class="adyen-placeholder" id="adyenCheckoutContainer">
+          Adyen Drop-in will load here after customer details are submitted.
+        </div>
+
         <button class="pay-btn" type="submit">Continue to Adyen payment</button>
       </form>
     </div>
   </div>
 
   <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/6.10.0/adyen.js"></script>
+
   <script>
     const products = {
       playadito: {
-        name: 'Playadito Yerba Mate 1kg',
-        price: 26,
-        image: '/mnt/data/51cE4foP7QL._AC_UL348_SR348,348_.jpg'
+        name: 'Playadito Yerba Mate 500g',
+        price: 12.9,
+        image: 'product-playadito-500g.jpg'
       },
       baldo: {
         name: 'Baldo Yerba Mate 1kg',
-        price: 24,
-        image: '/mnt/data/61xdfjDncoL._AC_UL348_SR348,348_.jpg'
+        price: 13.5,
+        image: 'product-baldo-1kg.jpg'
       },
       canarias: {
         name: 'Canarias Yerba Mate 1kg',
-        price: 27,
-        image: '/mnt/data/613clESYQnL._AC_UL330_SR330,330_.jpg'
+        price: 14.5,
+        image: 'product-canarias-1kg.jpg'
       }
     };
 
@@ -965,10 +1152,12 @@
       const items = getCartSummary();
       const count = items.reduce((sum, item) => sum + item.qty, 0);
       const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
+
       document.getElementById('cartCount').textContent = count;
-      document.getElementById('cartTotal').textContent = `A$${total}`;
+      document.getElementById('cartTotal').textContent = `A$${total.toFixed(2)}`;
 
       const cartItems = document.getElementById('cartItems');
+
       if (!items.length) {
         cartItems.innerHTML = '<p class="empty-cart">Your cart is empty. Add a yerba mate product to start your order.</p>';
         return;
@@ -979,14 +1168,14 @@
           <img src="${item.image}" alt="${item.name}">
           <div>
             <div class="cart-item-title">${item.name}</div>
-            <div class="cart-item-meta">A$${item.price} each</div>
+            <div class="cart-item-meta">A$${item.price.toFixed(2)} each</div>
             <div class="qty-control">
               <button type="button" onclick="updateQty('${item.id}', -1)">−</button>
               <span>${item.qty}</span>
               <button type="button" onclick="updateQty('${item.id}', 1)">+</button>
             </div>
           </div>
-          <strong>A$${item.qty * item.price}</strong>
+          <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
         </div>
       `).join('');
     }
@@ -1029,16 +1218,18 @@
       const items = getCartSummary();
       const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
       const summary = document.getElementById('checkoutSummary');
+
       summary.innerHTML = `
         <strong>Order summary</strong><br>
-        ${items.map(item => `${item.qty} × ${item.name} — A$${item.qty * item.price}`).join('<br>')}
-        <br><br><strong>Product total: A$${total}</strong><br>
+        ${items.map(item => `${item.qty} × ${item.name} — A$${(item.qty * item.price).toFixed(2)}`).join('<br>')}
+        <br><br><strong>Product total: A$${total.toFixed(2)}</strong><br>
         Delivery fee can be calculated by postcode or added as a flat shipping fee in your backend.
       `;
     }
 
     async function startAdyenCheckout(event) {
       event.preventDefault();
+
       const items = getCartSummary();
       if (!items.length) return;
 
@@ -1070,7 +1261,9 @@
         });
 
         if (!response.ok) throw new Error('Unable to create Adyen session');
+
         const session = await response.json();
+
         placeholder.innerHTML = '<div id="adyen-dropin"></div>';
 
         const checkout = await AdyenCheckout({
