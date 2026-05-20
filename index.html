@@ -806,37 +806,43 @@
         <a href="#services">Cultural Experience</a>
       </nav>
 
-      <div class="header-actions">
-        <button class="cart-btn" type="button" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
-        <a class="outline-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book now</a>
-        <a class="search-icon" href="#shop" aria-label="Search">⌕</a>
-      </div>
+<div class="product-grid">
+  <article class="product-card">
+    <div class="product-image">
+      <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
     </div>
-  </header>
+    <div class="product-body">
+      <h3>Playadito Yerba Mate 500g</h3>
+      <div class="product-price">A$12.90</div>
+      <div class="product-stock">Low stock</div>
+      <button class="add-btn" type="button" onclick="addToCart('playadito')">Add to cart</button>
+    </div>
+  </article>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-content">
-        <div class="hero-copy">
-          <div class="hero-kicker">South American ritual</div>
-          <h1>More than<br>a drink.</h1>
-          <p>A ritual of presence, sharing and slow living — thoughtfully brought to Australia through yerba mate, gourds, bombillas and starter kits.</p>
-          <div class="hero-buttons">
-            <a class="primary-btn" href="#shop">Shop starter kits</a>
-            <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book a tasting</a>
-          </div>
-        </div>
-      </div>
-    </section>
+  <article class="product-card">
+    <div class="product-image">
+      <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
+    </div>
+    <div class="product-body">
+      <h3>Baldo Yerba Mate 1kg</h3>
+      <div class="product-price">A$13.50</div>
+      <div class="product-stock">Low stock</div>
+      <button class="add-btn" type="button" onclick="addToCart('baldo')">Add to cart</button>
+    </div>
+  </article>
 
-    <section class="section" id="shop">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="label">Most popular</div>
-            <h2>Yerba mate favourites.</h2>
-          </div>
+  <article class="product-card">
+    <div class="product-image">
+      <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
+    </div>
+    <div class="product-body">
+      <h3>Canarias Yerba Mate 1kg</h3>
+      <div class="product-price">A$14.50</div>
+      <div class="product-stock">Low stock</div>
+      <button class="add-btn" type="button" onclick="addToCart('canarias')">Add to cart</button>
+    </div>
+  </article>
+</div>
           <p class="section-copy">Choose your mate, add it to cart, enter your delivery details and continue to secure payment.</p>
         </div>
 
