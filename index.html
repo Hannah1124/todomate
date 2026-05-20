@@ -915,25 +915,49 @@
         line-height: 1.65;
       }
 
-      /* Mobile product grid: 2 columns for a tighter shop feel */
+      /* Mobile product grid: clean 2-column product cards */
       .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 32px 16px;
+        gap: 18px 12px;
+        align-items: stretch;
+      }
+
+      .product-card {
+        background: #fff;
+        border: 1px solid rgba(0,66,37,.12);
+        box-shadow: 0 10px 24px rgba(0,66,37,.055);
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
       }
 
       .product-image {
-        height: 172px;
-        padding: 16px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / .88;
+        padding: 12px;
+        background: #fff;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       .product-body {
-        padding-top: 14px;
+        padding: 14px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
       }
 
       .product-body h3 {
-        font-size: 17px;
+        font-size: 15.5px;
         line-height: 1.18;
         margin-bottom: 8px;
+        min-height: 38px;
+        letter-spacing: -.02em;
       }
 
       .product-desc {
@@ -941,20 +965,21 @@
       }
 
       .product-price {
-        font-size: 17px;
-        margin-bottom: 6px;
+        font-size: 16px;
+        margin: auto 0 5px;
       }
 
       .product-stock {
-        font-size: 12.5px;
-        margin-bottom: 12px;
+        font-size: 12px;
+        margin-bottom: 10px;
       }
 
       .add-btn {
-        min-height: 42px;
-        font-size: 10.5px;
-        letter-spacing: .06em;
-        padding: 0 8px;
+        min-height: 40px;
+        font-size: 9.5px;
+        letter-spacing: .055em;
+        padding: 0 6px;
+        margin-top: auto;
       }
 
       .story-layout {
@@ -1073,182 +1098,6 @@
 
     @media (max-width: 380px) {
       .product-grid {
-        gap: 28px 12px;
-      }
-
-      .product-image {
-        height: 155px;
-      }
-
-      .product-body h3 {
-        font-size: 16px;
-      }
-
-      .outline-btn,
-      .cart-btn {
-        padding: 0 9px;
-      }
-    }
-  
-
-    /* =========================
-       Mobile polish override
-       Keeps the original design, but makes the phone layout cleaner
-       and keeps product cards in a premium 2-column grid.
-    ========================= */
-    @media (max-width: 900px) {
-      body {
-        overflow-x: hidden;
-      }
-
-      .header-inner {
-        height: 76px;
-        width: calc(100% - 28px);
-        grid-template-columns: minmax(0, 1fr) auto;
-      }
-
-      .brand {
-        font-size: 21px;
-        max-width: 132px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .header-actions {
-        gap: 7px;
-      }
-
-      .outline-btn,
-      .cart-btn {
-        height: 40px;
-        padding: 0 10px;
-        font-size: 10px;
-        letter-spacing: .055em;
-        white-space: nowrap;
-      }
-
-      .hero {
-        min-height: 620px;
-      }
-
-      .hero-content {
-        min-height: 620px;
-        width: calc(100% - 32px);
-        align-items: end;
-        padding: 0 0 46px;
-      }
-
-      .hero-copy {
-        max-width: 100%;
-      }
-
-      .hero-copy p {
-        max-width: 340px;
-      }
-
-      .section {
-        padding: 58px 0;
-      }
-
-      .section-head {
-        margin-bottom: 24px;
-      }
-
-      .section-copy {
-        max-width: 100%;
-      }
-
-      .shop-section .container {
-        width: calc(100% - 26px);
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 12px;
-        align-items: stretch;
-      }
-
-      .product-card {
-        background: #fff;
-        border: 1px solid rgba(0,66,37,.12);
-        box-shadow: 0 10px 24px rgba(0,66,37,.055);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
-      }
-
-      .product-image {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / .92;
-        padding: 12px;
-        background: #fff;
-        border-bottom: 1px solid rgba(0,66,37,.08);
-      }
-
-      .product-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .product-body {
-        padding: 13px 11px 11px;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-
-      .product-body h3 {
-        font-size: 15.5px;
-        line-height: 1.18;
-        margin-bottom: 8px;
-        letter-spacing: -.025em;
-      }
-
-      .product-desc {
-        display: none;
-      }
-
-      .product-price {
-        font-size: 15.5px;
-        margin-top: auto;
-        margin-bottom: 5px;
-      }
-
-      .product-stock {
-        font-size: 11.5px;
-        margin-bottom: 10px;
-      }
-
-      .add-btn {
-        min-height: 39px;
-        font-size: 9.8px;
-        letter-spacing: .055em;
-        padding: 0 6px;
-      }
-
-      .story-section .container,
-      #services .container {
-        width: calc(100% - 28px);
-      }
-
-      .service-card {
-        border-radius: 0;
-      }
-
-      .footer-inner {
-        gap: 18px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .shop-section .container {
-        width: calc(100% - 20px);
-      }
-
-      .product-grid {
         gap: 16px 10px;
       }
 
@@ -1258,23 +1107,32 @@
       }
 
       .product-body {
-        padding: 12px 9px 10px;
+        padding: 12px 10px 10px;
       }
 
       .product-body h3 {
         font-size: 14.5px;
+        min-height: 36px;
       }
 
       .product-price {
         font-size: 15px;
       }
 
+      .product-stock {
+        font-size: 11.5px;
+      }
+
       .add-btn {
         min-height: 38px;
-        font-size: 9.4px;
+        font-size: 9px;
+      }
+
+      .outline-btn,
+      .cart-btn {
+        padding: 0 9px;
       }
     }
-
   </style>
 </head>
 
@@ -1367,7 +1225,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo">
+              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo" onerror="this.onerror=null;this.src='product-mate-kit-torpedo.png';">
             </div>
             <div class="product-body">
               <h3>Mate Kit | Torpedo</h3>
@@ -1380,7 +1238,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-pro.jpg" alt="Mate Kit Pro">
+              <img src="product-mate-kit-pro.jpg" alt="Mate Kit Pro" onerror="this.onerror=null;this.src='product-mate-kit-pro.png';">
             </div>
             <div class="product-body">
               <h3>Mate Kit | Pro</h3>
@@ -1393,7 +1251,7 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-advanced.jpg" alt="Mate Kit Advanced">
+              <img src="product-mate-kit-advanced.jpg" alt="Mate Kit Advanced" onerror="this.onerror=null;this.src='product-mate-kit-advanced.png';">
             </div>
             <div class="product-body">
               <h3>Mate Kit | Advanced</h3>
