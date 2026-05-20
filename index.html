@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>ToDo Mate | Yerba Mate in Australia</title>
-  <meta name="description" content="ToDo Mate brings yerba mate, gourds, bombillas, starter kits and mate tasting experiences to Australia." />
+  <meta name="description" content="ToDo Mate brings yerba mate, mate kits, gourds, bombillas and mate cultural experiences to Australia." />
   <meta name="keywords" content="yerba mate Australia, mate starter kit, bombilla, mate gourd, mate tasting Melbourne" />
 
   <meta property="og:title" content="ToDo Mate | More than a drink" />
-  <meta property="og:description" content="Yerba mate, gourds, bombillas and starter kits — thoughtfully curated in Australia." />
+  <meta property="og:description" content="Yerba mate, mate kits and cultural experiences — thoughtfully curated in Australia." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,16 +30,13 @@
       --muted: #627268;
       --border: rgba(0,66,37,.14);
       --shadow: 0 20px 52px rgba(0,66,37,.12);
+      --gold: #C8A45D;
+      --gold-soft: rgba(200,164,93,.62);
       --container: 1240px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -50,22 +47,9 @@
       text-rendering: geometricPrecision;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font-family: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font-family: inherit; }
 
     .top-strip {
       height: 14px;
@@ -78,7 +62,7 @@
       z-index: 50;
       background: var(--green);
       color: #fff;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid var(--gold-soft);
     }
 
     .header-inner {
@@ -109,13 +93,8 @@
       letter-spacing: .08em;
     }
 
-    .nav a {
-      opacity: .92;
-    }
-
-    .nav a:hover {
-      opacity: 1;
-    }
+    .nav a { opacity: .92; }
+    .nav a:hover { opacity: 1; }
 
     .header-actions {
       display: flex;
@@ -131,7 +110,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid rgba(255,255,255,.82);
+      border: 1px solid var(--gold-soft);
       background: transparent;
       color: #fff;
       font-size: 13px;
@@ -225,11 +204,21 @@
     }
 
     h1 {
-      margin: 0 0 32px;
+      margin: 0 0 30px;
       font-size: clamp(64px, 6.4vw, 112px);
       line-height: .88;
       font-weight: 500;
       letter-spacing: -.035em;
+    }
+
+    .hero-copy h1::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 1px;
+      background: var(--gold);
+      margin: 30px auto 0;
+      opacity: .92;
     }
 
     .hero-copy p {
@@ -336,22 +325,10 @@
       color: var(--text);
     }
 
-    .shop-section .label {
-      color: var(--green-button);
-    }
-
-    .shop-section h2 {
-      color: var(--text);
-    }
-
-    .shop-section .section-copy {
-      color: var(--muted);
-    }
-
     .product-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 34px;
+      gap: 46px 34px;
     }
 
     .product-card {
@@ -400,6 +377,7 @@
       font-size: 15px;
       line-height: 1.6;
       font-weight: 300;
+      min-height: 72px;
     }
 
     .product-price {
@@ -529,16 +507,6 @@
       font-size: 16px;
       line-height: 1.8;
       font-weight: 300;
-    }
-
-    .service-card .add-btn {
-      border-color: var(--green);
-      color: var(--green);
-    }
-
-    .service-card .add-btn:hover {
-      background: var(--green);
-      color: #fff;
     }
 
     .footer {
@@ -819,9 +787,7 @@
     }
 
     @media (max-width: 900px) {
-      .top-strip {
-        height: 10px;
-      }
+      .top-strip { height: 10px; }
 
       .header-inner {
         height: 82px;
@@ -829,17 +795,9 @@
         grid-template-columns: 1fr auto;
       }
 
-      .brand {
-        font-size: 21px;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .search-icon {
-        display: none;
-      }
+      .brand { font-size: 21px; }
+      .nav { display: none; }
+      .search-icon { display: none; }
 
       .outline-btn,
       .cart-btn {
@@ -848,13 +806,8 @@
         font-size: 12px;
       }
 
-      .hero {
-        min-height: 700px;
-      }
-
-      .hero-bg {
-        background-position: center left;
-      }
+      .hero { min-height: 700px; }
+      .hero-bg { background-position: center left; }
 
       .hero-content {
         width: min(100% - 40px, var(--container));
@@ -869,38 +822,21 @@
         text-align: left;
       }
 
-      .hero-buttons {
-        justify-content: flex-start;
-      }
+      .hero-buttons { justify-content: flex-start; }
+      h1 { font-size: 58px; }
 
-      h1 {
-        font-size: 58px;
-      }
+      .container { width: min(100% - 40px, var(--container)); }
 
-      .container {
-        width: min(100% - 40px, var(--container));
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-copy {
-        margin-top: 20px;
-      }
+      .section-head { display: block; }
+      .section-copy { margin-top: 20px; }
 
       .product-grid,
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
+      .services-grid { grid-template-columns: 1fr; }
 
-      .product-image {
-        height: 280px;
-      }
+      .product-image { height: 280px; }
+      .product-desc { min-height: auto; }
 
-      .story-layout {
-        min-height: 620px;
-      }
+      .story-layout { min-height: 620px; }
 
       .story-panel {
         min-height: 620px;
@@ -914,18 +850,14 @@
           url("mate-cultural-scene.png");
       }
 
-      .checkout-body {
-        grid-template-columns: 1fr;
-      }
+      .checkout-body { grid-template-columns: 1fr; }
 
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .footer-links {
-        flex-wrap: wrap;
-      }
+      .footer-links { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -1014,6 +946,45 @@
               <div class="product-price">A$14.50</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('canarias')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Torpedo</h3>
+              <p class="product-desc">Beginner-friendly mate starter kit with Playadito yerba and a classic torpedo cup.</p>
+              <div class="product-price">A$58.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitTorpedo')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-mate-kit-pro.jpg" alt="Mate Kit Pro">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Pro</h3>
+              <p class="product-desc">Premium starter kit with La Tranquera yerba and a refined traditional mate cup.</p>
+              <div class="product-price">A$110.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitPro')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-mate-kit-advanced.jpg" alt="Mate Kit Advanced">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Advanced</h3>
+              <p class="product-desc">A stronger-style mate kit with Baldo yerba and a classic cup for deeper flavour lovers.</p>
+              <div class="product-price">A$78.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitAdvanced')">Add to cart</button>
             </div>
           </article>
         </div>
@@ -1179,6 +1150,21 @@
         name: 'Canarias Yerba Mate 1kg',
         price: 14.5,
         image: 'product-canarias-1kg.jpg'
+      },
+      kitTorpedo: {
+        name: 'Mate Kit | Torpedo',
+        price: 58,
+        image: 'product-mate-kit-torpedo.jpg'
+      },
+      kitPro: {
+        name: 'Mate Kit | Pro',
+        price: 110,
+        image: 'product-mate-kit-pro.jpg'
+      },
+      kitAdvanced: {
+        name: 'Mate Kit | Advanced',
+        price: 78,
+        image: 'product-mate-kit-advanced.jpg'
       }
     };
 
@@ -1200,7 +1186,7 @@
       const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
 
       document.getElementById('cartCount').textContent = count;
-      document.getElementById('cartTotal').textContent = `A${total.toFixed(2)}`;
+      document.getElementById('cartTotal').textContent = `A$${total.toFixed(2)}`;
 
       const cartItems = document.getElementById('cartItems');
 
@@ -1214,14 +1200,14 @@
           <img src="${item.image}" alt="${item.name}">
           <div>
             <div class="cart-item-title">${item.name}</div>
-            <div class="cart-item-meta">A${item.price.toFixed(2)} each</div>
+            <div class="cart-item-meta">A$${item.price.toFixed(2)} each</div>
             <div class="qty-control">
               <button type="button" onclick="updateQty('${item.id}', -1)">−</button>
               <span>${item.qty}</span>
               <button type="button" onclick="updateQty('${item.id}', 1)">+</button>
             </div>
           </div>
-          <strong>A${(item.qty * item.price).toFixed(2)}</strong>
+          <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
         </div>
       `).join('');
     }
@@ -1267,8 +1253,8 @@
 
       summary.innerHTML = `
         <strong>Order summary</strong><br>
-        ${items.map(item => `${item.qty} × ${item.name} — A${(item.qty * item.price).toFixed(2)}`).join('<br>')}
-        <br><br><strong>Product total: A${total.toFixed(2)}</strong><br>
+        ${items.map(item => `${item.qty} × ${item.name} — A$${(item.qty * item.price).toFixed(2)}`).join('<br>')}
+        <br><br><strong>Product total: A$${total.toFixed(2)}</strong><br>
         Delivery fee can be calculated by postcode or added as a flat shipping fee.
       `;
     }
