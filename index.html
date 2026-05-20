@@ -4,942 +4,1736 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Todo Mate | Yerba Mate in Australia</title>
+  <title>ToDo Mate | Yerba Mate in Australia</title>
+  <meta name="description" content="ToDo Mate brings yerba mate, mate kits, gourds, bombillas and mate cultural experiences to Australia." />
+  <meta name="keywords" content="yerba mate Australia, mate starter kit, bombilla, mate gourd, mate tasting Melbourne" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="ToDo Mate | More than a drink" />
+  <meta property="og:description" content="Yerba mate, mate kits and cultural experiences — thoughtfully curated in Australia." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/6.10.0/adyen.css" />
 
   <style>
     :root {
       --green: #004225;
-      --green-dark: #002f1b;
-      --green-soft: #eaf2ee;
-      --cream: #f7f4ec;
-      --text: #17241c;
-      --muted: #66746b;
-      --white: #ffffff;
-      --border: rgba(0, 66, 37, 0.16);
+      --green-deep: #00351f;
+      --green-button: #005c35;
+      --mint: #e8f5e8;
+      --cream: #f8f4eb;
+      --card: #ffffff;
+      --text: #183123;
+      --muted: #627268;
+      --border: rgba(0,66,37,.14);
+      --shadow: 0 20px 52px rgba(0,66,37,.12);
+      --container: 1240px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background: var(--mint);
       color: var(--text);
-      background: var(--cream);
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font-family: inherit; }
+
+    .top-strip {
+      height: 14px;
+      background: #d8efd8;
     }
 
-    button {
-      font-family: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* =========================
-       Header
-    ========================= */
-
-    .desktop-header {
-      width: 100%;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       background: var(--green);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 56px;
-      min-height: 100px;
-      position: relative;
-      z-index: 20;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
-    .logo {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: -0.05em;
+    .header-inner {
+      height: 116px;
+      width: min(var(--container), calc(100% - 92px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 28px;
     }
 
-    .desktop-nav {
+    .brand {
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    .nav {
       display: flex;
       align-items: center;
-      gap: 34px;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.18em;
+      justify-content: center;
+      gap: 54px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+
+    .nav a { opacity: .92; }
+    .nav a:hover { opacity: 1; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    .outline-btn,
+    .cart-btn {
+      height: 54px;
+      padding: 0 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255,255,255,.82);
+      background: transparent;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .09em;
       text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      border-radius: 2px;
     }
 
-    .desktop-nav a {
-      opacity: 0.92;
+    .cart-count {
+      position: absolute;
+      top: -11px;
+      right: -11px;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
     }
 
-    .desktop-nav a:hover {
-      opacity: 1;
+    .search-icon {
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 700;
+      opacity: .95;
     }
-
-    .nav-cart {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 17px 26px;
-    }
-
-    .nav-book {
-      border: 2px solid rgba(255, 255, 255, 0.88);
-      padding: 16px 32px;
-    }
-
-    .mobile-header {
-      display: none;
-    }
-
-    /* =========================
-       Hero
-    ========================= */
 
     .hero {
       position: relative;
-      min-height: 760px;
-      background-image: url("hero-mate.jpg.png");
-      background-size: cover;
-      background-position: center center;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+      min-height: 680px;
       overflow: hidden;
+      background: var(--green-deep);
     }
 
-    .hero::before {
-      content: "";
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.48);
-      z-index: 1;
+      background-image:
+        linear-gradient(90deg, rgba(0,53,31,.82) 0%, rgba(0,53,31,.64) 38%, rgba(0,53,31,.24) 72%, rgba(0,53,31,.08) 100%),
+        url("hero-mate.jpg.png");
+      background-size: cover;
+      background-position: center center;
+      filter: brightness(.9);
+      transform: scale(1.01);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(1080px, calc(100% - 48px));
-      text-align: center;
-      padding-bottom: 92px;
+      width: min(var(--container), calc(100% - 92px));
+      min-height: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(460px, 680px) 1fr;
+      align-items: center;
+    }
+
+    .hero-copy {
+      grid-column: 1;
+      color: #fff;
+      text-align: left;
+      padding-top: 20px;
     }
 
     .hero-kicker {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 0.26em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .42em;
       text-transform: uppercase;
-      margin-bottom: 24px;
     }
 
-    .hero h1 {
-      color: var(--white);
-      font-size: clamp(46px, 6.2vw, 86px);
-      line-height: 1.03;
-      letter-spacing: -0.07em;
-      margin: 0 0 40px;
-      font-weight: 900;
+    .hero-kicker::before {
+      content: "";
+      display: block;
+      width: 54px;
+      height: 1.5px;
+      background: rgba(255,255,255,.48);
     }
 
-    .hero-button {
+    h1 {
+      margin: 0 0 32px;
+      font-size: clamp(64px, 6.4vw, 112px);
+      line-height: .88;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .hero-copy p {
+      margin: 0 auto 42px;
+      max-width: 680px;
+      color: rgba(255,255,255,.82);
+      font-size: 19px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 62px;
+      padding: 0 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: var(--green);
-      color: var(--white);
-      min-width: 410px;
-      padding: 24px 42px;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 0.22em;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .09em;
       text-transform: uppercase;
+      cursor: pointer;
+      transition: all .22s ease;
+      border-radius: 2px;
     }
 
-    .hero-button:hover {
-      background: var(--green-dark);
+    .primary-btn {
+      border: 1px solid var(--green-button);
+      background: var(--green-button);
+      color: #fff;
     }
 
-    /* =========================
-       General Sections
-    ========================= */
+    .primary-btn:hover {
+      background: #004b2c;
+      transform: translateY(-2px);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,.72);
+      background: transparent;
+      color: #fff;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,.12);
+      transform: translateY(-2px);
+    }
 
     .section {
-      padding: 82px 56px;
+      padding: 104px 0;
     }
 
-    .section-soft {
-      background: var(--green-soft);
+    .container {
+      width: min(var(--container), calc(100% - 92px));
+      margin: 0 auto;
     }
 
-    .section-header {
-      max-width: 1200px;
-      margin: 0 auto 36px;
+    .section-head {
       display: flex;
-      align-items: flex-end;
+      align-items: end;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
+      margin-bottom: 42px;
     }
 
-    .section-header h2 {
-      font-size: clamp(34px, 4vw, 54px);
-      line-height: 1;
-      margin: 0;
-      color: var(--green);
-      letter-spacing: -0.05em;
-    }
-
-    .section-header p {
-      max-width: 470px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .section-kicker {
-      margin: 0 0 16px;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.18em;
+    .label {
+      margin-bottom: 12px;
+      color: var(--green-button);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
-    /* =========================
-       Products
-    ========================= */
+    h2 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(48px, 4.8vw, 76px);
+      line-height: .95;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .section-copy {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .shop-section {
+      background: var(--mint);
+      color: var(--text);
+    }
 
     .product-grid {
-      max-width: 1200px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 46px 34px;
     }
 
     .product-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      overflow: hidden;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: visible;
+      min-width: 0;
     }
 
     .product-image {
-      aspect-ratio: 1 / 1;
+      height: 300px;
       background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 28px;
       overflow: hidden;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      filter: none;
     }
 
-    .product-info {
-      padding: 24px;
+    .product-body {
+      padding: 24px 0 0;
     }
 
-    .product-info h3 {
+    .product-body h3 {
       margin: 0 0 10px;
-      font-size: 21px;
-      line-height: 1.2;
       color: var(--green);
-      letter-spacing: -0.03em;
+      font-size: 27px;
+      line-height: 1.16;
+      font-weight: 400;
+      letter-spacing: -.02em;
     }
 
-    .product-info p {
-      margin: 0 0 18px;
+    .product-desc {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 300;
+      min-height: 72px;
+    }
+
+    .product-price {
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .product-stock {
+      color: #c92b2b;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .add-btn {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid var(--green);
+      background: transparent;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .22s ease;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .add-btn:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .story-section {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .story-layout {
+      position: relative;
+      min-height: 680px;
+      overflow: hidden;
+      background: var(--green-deep);
+    }
+
+    .story-layout::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(0,53,31,.88) 0%, rgba(0,53,31,.74) 42%, rgba(0,53,31,.22) 100%),
+        url("mate-cultural-scene.png");
+      background-size: cover;
+      background-position: center center;
+      filter: brightness(.9);
+    }
+
+    .story-panel {
+      position: relative;
+      z-index: 2;
+      min-height: 680px;
+      width: min(560px, 48%);
+      padding: 72px 0 72px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: transparent;
+      border: none;
+    }
+
+    .story-panel .label {
+      color: rgba(255,255,255,.64);
+    }
+
+    .story-panel h2 {
+      color: #fff;
+      margin-bottom: 34px;
+    }
+
+    .story-panel p {
+      margin: 0 0 26px;
+      color: rgba(255,255,255,.74);
+      font-size: 18px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      min-height: 360px;
+      padding: 36px;
+      background: #fff;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 26px rgba(0,66,37,.06);
+      border-radius: 0;
+    }
+
+    .service-number {
+      margin-bottom: 56px;
+      color: var(--green-button);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .service-card p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .footer {
+      padding: 58px 0;
+      background: var(--green);
+      color: #fff;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 26px;
+      color: rgba(255,255,255,.76);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,20,12,.48);
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .24s ease;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(460px, 100vw);
+      height: 100vh;
+      background: #fff;
+      z-index: 100;
+      transform: translateX(100%);
+      transition: transform .28s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -24px 0 80px rgba(0,30,17,.22);
+      border-radius: 0;
+    }
+
+    body.cart-open .cart-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.cart-open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-header h3 {
+      margin: 0;
+      font-size: 30px;
+      color: var(--text);
+    }
+
+    .close-btn {
+      border: 0;
+      background: transparent;
+      color: var(--green);
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow: auto;
+      padding: 18px 28px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .cart-item img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+
+    .cart-item-title {
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .cart-item-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .qty-control button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--green);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cart-footer {
+      padding: 26px 28px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      min-height: 58px;
+      border: 0;
+      background: var(--green-button);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .cart-note,
+    .empty-cart {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .checkout-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,20,12,.62);
+    }
+
+    body.checkout-open .checkout-modal {
+      display: flex;
+    }
+
+    .checkout-card {
+      width: min(760px, 100%);
+      max-height: 92vh;
+      overflow: auto;
+      background: #fff;
+      box-shadow: var(--shadow);
+      border-radius: 0;
+    }
+
+    .checkout-header {
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .checkout-header h3 {
+      margin: 0;
+      font-size: 34px;
+      color: var(--text);
+    }
+
+    .checkout-body {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 16px;
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .checkout-summary,
+    .payment-placeholder {
+      grid-column: 1 / -1;
+      padding: 18px;
+      border: 1px solid var(--border);
+      background: var(--mint);
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
     }
 
-    .product-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+    .payment-placeholder {
+      border-style: dashed;
+      background: #fff;
     }
 
-    .price {
-      font-weight: 900;
-      color: var(--text);
-    }
-
-    .add-btn {
-      border: none;
-      background: var(--green);
-      color: var(--white);
-      padding: 12px 18px;
+    .pay-btn {
+      grid-column: 1 / -1;
+      min-height: 60px;
+      border: 0;
+      background: var(--green-button);
+      color: #fff;
       font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
+      font-weight: 600;
+      letter-spacing: .09em;
       text-transform: uppercase;
       cursor: pointer;
+      border-radius: 2px;
     }
 
-    .add-btn:hover {
-      background: var(--green-dark);
-    }
-
-    /* =========================
-       Our Story
-    ========================= */
-
-    .story {
-      background: var(--cream);
-    }
-
-    .story-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .story-copy h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(54px, 6vw, 86px);
-      line-height: 0.92;
-      color: var(--green);
-      letter-spacing: -0.045em;
-      margin: 0 0 28px;
-    }
-
-    .story-copy p {
-      font-size: 18px;
-      line-height: 1.75;
-      color: #34423a;
-      margin: 0 0 18px;
-      max-width: 560px;
-    }
-
-    .story-photo {
-      min-height: 560px;
-      overflow: hidden;
-      background: #ddd;
-    }
-
-    .story-photo img {
-      width: 100%;
-      height: 100%;
-      min-height: 560px;
-      object-fit: cover;
-    }
-
-    /* =========================
-       Cultural Experience
-    ========================= */
-
-    .cultural-section {
-      background: var(--green-soft);
-      padding: 88px 56px;
-    }
-
-    .cultural-card {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: var(--green);
-      color: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 620px;
-    }
-
-    .cultural-image {
-      overflow: hidden;
-      min-height: 620px;
-    }
-
-    .cultural-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 620px;
-      object-fit: cover;
-    }
-
-    .cultural-copy {
-      padding: 72px 68px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .cultural-copy .section-kicker {
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    .cultural-copy h2 {
-      font-size: clamp(44px, 5vw, 72px);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-      margin: 0 0 26px;
-    }
-
-    .cultural-copy > p {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 18px;
-      line-height: 1.75;
-      margin: 0 0 34px;
-    }
-
-    .experience-items {
-      display: grid;
-      gap: 18px;
-      margin-bottom: 36px;
-    }
-
-    .experience-items div {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 18px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.22);
-    }
-
-    .experience-items span {
-      color: rgba(255, 255, 255, 0.58);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .experience-items p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .cultural-btn {
-      display: inline-flex;
-      width: fit-content;
-      background: var(--white);
-      color: var(--green);
-      padding: 20px 34px;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .cultural-btn:hover {
-      background: #f3f0e8;
-    }
-
-    /* =========================
-       Cart Placeholder
-    ========================= */
-
-    .cart-placeholder {
-      background: var(--cream);
-    }
-
-    /* =========================
-       Footer
-    ========================= */
-
-    footer {
-      background: #021f12;
-      color: var(--white);
-      padding: 44px 56px;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 14px;
-    }
-
-    .footer-links a:hover {
-      color: var(--white);
-    }
-
-    /* =========================
-       Mobile
-    ========================= */
-
-    @media (max-width: 768px) {
-      .desktop-header {
-        display: none;
+    @media (max-width: 900px) {
+      .top-strip {
+        height: 8px;
       }
 
-      .mobile-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: var(--green);
-        color: var(--white);
-        padding: 20px 18px;
-        min-height: 96px;
-        position: relative;
-        z-index: 20;
+      .site-header {
+        position: sticky;
       }
 
-      .mobile-logo {
-        color: var(--white);
-        font-size: 30px;
-        line-height: 1.03;
-        font-weight: 900;
-        letter-spacing: -0.05em;
-        max-width: 120px;
-      }
-
-      .mobile-actions {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+      .header-inner {
+        height: 70px;
+        width: calc(100% - 28px);
+        grid-template-columns: 1fr auto;
         gap: 12px;
       }
 
-      .mobile-cart {
-        color: var(--white);
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        white-space: nowrap;
+      .brand {
+        font-size: 20px;
+        letter-spacing: 0;
       }
 
-      .mobile-book {
-        color: var(--white);
-        border: 2px solid rgba(255, 255, 255, 0.85);
-        padding: 13px 16px;
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 0.09em;
-        text-transform: uppercase;
-        white-space: nowrap;
-      }
-
-      .mobile-icon {
-        border: none;
-        background: transparent;
-        color: var(--white);
-        font-size: 27px;
-        line-height: 1;
-        padding: 0;
-        cursor: pointer;
-      }
-
-      .hero {
-        min-height: 650px;
-        background-position: center center;
-        align-items: flex-end;
-      }
-
-      .hero::before {
-        background: rgba(0, 0, 0, 0.46);
-      }
-
-      .hero-content {
-        width: 100%;
-        padding: 0 20px 54px;
-        text-align: center;
-      }
-
-      .hero-kicker {
+      .nav,
+      .search-icon {
         display: none;
       }
 
-      .hero h1 {
-        font-size: 31px;
-        line-height: 1.24;
-        letter-spacing: -0.035em;
-        margin: 0 0 32px;
+      .header-actions {
+        gap: 8px;
       }
 
-      .hero-button {
-        display: flex;
+      .outline-btn,
+      .cart-btn {
+        height: 40px;
+        padding: 0 11px;
+        font-size: 10.5px;
+        letter-spacing: .06em;
+        border-width: 1px;
+      }
+
+      .cart-count {
+        top: -8px;
+        right: -8px;
+        min-width: 18px;
+        height: 18px;
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: 610px;
+      }
+
+      .hero-bg {
+        background-image:
+          linear-gradient(180deg, rgba(0,53,31,.80) 0%, rgba(0,53,31,.58) 54%, rgba(0,53,31,.28) 100%),
+          url("hero-mate.jpg.png");
+        background-position: center center;
+      }
+
+      .hero-content {
+        width: calc(100% - 32px);
+        min-height: 610px;
+        grid-template-columns: 1fr;
+        align-items: center;
+        padding: 34px 0;
+      }
+
+      .hero-copy {
+        grid-column: 1;
+        text-align: left;
+        max-width: 360px;
+        padding-top: 0;
+      }
+
+      .hero-kicker {
+        justify-content: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+        font-size: 10px;
+        letter-spacing: .28em;
+      }
+
+      .hero-kicker::before {
+        width: 36px;
+      }
+
+      h1 {
+        font-size: 43px;
+        line-height: .92;
+        letter-spacing: -.04em;
+        margin-bottom: 24px;
+      }
+
+      .hero-copy p {
+        margin: 0 0 28px;
+        font-size: 15.5px;
+        line-height: 1.65;
+        max-width: 330px;
+      }
+
+      .hero-buttons {
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
         width: 100%;
-        min-width: 0;
-        padding: 22px 24px;
-        font-size: 21px;
-        letter-spacing: 0.1em;
+        min-height: 50px;
+        padding: 0 18px;
+        font-size: 11.5px;
       }
 
       .section {
-        padding: 48px 20px;
+        padding: 66px 0;
       }
 
-      .section-header {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .section-head {
         display: block;
-        margin-bottom: 28px;
+        margin-bottom: 30px;
       }
 
-      .section-header h2 {
-        font-size: 36px;
-        margin-bottom: 12px;
+      .label {
+        font-size: 10px;
+        margin-bottom: 10px;
       }
 
-      .section-header p {
+      h2 {
+        font-size: 39px;
+        line-height: .98;
+      }
+
+      .section-copy {
+        margin-top: 18px;
         font-size: 15px;
+        line-height: 1.65;
       }
 
+      /* Mobile product grid: 2 columns for a tighter shop feel */
       .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 16px;
       }
 
-      .product-info {
+      .product-image {
+        height: 172px;
         padding: 16px;
       }
 
-      .product-info h3 {
-        font-size: 16px;
+      .product-body {
+        padding-top: 14px;
       }
 
-      .product-info p {
-        font-size: 12px;
-        line-height: 1.45;
+      .product-body h3 {
+        font-size: 17px;
+        line-height: 1.18;
+        margin-bottom: 8px;
       }
 
-      .product-bottom {
-        display: block;
+      .product-desc {
+        display: none;
       }
 
-      .price {
-        display: block;
+      .product-price {
+        font-size: 17px;
+        margin-bottom: 6px;
+      }
+
+      .product-stock {
+        font-size: 12.5px;
         margin-bottom: 12px;
       }
 
       .add-btn {
+        min-height: 42px;
+        font-size: 10.5px;
+        letter-spacing: .06em;
+        padding: 0 8px;
+      }
+
+      .story-layout {
+        min-height: 560px;
+      }
+
+      .story-panel {
+        min-height: 560px;
         width: 100%;
-        padding: 12px 10px;
+        padding: 36px 24px;
       }
 
-      .story-inner {
+      .story-panel h2 {
+        margin-bottom: 24px;
+      }
+
+      .story-panel p {
+        font-size: 15.5px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+
+      .story-layout::before {
+        background-image:
+          linear-gradient(180deg, rgba(0,53,31,.86) 0%, rgba(0,53,31,.66) 52%, rgba(0,53,31,.36) 100%),
+          url("mate-cultural-scene.png");
+      }
+
+      .services-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 18px;
       }
 
-      .story-copy h2 {
-        font-size: 48px;
+      .service-card {
+        min-height: auto;
+        padding: 26px;
       }
 
-      .story-copy p {
-        font-size: 16px;
+      .service-number {
+        margin-bottom: 26px;
       }
 
-      .story-photo,
-      .story-photo img {
-        min-height: 390px;
+      .service-card h3 {
+        font-size: 26px;
       }
 
-      .cultural-section {
-        padding: 48px 20px;
+      .service-card p {
+        font-size: 15px;
+        line-height: 1.65;
       }
 
-      .cultural-card {
-        grid-template-columns: 1fr;
-        min-height: 0;
-      }
-
-      .cultural-image {
-        min-height: 360px;
-      }
-
-      .cultural-image img {
-        min-height: 360px;
-      }
-
-      .cultural-copy {
-        padding: 42px 24px;
-      }
-
-      .cultural-copy h2 {
-        font-size: 42px;
-      }
-
-      .cultural-copy > p {
-        font-size: 16px;
-      }
-
-      .cultural-btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      footer {
-        padding: 36px 20px;
+      .footer {
+        padding: 42px 0;
       }
 
       .footer-inner {
-        display: block;
-      }
-
-      .footer-brand {
-        margin-bottom: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
       }
 
       .footer-links {
         display: grid;
-        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 22px;
+        width: 100%;
+        font-size: 13px;
+      }
+
+      .cart-drawer {
+        width: 100vw;
+      }
+
+      .cart-header {
+        padding: 22px;
+      }
+
+      .cart-items {
+        padding: 12px 22px;
+      }
+
+      .cart-footer {
+        padding: 22px;
+      }
+
+      .checkout-modal {
+        padding: 10px;
+        align-items: flex-end;
+      }
+
+      .checkout-card {
+        width: 100%;
+        max-height: 92vh;
+      }
+
+      .checkout-header {
+        padding: 20px 22px;
+      }
+
+      .checkout-header h3 {
+        font-size: 26px;
+      }
+
+      .checkout-body {
+        grid-template-columns: 1fr;
+        padding: 22px;
+        gap: 14px;
+      }
+
+      input,
+      textarea {
+        padding: 14px;
+        font-size: 14px;
       }
     }
 
-    @media (max-width: 390px) {
-      .mobile-header {
-        padding: 20px 15px;
+    @media (max-width: 380px) {
+      .product-grid {
+        gap: 28px 12px;
       }
 
-      .mobile-logo {
-        font-size: 27px;
-        max-width: 108px;
+      .product-image {
+        height: 155px;
       }
 
-      .mobile-actions {
-        gap: 9px;
+      .product-body h3 {
+        font-size: 16px;
       }
 
-      .mobile-book {
-        padding: 12px 12px;
-        font-size: 12px;
+      .outline-btn,
+      .cart-btn {
+        padding: 0 9px;
+      }
+    }
+  
+
+    /* =========================
+       Mobile polish override
+       Keeps the original design, but makes the phone layout cleaner
+       and keeps product cards in a premium 2-column grid.
+    ========================= */
+    @media (max-width: 900px) {
+      body {
+        overflow-x: hidden;
       }
 
-      .mobile-cart {
-        font-size: 12px;
+      .header-inner {
+        height: 76px;
+        width: calc(100% - 28px);
+        grid-template-columns: minmax(0, 1fr) auto;
       }
 
-      .mobile-icon {
-        font-size: 24px;
+      .brand {
+        font-size: 21px;
+        max-width: 132px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .header-actions {
+        gap: 7px;
+      }
+
+      .outline-btn,
+      .cart-btn {
+        height: 40px;
+        padding: 0 10px;
+        font-size: 10px;
+        letter-spacing: .055em;
+        white-space: nowrap;
       }
 
       .hero {
         min-height: 620px;
       }
 
-      .hero h1 {
-        font-size: 28px;
+      .hero-content {
+        min-height: 620px;
+        width: calc(100% - 32px);
+        align-items: end;
+        padding: 0 0 46px;
       }
 
-      .hero-button {
-        font-size: 19px;
+      .hero-copy {
+        max-width: 100%;
+      }
+
+      .hero-copy p {
+        max-width: 340px;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        margin-bottom: 24px;
+      }
+
+      .section-copy {
+        max-width: 100%;
+      }
+
+      .shop-section .container {
+        width: calc(100% - 26px);
       }
 
       .product-grid {
-        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 12px;
+        align-items: stretch;
       }
 
-      .story-copy h2 {
-        font-size: 42px;
+      .product-card {
+        background: #fff;
+        border: 1px solid rgba(0,66,37,.12);
+        box-shadow: 0 10px 24px rgba(0,66,37,.055);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
       }
 
-      .cultural-copy h2 {
-        font-size: 38px;
+      .product-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / .92;
+        padding: 12px;
+        background: #fff;
+        border-bottom: 1px solid rgba(0,66,37,.08);
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .product-body {
+        padding: 13px 11px 11px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .product-body h3 {
+        font-size: 15.5px;
+        line-height: 1.18;
+        margin-bottom: 8px;
+        letter-spacing: -.025em;
+      }
+
+      .product-desc {
+        display: none;
+      }
+
+      .product-price {
+        font-size: 15.5px;
+        margin-top: auto;
+        margin-bottom: 5px;
+      }
+
+      .product-stock {
+        font-size: 11.5px;
+        margin-bottom: 10px;
+      }
+
+      .add-btn {
+        min-height: 39px;
+        font-size: 9.8px;
+        letter-spacing: .055em;
+        padding: 0 6px;
+      }
+
+      .story-section .container,
+      #services .container {
+        width: calc(100% - 28px);
+      }
+
+      .service-card {
+        border-radius: 0;
+      }
+
+      .footer-inner {
+        gap: 18px;
       }
     }
+
+    @media (max-width: 380px) {
+      .shop-section .container {
+        width: calc(100% - 20px);
+      }
+
+      .product-grid {
+        gap: 16px 10px;
+      }
+
+      .product-image {
+        aspect-ratio: 1 / .9;
+        padding: 10px;
+      }
+
+      .product-body {
+        padding: 12px 9px 10px;
+      }
+
+      .product-body h3 {
+        font-size: 14.5px;
+      }
+
+      .product-price {
+        font-size: 15px;
+      }
+
+      .add-btn {
+        min-height: 38px;
+        font-size: 9.4px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
+  <div class="top-strip"></div>
 
-  <!-- Desktop Header -->
-  <header class="desktop-header">
-    <a href="#home" class="logo">Todo mate</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home">ToDo Mate</a>
 
-    <nav class="desktop-nav">
-      <a href="#home">Home</a>
-      <a href="#shop">Mate Shop</a>
-      <a href="#cultural-experience">Cultural Experience</a>
-      <a href="#cart" class="nav-cart">Cart</a>
-      <a href="#cultural-experience" class="nav-book">Book now</a>
-    </nav>
-  </header>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#shop">Mate Shop</a>
+        <a href="#services">Cultural Experience</a>
+      </nav>
 
-  <!-- Mobile Header -->
-  <header class="mobile-header">
-    <a href="#home" class="mobile-logo">Todo mate</a>
-
-    <div class="mobile-actions">
-      <a href="#cart" class="mobile-cart">Cart</a>
-      <a href="#cultural-experience" class="mobile-book">Book now</a>
-      <button class="mobile-icon" aria-label="Search">⌕</button>
-      <button class="mobile-icon" aria-label="Menu">☰</button>
+      <div class="header-actions">
+        <button class="cart-btn" type="button" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+        <a class="outline-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book now</a>
+        <a class="search-icon" href="#shop" aria-label="Search">⌕</a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="hero-kicker">Mate culture, made simple</div>
-      <h1>Yerba mate, gourds, and beginner-friendly starter kits in Australia.</h1>
-      <a href="#cultural-experience" class="hero-button">Book now</a>
-    </div>
-  </section>
-
-  <!-- Most Popular -->
-  <section id="shop" class="section section-soft">
-    <div class="section-header">
-      <h2>Most popular</h2>
-      <p>
-        Everything you need to start your mate ritual at home — carefully selected for beginners and everyday drinkers in Australia.
-      </p>
-    </div>
-
-    <div class="product-grid">
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
-        </div>
-        <div class="product-info">
-          <h3>Playadito Yerba Mate 500g</h3>
-          <p>A smooth and balanced yerba mate, perfect for beginners.</p>
-          <div class="product-bottom">
-            <span class="price">$18.00</span>
-            <button class="add-btn">Add</button>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <div class="hero-kicker">Yerba mate in Australia</div>
+          <h1>Your first mate<br>ritual starts here.</h1>
+          <p>Yerba mate, gourds, bombillas, and beginner-friendly starter kits curated for Australia.</p>
+          <div class="hero-buttons">
+            <a class="primary-btn" href="#shop">Shop starter kits</a>
+            <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book a tasting</a>
           </div>
         </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
-        </div>
-        <div class="product-info">
-          <h3>Baldo Yerba Mate 1kg</h3>
-          <p>A strong, traditional yerba mate with rich flavour.</p>
-          <div class="product-bottom">
-            <span class="price">$28.00</span>
-            <button class="add-btn">Add</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
-        </div>
-        <div class="product-info">
-          <h3>Canarias Yerba Mate 1kg</h3>
-          <p>Bold and intense, loved by experienced mate drinkers.</p>
-          <div class="product-bottom">
-            <span class="price">$30.00</span>
-            <button class="add-btn">Add</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Our Story -->
-  <section class="section story">
-    <div class="story-inner">
-      <div class="story-copy">
-        <p class="section-kicker">Our Story</p>
-        <h2>More than a drink</h2>
-        <p>
-          Todo Mate is about bringing the warmth of South American mate culture to Australia.
-          Mate is not just a drink — it is a shared ritual, a moment to slow down, and a simple
-          way to connect with people around you.
-        </p>
-        <p>
-          We curate beginner-friendly yerba mate, gourds, bombillas and starter kits for people
-          who want to discover mate in a simple, beautiful and approachable way.
-        </p>
       </div>
+    </section>
 
-      <div class="story-photo">
-        <img src="mate-cultural-scene.png" alt="People sharing yerba mate outdoors">
-      </div>
-    </div>
-  </section>
-
-  <!-- Cultural Experience -->
-  <section id="cultural-experience" class="cultural-section">
-    <div class="cultural-card">
-      <div class="cultural-image">
-        <img src="mate-cultural-scene.png" alt="Mate cultural experience">
-      </div>
-
-      <div class="cultural-copy">
-        <p class="section-kicker">Cultural Experience</p>
-        <h2>Share mate, stories and culture.</h2>
-        <p>
-          Join a relaxed mate tasting session and learn how to prepare, share and enjoy yerba mate
-          the traditional way. Perfect for friends, small groups, travellers and anyone curious
-          about South American culture.
-        </p>
-
-        <div class="experience-items">
+    <section class="section shop-section" id="shop">
+      <div class="container">
+        <div class="section-head">
           <div>
-            <span>01</span>
-            <p>Learn the story and meaning behind yerba mate.</p>
+            <div class="label">Most popular</div>
+            <h2>Yerba mate favourites.</h2>
           </div>
-          <div>
-            <span>02</span>
-            <p>Try different yerba mate flavours and preparation styles.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <p>Experience the ritual with gourds, bombillas and shared conversation.</p>
-          </div>
+          <p class="section-copy">Choose your mate, add it to cart, enter your delivery details and continue to secure payment.</p>
         </div>
 
-        <a href="#" class="cultural-btn">Book now</a>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
+            </div>
+            <div class="product-body">
+              <h3>Playadito Yerba Mate 500g</h3>
+              <p class="product-desc">A smooth and approachable yerba mate from Argentina. A great first choice for beginners and everyday drinking.</p>
+              <div class="product-price">A$12.90</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('playadito')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
+            </div>
+            <div class="product-body">
+              <h3>Baldo Yerba Mate 1kg</h3>
+              <p class="product-desc">A traditional Uruguayan-style yerba mate with a stronger profile, ideal for people who enjoy a deeper taste.</p>
+              <div class="product-price">A$13.50</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('baldo')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
+            </div>
+            <div class="product-body">
+              <h3>Canarias Yerba Mate 1kg</h3>
+              <p class="product-desc">A bold and iconic Uruguayan yerba mate. Best for experienced mate drinkers or customers wanting a stronger ritual.</p>
+              <div class="product-price">A$14.50</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('canarias')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Torpedo</h3>
+              <p class="product-desc">Beginner-friendly mate starter kit with Playadito yerba and a classic torpedo cup.</p>
+              <div class="product-price">A$58.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitTorpedo')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-mate-kit-pro.jpg" alt="Mate Kit Pro">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Pro</h3>
+              <p class="product-desc">Premium starter kit with La Tranquera yerba and a refined traditional mate cup.</p>
+              <div class="product-price">A$110.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitPro')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-mate-kit-advanced.jpg" alt="Mate Kit Advanced">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Advanced</h3>
+              <p class="product-desc">A stronger-style mate kit with Baldo yerba and a classic cup for deeper flavour lovers.</p>
+              <div class="product-price">A$78.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitAdvanced')">Add to cart</button>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Cart Placeholder -->
-  <section id="cart" class="section cart-placeholder">
-    <div class="section-header">
-      <h2>Your cart</h2>
-      <p>
-        Your cart and checkout will be connected here once the payment integration is ready.
-      </p>
-    </div>
-  </section>
+    <section class="section story-section" id="culture">
+      <div class="container">
+        <div class="story-layout">
+          <div class="story-panel">
+            <div class="label">Our Story</div>
+            <h2>Why mate?</h2>
+            <p>Yerba mate is more than a drink. Across South America, it is a daily ritual shared between friends, family and community — one gourd, one bombilla, passed from hand to hand.</p>
+            <p>It is a simple invitation to slow down, talk honestly and be present with each other. More than a beverage, mate carries a culture of sharing, warmth and connection.</p>
+            <p>ToDo Mate brings this ritual to Australia for people who are curious about a different way of gathering: slower, warmer and more meaningful.</p>
+            <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener" style="width: fit-content; margin-top: 18px;">Explore the ritual</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">Todo mate</div>
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="label">Cultural Experience</div>
+            <h2>Mate tastings, gatherings and cultural sessions.</h2>
+          </div>
+          <p class="section-copy">Book a mate cultural experience, from beginner-friendly tastings to private gatherings and brand activations. Each session introduces mate as a ritual of sharing, conversation and connection.</p>
+        </div>
 
+        <div class="services-grid">
+          <article class="service-card">
+            <div>
+              <div class="service-number">01 / Tasting</div>
+              <h3>Mate Tasting Experience</h3>
+              <p>A beginner-friendly mate tasting experience. Learn what yerba mate is, how to prepare it, and how people share it in South American culture.</p>
+            </div>
+            <a class="add-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book an Experience</a>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="service-number">02 / Private</div>
+              <h3>Private Mate Gathering</h3>
+              <p>A private mate experience for small groups. Enjoy a relaxed cultural gathering with mate tasting, simple preparation guidance, and slow conversation.</p>
+            </div>
+            <a class="add-btn" href="https://reservo-five.vercel.app/booking/ed8e88b3-4ed6-4acf-b962-4956c8d8c967" target="_blank" rel="noopener">Book an Experience</a>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="service-number">03 / Corporate</div>
+              <h3>Corporate Mate Session</h3>
+              <p>A cultural mate session for teams and groups. A relaxed way to introduce South American mate culture, encourage conversation, and create a shared team experience.</p>
+            </div>
+            <a class="add-btn" href="https://reservo-five.vercel.app/booking/2fec5085-8c48-4961-bc23-be47b51dffdf" target="_blank" rel="noopener">Book an Experience</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">ToDo Mate</div>
       <div class="footer-links">
-        <a href="https://www.instagram.com/arielgdangelo?igsh=cDY4N2VxdDEzOWs=" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=61576281096128&mibextid=wwXIfr" target="_blank">Facebook</a>
-        <a href="mailto:arieldangelo91@proton.me">arieldangelo91@proton.me</a>
+        <a href="#shop">Shop</a>
+        <a href="#culture">Culture</a>
+        <a href="#services">Cultural Experience</a>
+        <a href="mailto:arieldangelo91@proton.me">Email</a>
+        <a href="https://www.instagram.com/arielgdangelo?igsh=cDY4N2VxdDEzOWs=" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61576281096128&mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
   </footer>
 
+  <div class="cart-overlay" onclick="closeCart()"></div>
+
+  <aside class="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your cart</h3>
+      <button class="close-btn" type="button" onclick="closeCart()" aria-label="Close cart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">A$0</span>
+      </div>
+
+      <button class="checkout-btn" type="button" onclick="openCheckout()">Checkout</button>
+
+      <p class="cart-note">Customer details and delivery address will be collected before secure payment.</p>
+    </div>
+  </aside>
+
+  <div class="checkout-modal" onclick="closeCheckout()">
+    <div class="checkout-card" onclick="event.stopPropagation()">
+      <div class="checkout-header">
+        <h3>Secure checkout</h3>
+        <button class="close-btn" type="button" onclick="closeCheckout()" aria-label="Close checkout">×</button>
+      </div>
+
+      <form class="checkout-body" onsubmit="startSecureCheckout(event)">
+        <div>
+          <label for="checkoutName">Name</label>
+          <input id="checkoutName" type="text" required placeholder="Your name">
+        </div>
+
+        <div>
+          <label for="checkoutEmail">Email</label>
+          <input id="checkoutEmail" type="email" required placeholder="you@email.com">
+        </div>
+
+        <div>
+          <label for="checkoutPhone">Phone</label>
+          <input id="checkoutPhone" type="tel" placeholder="Your phone number">
+        </div>
+
+        <div>
+          <label for="checkoutPostcode">Postcode</label>
+          <input id="checkoutPostcode" type="text" required placeholder="e.g. 3000">
+        </div>
+
+        <div class="form-full">
+          <label for="checkoutAddress">Delivery address</label>
+          <input id="checkoutAddress" type="text" required placeholder="Street, suburb, state">
+        </div>
+
+        <div class="form-full">
+          <label for="checkoutNote">Delivery note</label>
+          <textarea id="checkoutNote" placeholder="Optional delivery notes"></textarea>
+        </div>
+
+        <div class="checkout-summary" id="checkoutSummary"></div>
+
+        <div class="payment-placeholder" id="paymentContainer">
+          Secure payment will load here after customer details are submitted.
+        </div>
+
+        <button class="pay-btn" type="submit">Continue to payment</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/6.10.0/adyen.js"></script>
+
+  <script>
+    const products = {
+      playadito: {
+        name: 'Playadito Yerba Mate 500g',
+        price: 12.9,
+        image: 'product-playadito-500g.jpg'
+      },
+      baldo: {
+        name: 'Baldo Yerba Mate 1kg',
+        price: 13.5,
+        image: 'product-baldo-1kg.jpg'
+      },
+      canarias: {
+        name: 'Canarias Yerba Mate 1kg',
+        price: 14.5,
+        image: 'product-canarias-1kg.jpg'
+      },
+      kitTorpedo: {
+        name: 'Mate Kit | Torpedo',
+        price: 58,
+        image: 'product-mate-kit-torpedo.jpg'
+      },
+      kitPro: {
+        name: 'Mate Kit | Pro',
+        price: 110,
+        image: 'product-mate-kit-pro.jpg'
+      },
+      kitAdvanced: {
+        name: 'Mate Kit | Advanced',
+        price: 78,
+        image: 'product-mate-kit-advanced.jpg'
+      }
+    };
+
+    let cart = JSON.parse(localStorage.getItem('todoMateCart') || '{}');
+
+    function saveCart() {
+      localStorage.setItem('todoMateCart', JSON.stringify(cart));
+    }
+
+    function getCartSummary() {
+      return Object.entries(cart)
+        .filter(([id, qty]) => products[id] && qty > 0)
+        .map(([id, qty]) => ({ id, qty, ...products[id] }));
+    }
+
+    function renderCart() {
+      const items = getCartSummary();
+      const count = items.reduce((sum, item) => sum + item.qty, 0);
+      const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
+
+      document.getElementById('cartCount').textContent = count;
+      document.getElementById('cartTotal').textContent = `A$${total.toFixed(2)}`;
+
+      const cartItems = document.getElementById('cartItems');
+
+      if (!items.length) {
+        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty. Add a yerba mate product to start your order.</p>';
+        return;
+      }
+
+      cartItems.innerHTML = items.map(item => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div>
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-meta">A$${item.price.toFixed(2)} each</div>
+            <div class="qty-control">
+              <button type="button" onclick="updateQty('${item.id}', -1)">−</button>
+              <span>${item.qty}</span>
+              <button type="button" onclick="updateQty('${item.id}', 1)">+</button>
+            </div>
+          </div>
+          <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
+        </div>
+      `).join('');
+    }
+
+    function openCart() {
+      document.body.classList.add('cart-open');
+      renderCart();
+    }
+
+    function closeCart() {
+      document.body.classList.remove('cart-open');
+    }
+
+    function addToCart(productId) {
+      cart[productId] = (cart[productId] || 0) + 1;
+      saveCart();
+      renderCart();
+      openCart();
+    }
+
+    function updateQty(productId, change) {
+      cart[productId] = (cart[productId] || 0) + change;
+      if (cart[productId] <= 0) delete cart[productId];
+      saveCart();
+      renderCart();
+    }
+
+    function openCheckout() {
+      const items = getCartSummary();
+      if (!items.length) return openCart();
+      document.body.classList.add('checkout-open');
+      renderCheckoutSummary();
+    }
+
+    function closeCheckout() {
+      document.body.classList.remove('checkout-open');
+    }
+
+    function renderCheckoutSummary() {
+      const items = getCartSummary();
+      const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
+      const summary = document.getElementById('checkoutSummary');
+
+      summary.innerHTML = `
+        <strong>Order summary</strong><br>
+        ${items.map(item => `${item.qty} × ${item.name} — A$${(item.qty * item.price).toFixed(2)}`).join('<br>')}
+        <br><br><strong>Product total: A$${total.toFixed(2)}</strong><br>
+        Delivery fee can be calculated by postcode or added as a flat shipping fee.
+      `;
+    }
+
+    async function startSecureCheckout(event) {
+      event.preventDefault();
+
+      const items = getCartSummary();
+      if (!items.length) return;
+
+      const customer = {
+        name: document.getElementById('checkoutName').value,
+        email: document.getElementById('checkoutEmail').value,
+        phone: document.getElementById('checkoutPhone').value,
+        address: document.getElementById('checkoutAddress').value,
+        postcode: document.getElementById('checkoutPostcode').value,
+        note: document.getElementById('checkoutNote').value
+      };
+
+      const payload = {
+        type: 'product_order',
+        currency: 'AUD',
+        items,
+        customer,
+        returnUrl: window.location.origin + '/payment-result'
+      };
+
+      const placeholder = document.getElementById('paymentContainer');
+      placeholder.innerHTML = 'Creating secure checkout session...';
+
+      try {
+        const response = await fetch('/api/adyen/sessions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) throw new Error('Unable to create secure session');
+
+        const session = await response.json();
+
+        placeholder.innerHTML = '<div id="payment-dropin"></div>';
+
+        const checkout = await AdyenCheckout({
+          environment: 'test',
+          clientKey: 'YOUR_ADYEN_CLIENT_KEY',
+          session,
+          onPaymentCompleted: () => {
+            window.location.href = '/payment-success';
+          },
+          onError: () => {
+            placeholder.innerHTML = 'Payment could not be completed. Please try again.';
+          }
+        });
+
+        checkout.create('dropin').mount('#payment-dropin');
+      } catch (error) {
+        placeholder.innerHTML = 'Secure payment is not connected yet. The checkout backend and payment client key still need to be configured.';
+      }
+    }
+
+    renderCart();
+  </script>
 </body>
 </html>
