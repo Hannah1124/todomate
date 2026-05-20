@@ -14,10 +14,10 @@
       --green-dark: #002f1b;
       --green-soft: #eaf2ee;
       --cream: #f7f4ec;
-      --text: #18251d;
-      --muted: #6f7b72;
+      --text: #17241c;
+      --muted: #66746b;
       --white: #ffffff;
-      --border: rgba(0, 66, 37, 0.14);
+      --border: rgba(0, 66, 37, 0.16);
     }
 
     * {
@@ -51,7 +51,7 @@
     }
 
     /* =========================
-       Desktop Header
+       Header
     ========================= */
 
     .desktop-header {
@@ -61,15 +61,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 56px;
+      padding: 18px 56px;
+      min-height: 100px;
       position: relative;
       z-index: 20;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
     }
 
     .desktop-nav {
@@ -77,8 +78,8 @@
       align-items: center;
       gap: 34px;
       font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-weight: 900;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
@@ -90,14 +91,14 @@
       opacity: 1;
     }
 
-    .nav-book {
-      border: 2px solid rgba(255, 255, 255, 0.86);
-      padding: 14px 26px;
-    }
-
     .nav-cart {
       background: rgba(255, 255, 255, 0.1);
-      padding: 14px 22px;
+      padding: 17px 26px;
+    }
+
+    .nav-book {
+      border: 2px solid rgba(255, 255, 255, 0.88);
+      padding: 16px 32px;
     }
 
     .mobile-header {
@@ -124,33 +125,33 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.42);
+      background: rgba(0, 0, 0, 0.48);
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(980px, calc(100% - 48px));
+      width: min(1080px, calc(100% - 48px));
       text-align: center;
       padding-bottom: 92px;
     }
 
     .hero-kicker {
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.82);
       font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      font-weight: 900;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
       color: var(--white);
-      font-size: clamp(42px, 6vw, 78px);
+      font-size: clamp(46px, 6.2vw, 86px);
       line-height: 1.03;
-      letter-spacing: -0.06em;
-      margin: 0 0 34px;
+      letter-spacing: -0.07em;
+      margin: 0 0 40px;
       font-weight: 900;
     }
 
@@ -160,11 +161,11 @@
       justify-content: center;
       background: var(--green);
       color: var(--white);
-      min-width: 360px;
-      padding: 23px 38px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      min-width: 410px;
+      padding: 24px 42px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
     }
 
@@ -173,7 +174,7 @@
     }
 
     /* =========================
-       Product Section
+       General Sections
     ========================= */
 
     .section {
@@ -188,7 +189,7 @@
       max-width: 1200px;
       margin: 0 auto 36px;
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 24px;
     }
@@ -208,6 +209,19 @@
       line-height: 1.7;
       margin: 0;
     }
+
+    .section-kicker {
+      margin: 0 0 16px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       Products
+    ========================= */
 
     .product-grid {
       max-width: 1200px;
@@ -265,7 +279,7 @@
     }
 
     .price {
-      font-weight: 800;
+      font-weight: 900;
       color: var(--text);
     }
 
@@ -273,8 +287,11 @@
       border: none;
       background: var(--green);
       color: var(--white);
-      padding: 12px 16px;
-      font-weight: 800;
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       cursor: pointer;
     }
 
@@ -283,7 +300,7 @@
     }
 
     /* =========================
-       Story Section
+       Our Story
     ========================= */
 
     .story {
@@ -294,37 +311,38 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 44px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
       align-items: center;
     }
 
-    .story-text h2 {
+    .story-copy h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(46px, 5vw, 74px);
-      line-height: 0.95;
-      margin: 0 0 24px;
+      font-size: clamp(54px, 6vw, 86px);
+      line-height: 0.92;
       color: var(--green);
-      letter-spacing: -0.04em;
+      letter-spacing: -0.045em;
+      margin: 0 0 28px;
     }
 
-    .story-text p {
+    .story-copy p {
       font-size: 18px;
       line-height: 1.75;
-      color: #334139;
+      color: #34423a;
       margin: 0 0 18px;
+      max-width: 560px;
     }
 
-    .story-image {
+    .story-photo {
+      min-height: 560px;
       overflow: hidden;
-      min-height: 520px;
       background: #ddd;
     }
 
-    .story-image img {
+    .story-photo img {
       width: 100%;
       height: 100%;
-      min-height: 520px;
+      min-height: 560px;
       object-fit: cover;
     }
 
@@ -332,70 +350,107 @@
        Cultural Experience
     ========================= */
 
-    .experience {
-      background: var(--green);
-      color: var(--white);
-      padding: 96px 56px;
+    .cultural-section {
+      background: var(--green-soft);
+      padding: 88px 56px;
     }
 
-    .experience-inner {
+    .cultural-card {
       max-width: 1200px;
       margin: 0 auto;
+      background: var(--green);
+      color: var(--white);
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 44px;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
     }
 
-    .experience-image {
+    .cultural-image {
       overflow: hidden;
-      min-height: 520px;
-      background: #ddd;
+      min-height: 620px;
     }
 
-    .experience-image img {
+    .cultural-image img {
       width: 100%;
       height: 100%;
-      min-height: 520px;
+      min-height: 620px;
       object-fit: cover;
     }
 
-    .experience-text h2 {
-      font-size: clamp(42px, 5vw, 70px);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      margin: 0 0 24px;
+    .cultural-copy {
+      padding: 72px 68px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .experience-text p {
+    .cultural-copy .section-kicker {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .cultural-copy h2 {
+      font-size: clamp(44px, 5vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin: 0 0 26px;
+    }
+
+    .cultural-copy > p {
       color: rgba(255, 255, 255, 0.82);
       font-size: 18px;
       line-height: 1.75;
-      margin: 0 0 28px;
-    }
-
-    .experience-list {
-      display: grid;
-      gap: 14px;
       margin: 0 0 34px;
-      padding: 0;
-      list-style: none;
     }
 
-    .experience-list li {
-      border-top: 1px solid rgba(255, 255, 255, 0.24);
-      padding-top: 14px;
-      font-weight: 700;
+    .experience-items {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 36px;
     }
 
-    .light-btn {
+    .experience-items div {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .experience-items span {
+      color: rgba(255, 255, 255, 0.58);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .experience-items p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .cultural-btn {
       display: inline-flex;
+      width: fit-content;
       background: var(--white);
       color: var(--green);
-      padding: 20px 32px;
+      padding: 20px 34px;
+      font-size: 14px;
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    .cultural-btn:hover {
+      background: #f3f0e8;
+    }
+
+    /* =========================
+       Cart Placeholder
+    ========================= */
+
+    .cart-placeholder {
+      background: var(--cream);
     }
 
     /* =========================
@@ -431,8 +486,12 @@
       font-size: 14px;
     }
 
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
     /* =========================
-       Mobile Layout
+       Mobile
     ========================= */
 
     @media (max-width: 768px) {
@@ -456,8 +515,8 @@
         color: var(--white);
         font-size: 30px;
         line-height: 1.03;
-        font-weight: 800;
-        letter-spacing: -0.04em;
+        font-weight: 900;
+        letter-spacing: -0.05em;
         max-width: 120px;
       }
 
@@ -471,7 +530,7 @@
       .mobile-cart {
         color: var(--white);
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         white-space: nowrap;
@@ -482,7 +541,7 @@
         border: 2px solid rgba(255, 255, 255, 0.85);
         padding: 13px 16px;
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: 0.09em;
         text-transform: uppercase;
         white-space: nowrap;
@@ -584,31 +643,56 @@
         padding: 12px 10px;
       }
 
-      .story-inner,
-      .experience-inner {
+      .story-inner {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 30px;
       }
 
-      .story-text h2,
-      .experience-text h2 {
-        font-size: 44px;
+      .story-copy h2 {
+        font-size: 48px;
       }
 
-      .story-text p,
-      .experience-text p {
+      .story-copy p {
         font-size: 16px;
       }
 
-      .story-image,
-      .story-image img,
-      .experience-image,
-      .experience-image img {
+      .story-photo,
+      .story-photo img {
+        min-height: 390px;
+      }
+
+      .cultural-section {
+        padding: 48px 20px;
+      }
+
+      .cultural-card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .cultural-image {
         min-height: 360px;
       }
 
-      .experience {
-        padding: 56px 20px;
+      .cultural-image img {
+        min-height: 360px;
+      }
+
+      .cultural-copy {
+        padding: 42px 24px;
+      }
+
+      .cultural-copy h2 {
+        font-size: 42px;
+      }
+
+      .cultural-copy > p {
+        font-size: 16px;
+      }
+
+      .cultural-btn {
+        width: 100%;
+        justify-content: center;
       }
 
       footer {
@@ -621,6 +705,11 @@
 
       .footer-brand {
         margin-bottom: 18px;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 12px;
       }
     }
 
@@ -661,6 +750,18 @@
 
       .hero-button {
         font-size: 19px;
+      }
+
+      .product-grid {
+        gap: 12px;
+      }
+
+      .story-copy h2 {
+        font-size: 42px;
+      }
+
+      .cultural-copy h2 {
+        font-size: 38px;
       }
     }
   </style>
@@ -706,7 +807,9 @@
   <section id="shop" class="section section-soft">
     <div class="section-header">
       <h2>Most popular</h2>
-      <p>Everything you need to start your mate ritual at home — carefully selected for beginners and everyday drinkers in Australia.</p>
+      <p>
+        Everything you need to start your mate ritual at home — carefully selected for beginners and everyday drinkers in Australia.
+      </p>
     </div>
 
     <div class="product-grid">
@@ -759,54 +862,69 @@
   <!-- Our Story -->
   <section class="section story">
     <div class="story-inner">
-      <div class="story-text">
-        <h2>More than a drink.</h2>
+      <div class="story-copy">
+        <p class="section-kicker">Our Story</p>
+        <h2>More than a drink</h2>
         <p>
-          Todo Mate brings the spirit of South American mate culture to Australia — a ritual of sharing, slowing down, and connecting with people around you.
+          Todo Mate is about bringing the warmth of South American mate culture to Australia.
+          Mate is not just a drink — it is a shared ritual, a moment to slow down, and a simple
+          way to connect with people around you.
         </p>
         <p>
-          We select approachable yerba mate, gourds, bombillas, and starter kits for people who want to discover mate in a simple and beautiful way.
+          We curate beginner-friendly yerba mate, gourds, bombillas and starter kits for people
+          who want to discover mate in a simple, beautiful and approachable way.
         </p>
       </div>
 
-      <div class="story-image">
-        <img src="mate-cultural-scene.png" alt="People sharing mate outdoors">
+      <div class="story-photo">
+        <img src="mate-cultural-scene.png" alt="People sharing yerba mate outdoors">
       </div>
     </div>
   </section>
 
   <!-- Cultural Experience -->
-  <section id="cultural-experience" class="experience">
-    <div class="experience-inner">
-
-      <div class="experience-image">
+  <section id="cultural-experience" class="cultural-section">
+    <div class="cultural-card">
+      <div class="cultural-image">
         <img src="mate-cultural-scene.png" alt="Mate cultural experience">
       </div>
 
-      <div class="experience-text">
-        <h2>Cultural Experience</h2>
+      <div class="cultural-copy">
+        <p class="section-kicker">Cultural Experience</p>
+        <h2>Share mate, stories and culture.</h2>
         <p>
-          Join a relaxed mate tasting experience and learn how to prepare, share, and enjoy yerba mate the traditional way.
+          Join a relaxed mate tasting session and learn how to prepare, share and enjoy yerba mate
+          the traditional way. Perfect for friends, small groups, travellers and anyone curious
+          about South American culture.
         </p>
 
-        <ul class="experience-list">
-          <li>Learn the story behind yerba mate</li>
-          <li>Try different mate styles and flavours</li>
-          <li>Discover gourds, bombillas, and preparation methods</li>
-          <li>Perfect for friends, small groups, and culture lovers</li>
-        </ul>
+        <div class="experience-items">
+          <div>
+            <span>01</span>
+            <p>Learn the story and meaning behind yerba mate.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>Try different yerba mate flavours and preparation styles.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>Experience the ritual with gourds, bombillas and shared conversation.</p>
+          </div>
+        </div>
 
-        <a href="#" class="light-btn">Book now</a>
+        <a href="#" class="cultural-btn">Book now</a>
       </div>
-
     </div>
   </section>
 
   <!-- Cart Placeholder -->
-  <section id="cart" class="section">
+  <section id="cart" class="section cart-placeholder">
     <div class="section-header">
       <h2>Your cart</h2>
-      <p>Your cart and checkout will be connected here once the payment integration is ready.</p>
+      <p>
+        Your cart and checkout will be connected here once the payment integration is ready.
+      </p>
     </div>
   </section>
 
