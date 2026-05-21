@@ -841,6 +841,77 @@
       line-height: 1.55;
     }
 
+    .cart-actions-row {
+      margin-top: 10px;
+    }
+
+    .remove-item-btn {
+      border: 0;
+      background: transparent;
+      color: #9b2d2d;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .remove-item-btn:hover {
+      text-decoration: underline;
+    }
+
+    .empty-cart-card {
+      padding: 26px 0;
+      color: var(--text);
+    }
+
+    .empty-cart-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .empty-cart-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .empty-cart-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .checkout-notice {
+      grid-column: 1 / -1;
+      padding: 16px 18px;
+      border: 1px solid rgba(0, 66, 37, .16);
+      background: #f3faf3;
+      color: var(--green);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .checkout-notice strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green);
+    }
+
+
     .checkout-modal {
       position: fixed;
       inset: 0;
@@ -1540,7 +1611,7 @@
         <span id="cartTotal">A$0</span>
       </div>
 
-      <button class="checkout-btn" type="button" onclick="openCheckout()">Checkout</button>
+      <button class="checkout-btn" type="button" onclick="openCheckout()">Continue to order details</button>
 
       <p class="cart-note">Customer details and delivery address will be collected before secure payment.</p>
     </div>
@@ -1584,10 +1655,15 @@
           <textarea id="checkoutNote" placeholder="Optional delivery notes"></textarea>
         </div>
 
+        <div class="checkout-notice">
+          <strong>Payment activation notice</strong>
+          Secure online payment is being activated. You can still submit your order details now, and we will confirm payment manually if checkout is not available yet.
+        </div>
+
         <div class="checkout-summary" id="checkoutSummary"></div>
 
         <div class="payment-placeholder" id="paymentContainer">
-          Secure payment will load here after customer details are submitted.
+          Secure payment will load here once payment is active. For now, please submit your order details and we will confirm payment manually.
         </div>
 
         <button class="pay-btn" type="submit">Continue to payment</button>
@@ -1654,7 +1730,13 @@
       const cartItems = document.getElementById('cartItems');
 
       if (!items.length) {
-        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty. Add a yerba mate product to start your order.</p>';
+        cartItems.innerHTML = `
+          <div class="empty-cart-card">
+            <strong>Your cart is empty.</strong>
+            <p>Start with a beginner-friendly mate kit or choose your favourite yerba mate.</p>
+            <a href="#shop" onclick="closeCart()">Shop starter kits</a>
+          </div>
+        `;
         return;
       }
 
@@ -1668,6 +1750,9 @@
               <button type="button" onclick="updateQty('${item.id}', -1)">−</button>
               <span>${item.qty}</span>
               <button type="button" onclick="updateQty('${item.id}', 1)">+</button>
+            </div>
+            <div class="cart-actions-row">
+              <button class="remove-item-btn" type="button" onclick="removeFromCart('${item.id}')">Remove</button>
             </div>
           </div>
           <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
@@ -1694,6 +1779,12 @@
     function updateQty(productId, change) {
       cart[productId] = (cart[productId] || 0) + change;
       if (cart[productId] <= 0) delete cart[productId];
+      saveCart();
+      renderCart();
+    }
+
+    function removeFromCart(productId) {
+      delete cart[productId];
       saveCart();
       renderCart();
     }
