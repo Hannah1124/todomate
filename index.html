@@ -82,6 +82,24 @@
       white-space: nowrap;
     }
 
+    .logo-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-brand img {
+      height: 42px;
+      width: auto;
+      max-width: 190px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-fallback {
+      display: none;
+    }
+
     .nav {
       display: none;
     }
@@ -132,10 +150,15 @@
     }
 
     .search-icon {
+      border: 0;
+      background: transparent;
+      color: #fff;
       font-size: 34px;
       line-height: 1;
       font-weight: 700;
       opacity: .95;
+      cursor: pointer;
+      padding: 0;
     }
 
     .menu-toggle {
@@ -183,6 +206,90 @@
 
     body.menu-open .menu-dropdown {
       display: flex;
+    }
+
+    .search-panel {
+      position: absolute;
+      top: calc(100% - 10px);
+      right: 0;
+      width: min(480px, calc(100vw - 32px));
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0,66,37,.16);
+      display: none;
+      z-index: 90;
+      overflow: hidden;
+    }
+
+    body.search-open .search-panel {
+      display: block;
+    }
+
+    .search-box {
+      display: grid;
+      grid-template-columns: 1fr 44px;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,66,37,.10);
+    }
+
+    .search-box input {
+      height: 54px;
+      border: 0;
+      padding: 0 18px;
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+      background: #fff;
+    }
+
+    .search-box button {
+      height: 54px;
+      border: 0;
+      background: #fff;
+      color: var(--green);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .search-results {
+      max-height: 360px;
+      overflow: auto;
+      padding: 8px;
+    }
+
+    .search-result-item {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--green);
+      text-align: left;
+      padding: 14px 12px;
+      cursor: pointer;
+      display: block;
+      border-bottom: 1px solid rgba(0,66,37,.08);
+    }
+
+    .search-result-item:hover {
+      background: #f4f8f5;
+    }
+
+    .search-result-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .search-result-meta {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .search-empty {
+      padding: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .hero {
@@ -247,8 +354,9 @@
       margin: 0 0 26px;
       font-size: clamp(48px, 4.8vw, 76px);
       line-height: .95;
-      font-weight: 500;
+      font-weight: 900;
       letter-spacing: -.035em;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
     }
 
     .hero-copy p {
@@ -558,6 +666,19 @@
       letter-spacing: -.01em;
     }
 
+    .footer-logo-brand {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer-logo-brand img {
+      height: 38px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
+    }
+
     .footer-links {
       display: flex;
       gap: 26px;
@@ -839,6 +960,11 @@
         letter-spacing: 0;
       }
 
+      .logo-brand img {
+        height: 34px;
+        max-width: 150px;
+      }
+
       .nav {
         display: none;
       }
@@ -859,6 +985,21 @@
         right: 0;
         left: auto;
         min-width: 220px;
+      }
+
+      .search-panel {
+        top: calc(100% - 2px);
+        right: 0;
+        width: calc(100vw - 28px);
+      }
+
+      .search-box input {
+        height: 50px;
+        font-size: 14px;
+      }
+
+      .search-box button {
+        height: 50px;
       }
 
       .header-actions {
@@ -925,7 +1066,8 @@
         line-height: .98;
         letter-spacing: -.035em;
         margin-bottom: 18px;
-        font-weight: 500;
+        font-weight: 900;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.22);
       }
 
       .hero-copy p {
@@ -1159,12 +1301,15 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#home">ToDo Mate</a>
+      <a class="brand logo-brand" href="#home" aria-label="ToDo Mate home">
+        <img src="./logo-white.png" alt="ToDo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
+        <span class="brand-fallback">ToDo Mate</span>
+      </a>
 
       <div class="header-actions">
         <button class="cart-btn" type="button" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
         <a class="outline-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book now</a>
-        <a class="search-icon" href="#shop" aria-label="Search">⌕</a>
+        <button class="search-icon" type="button" aria-label="Search products" onclick="openSearch()">⌕</button>
         <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMenu()">☰</button>
       </div>
 
@@ -1172,6 +1317,14 @@
         <a href="#home" onclick="closeMenu()">Home</a>
         <a href="#shop" onclick="closeMenu()">Mate Shop</a>
         <a href="#services" onclick="closeMenu()">Cultural Experience</a>
+      </div>
+
+      <div class="search-panel" id="searchPanel" aria-label="Search panel">
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="Search mate, kits or experiences..." oninput="performSearch()" autocomplete="off">
+          <button type="button" onclick="closeSearch()" aria-label="Close search">×</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
       </div>
     </div>
   </header>
@@ -1342,7 +1495,10 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">ToDo Mate</div>
+      <a class="footer-brand footer-logo-brand" href="#home" aria-label="ToDo Mate home">
+        <img src="./logo-white.png" alt="ToDo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
+        <span class="brand-fallback">ToDo Mate</span>
+      </a>
       <div class="footer-links">
         <a href="#shop">Shop</a>
         <a href="#culture">Culture</a>
@@ -1627,6 +1783,104 @@
       const clickedToggle = toggle.contains(event.target);
 
       if (!clickedInsideMenu && !clickedToggle) {
+        closeMenu();
+      }
+    });
+
+    function openSearch() {
+      closeMenu();
+      document.body.classList.add('search-open');
+      setTimeout(() => {
+        const input = document.getElementById('searchInput');
+        if (input) input.focus();
+      }, 50);
+      performSearch();
+    }
+
+    function closeSearch() {
+      document.body.classList.remove('search-open');
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+    }
+
+    function getSearchableItems() {
+      const productCards = Array.from(document.querySelectorAll('.product-card')).map(card => {
+        const title = card.querySelector('h3')?.textContent?.trim() || '';
+        const desc = card.querySelector('.product-desc')?.textContent?.trim() || '';
+        const price = card.querySelector('.product-price')?.textContent?.trim() || '';
+        return {
+          type: 'Product',
+          title,
+          desc,
+          meta: price,
+          target: card
+        };
+      });
+
+      const serviceCards = Array.from(document.querySelectorAll('.service-card')).map(card => {
+        const title = card.querySelector('h3')?.textContent?.trim() || '';
+        const desc = card.querySelector('p')?.textContent?.trim() || '';
+        return {
+          type: 'Experience',
+          title,
+          desc,
+          meta: 'Book an experience',
+          target: card
+        };
+      });
+
+      return [...productCards, ...serviceCards];
+    }
+
+    function performSearch() {
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+      if (!input || !results) return;
+
+      const query = input.value.trim().toLowerCase();
+      const items = getSearchableItems();
+      const matches = query
+        ? items.filter(item => `${item.title} ${item.desc} ${item.meta} ${item.type}`.toLowerCase().includes(query))
+        : items.slice(0, 6);
+
+      if (!matches.length) {
+        results.innerHTML = '<div class="search-empty">No matching products or experiences found. Try “Playadito”, “kit”, “tasting” or “corporate”.</div>';
+        return;
+      }
+
+      results.innerHTML = matches.map((item, index) => `
+        <button class="search-result-item" type="button" onclick="goToSearchResult(${index})">
+          <div class="search-result-title">${item.title}</div>
+          <div class="search-result-meta">${item.type} · ${item.meta}</div>
+        </button>
+      `).join('');
+
+      window.__todoMateSearchMatches = matches;
+    }
+
+    function goToSearchResult(index) {
+      const item = window.__todoMateSearchMatches?.[index];
+      if (!item || !item.target) return;
+      closeSearch();
+      item.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    document.addEventListener('click', function (event) {
+      const panel = document.getElementById('searchPanel');
+      const searchButton = document.querySelector('.search-icon');
+      if (!panel || !searchButton) return;
+
+      const clickedInsideSearch = panel.contains(event.target);
+      const clickedSearchButton = searchButton.contains(event.target);
+
+      if (!clickedInsideSearch && !clickedSearchButton && document.body.classList.contains('search-open')) {
+        closeSearch();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeSearch();
         closeMenu();
       }
     });
