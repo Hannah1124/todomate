@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>ToDo Mate | Yerba Mate in Australia</title>
-  <meta name="description" content="ToDo Mate brings yerba mate, mate kits, gourds, bombillas and mate cultural experiences to Australia." />
+  <title>Todo Mate | Yerba Mate in Australia</title>
+  <meta name="description" content="Todo Mate brings yerba mate, mate kits, gourds, bombillas and mate cultural experiences to Australia." />
   <meta name="keywords" content="yerba mate Australia, mate starter kit, bombilla, mate gourd, mate tasting Melbourne" />
 
-  <meta property="og:title" content="ToDo Mate | More than a drink" />
+  <meta property="og:title" content="Todo Mate | More than a drink" />
   <meta property="og:description" content="Yerba mate, mate kits and cultural experiences — thoughtfully curated in Australia." />
   <meta property="og:type" content="website" />
 
@@ -65,7 +65,7 @@
 
     .header-inner {
       position: relative;
-      height: 116px;
+      height: 92px;
       width: min(var(--container), calc(100% - 92px));
       margin: 0 auto;
       display: flex;
@@ -85,19 +85,26 @@
     .logo-brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .logo-brand img {
-      height: 42px;
+      height: 48px;
       width: auto;
-      max-width: 190px;
+      max-width: 58px;
       object-fit: contain;
       display: block;
+      flex-shrink: 0;
     }
 
     .brand-fallback {
-      display: none;
+      display: inline;
+      color: #fff;
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: .02em;
+      white-space: nowrap;
     }
 
     .nav {
@@ -669,14 +676,16 @@
     .footer-logo-brand {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
     }
 
     .footer-logo-brand img {
-      height: 38px;
+      height: 42px;
       width: auto;
-      max-width: 180px;
+      max-width: 52px;
       object-fit: contain;
       display: block;
+      flex-shrink: 0;
     }
 
     .footer-links {
@@ -961,8 +970,13 @@
       }
 
       .logo-brand img {
-        height: 34px;
-        max-width: 150px;
+        height: 38px;
+        max-width: 46px;
+      }
+
+      .brand-fallback {
+        font-size: 20px;
+        letter-spacing: 0;
       }
 
       .nav {
@@ -1301,9 +1315,9 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand logo-brand" href="#home" aria-label="ToDo Mate home">
-        <img src="./logo-white.png" alt="ToDo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
-        <span class="brand-fallback">ToDo Mate</span>
+      <a class="brand logo-brand" href="#home" aria-label="Todo Mate home">
+        <img src="./logo-white.png" alt="Todo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
+        <span class="brand-fallback">Todo Mate</span>
       </a>
 
       <div class="header-actions">
@@ -1444,7 +1458,7 @@
             <h2>Why mate?</h2>
             <p>Yerba mate is more than a drink. Across South America, it is a daily ritual shared between friends, family and community — one gourd, one bombilla, passed from hand to hand.</p>
             <p>It is a simple invitation to slow down, talk honestly and be present with each other. More than a beverage, mate carries a culture of sharing, warmth and connection.</p>
-            <p>ToDo Mate brings this ritual to Australia for people who are curious about a different way of gathering: slower, warmer and more meaningful.</p>
+            <p>Todo Mate brings this ritual to Australia for people who are curious about a different way of gathering: slower, warmer and more meaningful.</p>
             <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener" style="width: fit-content; margin-top: 18px;">Explore the ritual</a>
           </div>
         </div>
@@ -1495,9 +1509,9 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <a class="footer-brand footer-logo-brand" href="#home" aria-label="ToDo Mate home">
-        <img src="./logo-white.png" alt="ToDo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
-        <span class="brand-fallback">ToDo Mate</span>
+      <a class="footer-brand footer-logo-brand" href="#home" aria-label="Todo Mate home">
+        <img src="./logo-white.png" alt="Todo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
+        <span class="brand-fallback">Todo Mate</span>
       </a>
       <div class="footer-links">
         <a href="#shop">Shop</a>
