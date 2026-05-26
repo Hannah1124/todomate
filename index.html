@@ -987,6 +987,92 @@
       resize: vertical;
     }
 
+    .delivery-method {
+      grid-column: 1 / -1;
+    }
+
+    .delivery-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .delivery-option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .delivery-option input {
+      width: auto;
+      margin: 0;
+      accent-color: var(--green);
+    }
+
+    .delivery-option:has(input:checked) {
+      border-color: var(--green);
+      background: var(--mint);
+      box-shadow: inset 0 0 0 1px var(--green);
+    }
+
+    .pickup-note {
+      grid-column: 1 / -1;
+      display: none;
+      padding: 16px 18px;
+      border: 1px solid rgba(0, 66, 37, .16);
+      background: #f3faf3;
+      color: var(--green);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .pickup-note.is-visible {
+      display: block;
+    }
+
+    .checkout-summary-items {
+      display: grid;
+      gap: 10px;
+      margin: 12px 0 14px;
+    }
+
+    .checkout-summary-item,
+    .checkout-summary-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .checkout-summary-item strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .checkout-summary-item span,
+    .checkout-summary-row span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .checkout-summary-total {
+      border-top: 1px solid rgba(0, 66, 37, .16);
+      padding-top: 12px;
+      margin-top: 12px;
+      color: var(--green);
+      font-weight: 800;
+    }
+
     .checkout-summary,
     .payment-placeholder {
       grid-column: 1 / -1;
@@ -1481,12 +1567,12 @@
 
           <article class="product-card">
             <div class="product-image">
-              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Torpedo">
+              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Starter">
             </div>
             <div class="product-body">
-              <h3>Mate Kit | Torpedo</h3>
-              <p class="product-desc">Beginner-friendly mate starter kit with Playadito yerba and a classic torpedo cup.</p>
-              <div class="product-price">A$58.00</div>
+              <h3>Mate Kit | Starter</h3>
+              <p class="product-desc">Beginner-friendly mate starter kit with one mate cup, one bombilla straw, 1kg yerba mate and a beginner guide booklet.</p>
+              <div class="product-price">A$59.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('kitTorpedo')">Add to cart</button>
             </div>
@@ -1517,6 +1603,113 @@
               <button class="add-btn" type="button" onclick="addToCart('kitAdvanced')">Add to cart</button>
             </div>
           </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-3kg-playadito.webp" alt="3kg Mate Package Playadito">
+            </div>
+            <div class="product-body">
+              <h3>3kg Mate Package | Playadito</h3>
+              <p class="product-desc">A value pack for regular mate drinkers. Includes three packs of Playadito yerba mate, smooth and beginner-friendly for everyday drinking.</p>
+              <div class="product-price">A$48.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('packagePlayadito3kg')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-3kg-baldo.webp" alt="3kg Mate Package Baldo">
+            </div>
+            <div class="product-body">
+              <h3>3kg Mate Package | Baldo</h3>
+              <p class="product-desc">A stronger Uruguayan-style value pack for people who enjoy a deeper mate flavour.</p>
+              <div class="product-price">A$48.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('packageBaldo3kg')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-3kg-la-tranquera.webp" alt="3kg Mate Package La Tranquera">
+            </div>
+            <div class="product-body">
+              <h3>3kg Mate Package | La Tranquera</h3>
+              <p class="product-desc">A classic La Tranquera value pack for everyday mate drinkers. Includes three packs with a smooth traditional flavour.</p>
+              <div class="product-price">A$48.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('packageLaTranquera3kg')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-la-tranquera-tradicional-500g.webp" alt="La Tranquera Tradicional 500g">
+            </div>
+            <div class="product-body">
+              <h3>La Tranquera | Tradicional | 500g</h3>
+              <p class="product-desc">A traditional Argentinian yerba mate with a balanced flavour, perfect as an affordable refill or first taste.</p>
+              <div class="product-price">A$9.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('laTranquera500g')">Add to cart</button>
+            </div>
+          </article>
+
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-cup-trucky-argentina-flag.png" alt="MATE CUP Trucky Argentina Flag">
+            </div>
+            <div class="product-body">
+              <h3>MATE CUP | Trucky Argentina Flag</h3>
+              <p class="product-desc">An Argentina-inspired mate cup set with bombilla straw. A beautiful everyday option for customers who already have yerba mate at home.</p>
+              <div class="product-price">A$50.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('cupTruckyArgentina')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-cup-imperial.webp" alt="MATE CUP Imperial">
+            </div>
+            <div class="product-body">
+              <h3>MATE CUP | Imperial</h3>
+              <p class="product-desc">A premium imperial-style mate cup with bombilla, designed for a more traditional and elevated mate ritual.</p>
+              <div class="product-price">A$80.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('cupImperial')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-gourd-handmade-natural.jpg" alt="Mate Gourd Set Handmade Natural">
+            </div>
+            <div class="product-body">
+              <h3>Mate Gourd Set | Handmade Natural</h3>
+              <p class="product-desc">A handmade natural mate gourd set including one original mate cup, one bombilla straw and one cleaning brush.</p>
+              <div class="product-price">A$49.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('gourdHandmadeNatural')">Add to cart</button>
+            </div>
+          </article>
+
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-bombilla-parrot-beak.png" alt="Stainless Steel Parrot Beak Bombilla">
+            </div>
+            <div class="product-body">
+              <h3>STRAW Bombilla | Stainless Steel Parrot Beak</h3>
+              <p class="product-desc">A durable stainless steel bombilla straw with a parrot beak filter, essential for enjoying yerba mate smoothly.</p>
+              <div class="product-price">A$18.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('bombillaParrotBeak')">Add to cart</button>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -1613,7 +1806,7 @@
 
       <button class="checkout-btn" type="button" onclick="openCheckout()">Continue to order details</button>
 
-      <p class="cart-note">Customer details and delivery address will be collected before secure payment.</p>
+      <p class="cart-note">Free shipping on orders A$59+. Orders below A$59: A$9 flat shipping. Pickup available at 18/59 Queens Road, Melbourne VIC 3004.</p>
     </div>
   </aside>
 
@@ -1625,6 +1818,26 @@
       </div>
 
       <form class="checkout-body" onsubmit="startSecureCheckout(event)">
+        <div class="delivery-method">
+          <label>Delivery method</label>
+          <div class="delivery-options">
+            <label class="delivery-option">
+              <input type="radio" name="deliveryMethod" value="ship" checked onchange="updateDeliveryMethod()">
+              Ship
+            </label>
+            <label class="delivery-option">
+              <input type="radio" name="deliveryMethod" value="pickup" onchange="updateDeliveryMethod()">
+              Pickup
+            </label>
+          </div>
+        </div>
+
+        <div class="pickup-note" id="pickupNote">
+          <strong>Pickup address</strong><br>
+          18/59 Queens Road, Melbourne VIC 3004<br>
+          We will confirm pickup time after receiving your order.
+        </div>
+
         <div>
           <label for="checkoutName">Name</label>
           <input id="checkoutName" type="text" required placeholder="Your name">
@@ -1640,17 +1853,17 @@
           <input id="checkoutPhone" type="tel" placeholder="Your phone number">
         </div>
 
-        <div>
+        <div id="postcodeGroup">
           <label for="checkoutPostcode">Postcode</label>
           <input id="checkoutPostcode" type="text" required placeholder="e.g. 3000">
         </div>
 
-        <div class="form-full">
+        <div class="form-full" id="addressGroup">
           <label for="checkoutAddress">Delivery address</label>
           <input id="checkoutAddress" type="text" required placeholder="Street, suburb, state">
         </div>
 
-        <div class="form-full">
+        <div class="form-full" id="noteGroup">
           <label for="checkoutNote">Delivery note</label>
           <textarea id="checkoutNote" placeholder="Optional delivery notes"></textarea>
         </div>
@@ -1691,8 +1904,8 @@
         image: 'product-canarias-1kg.jpg'
       },
       kitTorpedo: {
-        name: 'Mate Kit | Torpedo',
-        price: 58,
+        name: 'Mate Kit | Starter',
+        price: 59,
         image: 'product-mate-kit-torpedo.jpg'
       },
       kitPro: {
@@ -1704,6 +1917,46 @@
         name: 'Mate Kit | Advanced',
         price: 78,
         image: 'product-mate-kit-advanced.jpg'
+      },
+      packagePlayadito3kg: {
+        name: '3kg Mate Package | Playadito',
+        price: 48,
+        image: 'product-3kg-playadito.webp'
+      },
+      packageBaldo3kg: {
+        name: '3kg Mate Package | Baldo',
+        price: 48,
+        image: 'product-3kg-baldo.webp'
+      },
+      packageLaTranquera3kg: {
+        name: '3kg Mate Package | La Tranquera',
+        price: 48,
+        image: 'product-3kg-la-tranquera.webp'
+      },
+      laTranquera500g: {
+        name: 'La Tranquera | Tradicional | 500g',
+        price: 9,
+        image: 'product-la-tranquera-tradicional-500g.webp'
+      },
+      cupTruckyArgentina: {
+        name: 'MATE CUP | Trucky Argentina Flag',
+        price: 50,
+        image: 'product-cup-trucky-argentina-flag.png'
+      },
+      cupImperial: {
+        name: 'MATE CUP | Imperial',
+        price: 80,
+        image: 'product-cup-imperial.webp'
+      },
+      gourdHandmadeNatural: {
+        name: 'Mate Gourd Set | Handmade Natural',
+        price: 49,
+        image: 'product-gourd-handmade-natural.jpg'
+      },
+      bombillaParrotBeak: {
+        name: 'STRAW Bombilla | Stainless Steel Parrot Beak',
+        price: 18,
+        image: 'product-bombilla-parrot-beak.png'
       }
     };
 
@@ -1793,23 +2046,105 @@
       const items = getCartSummary();
       if (!items.length) return openCart();
       document.body.classList.add('checkout-open');
-      renderCheckoutSummary();
+      updateDeliveryMethod();
     }
 
     function closeCheckout() {
       document.body.classList.remove('checkout-open');
     }
 
+    function getDeliveryMethod() {
+      return document.querySelector('input[name="deliveryMethod"]:checked')?.value || 'ship';
+    }
+
+    function getProductSubtotal() {
+      return getCartSummary().reduce((sum, item) => sum + item.qty * item.price, 0);
+    }
+
+    function getShippingFee() {
+      const subtotal = getProductSubtotal();
+      const method = getDeliveryMethod();
+
+      if (method === 'pickup') return 0;
+      if (subtotal >= 59) return 0;
+      return 9;
+    }
+
+    function getOrderTotal() {
+      return getProductSubtotal() + getShippingFee();
+    }
+
+    function updateDeliveryMethod() {
+      const method = getDeliveryMethod();
+      const isPickup = method === 'pickup';
+
+      const pickupNote = document.getElementById('pickupNote');
+      const postcodeGroup = document.getElementById('postcodeGroup');
+      const addressGroup = document.getElementById('addressGroup');
+      const noteGroup = document.getElementById('noteGroup');
+      const postcodeInput = document.getElementById('checkoutPostcode');
+      const addressInput = document.getElementById('checkoutAddress');
+
+      pickupNote?.classList.toggle('is-visible', isPickup);
+
+      if (postcodeGroup) postcodeGroup.style.display = isPickup ? 'none' : 'block';
+      if (addressGroup) addressGroup.style.display = isPickup ? 'none' : 'block';
+      if (noteGroup) noteGroup.style.display = isPickup ? 'none' : 'block';
+
+      if (postcodeInput) postcodeInput.required = !isPickup;
+      if (addressInput) addressInput.required = !isPickup;
+
+      renderCheckoutSummary();
+    }
+
     function renderCheckoutSummary() {
       const items = getCartSummary();
-      const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
+      const subtotal = getProductSubtotal();
+      const shippingFee = getShippingFee();
+      const total = getOrderTotal();
+      const method = getDeliveryMethod();
       const summary = document.getElementById('checkoutSummary');
 
+      const shippingLabel = method === 'pickup'
+        ? 'Pickup'
+        : subtotal >= 59
+          ? 'Shipping — free for orders A$59+'
+          : 'Shipping — flat rate';
+
       summary.innerHTML = `
-        <strong>Order summary</strong><br>
-        ${items.map(item => `${item.qty} × ${item.name} — A$${(item.qty * item.price).toFixed(2)}`).join('<br>')}
-        <br><br><strong>Product total: A$${total.toFixed(2)}</strong><br>
-        Delivery fee can be calculated by postcode or added as a flat shipping fee.
+        <strong>Order summary</strong>
+
+        <div class="checkout-summary-items">
+          ${items.map(item => `
+            <div class="checkout-summary-item">
+              <div>
+                <strong>${item.name}</strong><br>
+                <span>${item.qty} × A$${item.price.toFixed(2)}</span>
+              </div>
+              <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="checkout-summary-row">
+          <span>Product subtotal</span>
+          <strong>A$${subtotal.toFixed(2)}</strong>
+        </div>
+
+        <div class="checkout-summary-row">
+          <span>${shippingLabel}</span>
+          <strong>${shippingFee === 0 ? 'Free' : `A$${shippingFee.toFixed(2)}`}</strong>
+        </div>
+
+        <div class="checkout-summary-row checkout-summary-total">
+          <span>Total</span>
+          <strong>A$${total.toFixed(2)}</strong>
+        </div>
+
+        ${method === 'pickup'
+          ? '<br><span>Pickup address: 18/59 Queens Road, Melbourne VIC 3004</span>'
+          : '<br><span>Free shipping on orders A$59+. Orders below A$59: A$9 flat shipping.</span>'
+        }
       `;
     }
 
@@ -1819,19 +2154,34 @@
       const items = getCartSummary();
       if (!items.length) return;
 
+      const deliveryMethod = getDeliveryMethod();
+      const shippingFee = getShippingFee();
+      const productSubtotal = getProductSubtotal();
+      const orderTotal = getOrderTotal();
+
       const customer = {
         name: document.getElementById('checkoutName').value,
         email: document.getElementById('checkoutEmail').value,
         phone: document.getElementById('checkoutPhone').value,
-        address: document.getElementById('checkoutAddress').value,
-        postcode: document.getElementById('checkoutPostcode').value,
-        note: document.getElementById('checkoutNote').value
+        address: deliveryMethod === 'pickup'
+          ? 'Pickup: 18/59 Queens Road, Melbourne VIC 3004'
+          : document.getElementById('checkoutAddress').value,
+        postcode: deliveryMethod === 'pickup'
+          ? '3004'
+          : document.getElementById('checkoutPostcode').value,
+        note: deliveryMethod === 'pickup'
+          ? 'Pickup order'
+          : document.getElementById('checkoutNote').value
       };
 
       const payload = {
         type: 'product_order',
         currency: 'AUD',
         items,
+        deliveryMethod,
+        shippingFee,
+        productSubtotal,
+        orderTotal,
         customer,
         returnUrl: window.location.origin + '/payment-result'
       };
