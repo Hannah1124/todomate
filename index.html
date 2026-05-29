@@ -1534,11 +1534,784 @@
         padding: 0 9px;
       }
     }
+  
+    /* Policy pages are hidden from the homepage.
+       They only appear when a footer link targets them. */
+    .policy-section {
+      background: #f7fbf4;
+      border-top: 1px solid rgba(0, 66, 37, .10);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .policy-page {
+      display: none;
+      padding: 80px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .policy-page:target {
+      display: block;
+    }
+
+    .policy-page-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 44px;
+      box-shadow: 0 10px 26px rgba(0,66,37,.05);
+    }
+
+    .policy-page h2 {
+      margin: 8px 0 24px;
+      color: var(--green);
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -.05em;
+      font-weight: 500;
+    }
+
+    .policy-page h3 {
+      margin: 26px 0 8px;
+      color: var(--green);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .policy-page p,
+    .policy-page li {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .policy-page ul {
+      margin: 10px 0 18px;
+      padding-left: 20px;
+    }
+
+    .policy-page strong,
+    .policy-page a {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .policy-page a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .policy-back {
+      margin-top: 32px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px !important;
+    }
+
+    @media (max-width: 700px) {
+      .policy-page {
+        padding: 56px 0;
+      }
+
+      .policy-page-inner {
+        padding: 28px;
+      }
+    }
+
+  
+    /* Terms page is hidden from the clean homepage.
+       It appears only when the footer Terms link targets #terms. */
+    .policy-section,
+    .policy-page {
+      display: none !important;
+    }
+
+    .terms-section {
+      display: none;
+      background: #f7fbf4;
+      border-top: 1px solid rgba(0, 66, 37, .10);
+      padding-top: 80px;
+      padding-bottom: 80px;
+      scroll-margin-top: 96px;
+    }
+
+    .terms-section:target {
+      display: block;
+    }
+
+    .terms-page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 44px;
+      box-shadow: 0 10px 26px rgba(0,66,37,.05);
+    }
+
+    .terms-page h2 {
+      margin: 8px 0 26px;
+      color: var(--green);
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -.05em;
+      font-weight: 500;
+    }
+
+    .terms-page h3 {
+      margin: 30px 0 10px;
+      color: var(--green);
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .terms-page p,
+    .terms-page li {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .terms-page ul {
+      margin: 10px 0 18px;
+      padding-left: 20px;
+    }
+
+    .terms-page strong,
+    .terms-page a {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .terms-page a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .terms-back {
+      margin-top: 34px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px !important;
+    }
+
+    @media (max-width: 700px) {
+      .terms-section {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+
+      .terms-page {
+        padding: 28px;
+      }
+    }
+
+  
+    /* Clean two-column footer */
+    .footer-links-two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(150px, auto));
+      gap: 42px;
+      align-items: start;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .search-empty {
+      padding: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .footer-inner {
+        align-items: flex-start;
+      }
+
+      .footer-links-two-col {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+    }
+
+  
+    /* Footer icon + text rows */
+    .footer-links-stacked {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-icon-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-icon-row a {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.82);
+      transition: all .2s ease;
+    }
+
+    .footer-icon-row a:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,.48);
+      transform: translateY(-1px);
+    }
+
+    .footer-icon-row svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-icon-row a:nth-child(2) svg {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .footer-text-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-text-row a {
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footer-text-row a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 700px) {
+      .footer-links-stacked {
+        gap: 16px;
+      }
+
+      .footer-icon-row {
+        gap: 14px;
+      }
+
+      .footer-text-row {
+        gap: 16px;
+      }
+
+      .footer-text-row a {
+        font-size: 13px;
+      }
+    }
+
+  
+    /* Refined footer: one calm row with generous spacing */
+    .footer {
+      padding: 42px 0;
+    }
+
+    .footer-inner {
+      gap: 24px;
+    }
+
+    .footer-inline {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .footer-brand-mini {
+      justify-self: start;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .footer-icon-row {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: nowrap;
+    }
+
+    .footer-icon-row a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.78);
+      transition: all .2s ease;
+    }
+
+    .footer-icon-row a:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,.50);
+      transform: translateY(-1px);
+    }
+
+    .footer-icon-row svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-icon-row a:nth-child(2) svg {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .footer-text-row {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer-text-row a {
+      color: rgba(255,255,255,.68);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .footer-text-row a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inline {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        text-align: center;
+      }
+
+      .footer-brand-mini,
+      .footer-icon-row,
+      .footer-text-row {
+        justify-self: center;
+      }
+
+      .footer-text-row {
+        justify-content: center;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer {
+        padding: 34px 0;
+      }
+
+      .footer-brand-mini {
+        font-size: 24px;
+      }
+
+      .footer-text-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+  
+    /* Final clean footer layout */
+    .footer {
+      padding: 34px 0;
+      background: var(--green);
+    }
+
+    .footer-clean-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .footer-brand-lockup {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .footer-brand-lockup img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-brand-lockup span {
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .footer-icon-row {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .footer-icon-row a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.76);
+      transition: all .2s ease;
+    }
+
+    .footer-icon-row a:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,.48);
+      transform: translateY(-1px);
+    }
+
+    .footer-icon-row svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-icon-row a:nth-child(2) svg {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .footer-text-row {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-text-row a {
+      color: rgba(255,255,255,.68);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .footer-text-row a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .footer-clean-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .footer-brand-lockup,
+      .footer-icon-row,
+      .footer-text-row {
+        justify-self: center;
+      }
+
+      .footer-text-row {
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer {
+        padding: 30px 0;
+      }
+
+      .footer-brand-lockup span {
+        font-size: 22px;
+      }
+
+      .footer-brand-lockup img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .footer-text-row {
+        gap: 12px;
+      }
+
+      .footer-text-row a {
+        font-size: 10px;
+      }
+    }
+
+  
+    /* Original-style footer, simplified */
+    .footer {
+      padding: 46px 0;
+      background: var(--green);
+    }
+
+    .footer-original-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(26px, 4vw, 64px);
+      flex-wrap: nowrap;
+    }
+
+    .footer-logo-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      color: #ffffff;
+      text-decoration: none;
+      flex: 0 0 auto;
+    }
+
+    .footer-logo-brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-logo-brand span {
+      color: #ffffff;
+      font-size: clamp(28px, 2.4vw, 40px);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .16em;
+      white-space: nowrap;
+    }
+
+    .footer-main-links {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 3.4vw, 58px);
+      flex: 0 1 auto;
+      min-width: 0;
+    }
+
+    .footer-main-links a {
+      color: rgba(255,255,255,.70);
+      font-size: clamp(14px, 1.1vw, 18px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: .02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .footer-main-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-social-icons {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex: 0 0 auto;
+    }
+
+    .footer-social-icons a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.76);
+      transition: all .2s ease;
+    }
+
+    .footer-social-icons a:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,.50);
+      transform: translateY(-1px);
+    }
+
+    .footer-social-icons svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-social-icons a:last-child svg {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    @media (max-width: 1050px) {
+      .footer-original-row {
+        gap: 26px;
+      }
+
+      .footer-logo-brand span {
+        letter-spacing: .12em;
+      }
+
+      .footer-main-links {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .footer-original-row {
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .footer-main-links {
+        flex-wrap: wrap;
+        gap: 18px 26px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer {
+        padding: 38px 0;
+      }
+
+      .footer-logo-brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .footer-logo-brand span {
+        font-size: 26px;
+        letter-spacing: .12em;
+      }
+
+      .footer-main-links {
+        flex-direction: column;
+        gap: 13px;
+      }
+    }
+
+  
+    /* Footer brand lockup: match top header exactly */
+    .footer-logo-brand {
+      gap: 12px !important;
+    }
+
+    .footer-logo-brand img {
+      height: 48px !important;
+      width: auto !important;
+      max-width: 58px !important;
+      object-fit: contain !important;
+      display: block !important;
+      flex-shrink: 0 !important;
+    }
+
+    .footer-logo-brand span {
+      color: #ffffff !important;
+      font-size: 27px !important;
+      line-height: 1 !important;
+      font-weight: 600 !important;
+      letter-spacing: .02em !important;
+      white-space: nowrap !important;
+    }
+
+    @media (max-width: 700px) {
+      .footer-logo-brand img {
+        height: 40px !important;
+        width: auto !important;
+        max-width: 50px !important;
+      }
+
+      .footer-logo-brand span {
+        font-size: 22px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
 
-<body>
+<body id="top">
   <div class="top-strip"></div>
 
   <header class="site-header">
@@ -1556,8 +2329,7 @@
       </div>
 
       <div class="menu-dropdown" id="menuDropdown">
-        <a href="#home" onclick="closeMenu()">Home</a>
-        <a href="#shop" onclick="closeMenu()">Mate Shop</a>
+        <a href="#shop" onclick="closeMenu()">Shop</a>
         <a href="#services" onclick="closeMenu()">Cultural Experience</a>
       </div>
 
@@ -1882,123 +2654,82 @@
     </section>
   </main>
 
-
-    <section class="section policy-section" id="policies">
+    <section class="section terms-section" id="terms" aria-label="Todo Mate terms and policies">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="label">Policies & Contact</div>
-            <h2>Simple, clear information before you order.</h2>
-          </div>
-          <p class="section-copy">Shipping, pickup, refunds, privacy and contact details for Todo Mate customers in Australia.</p>
-        </div>
+        <article class="terms-page">
+          <div class="label">Todo Mate</div>
+          <h2>Terms & Policies</h2>
 
-        <div class="policy-grid">
-          <article class="policy-card" id="shipping-policy">
-            <h3>Shipping Policy</h3>
-            <p>We currently ship Todo Mate products within Australia.</p>
+          <h3>Shipping & Pickup</h3>
+          <p>We currently ship Todo Mate products within Australia.</p>
+          <ul>
+            <li>Orders of A$59 or more receive free standard shipping.</li>
+            <li>Orders below A$59 have a flat A$9 shipping fee.</li>
+            <li>Orders are usually prepared within 1–3 business days after payment is received.</li>
+          </ul>
+          <p>Pickup is available from 18/59 Queens Road, Melbourne VIC 3004. After your order is paid, we will confirm the pickup time with you by email.</p>
+          <p>Please make sure your delivery address is correct before placing an order. If you notice an error, contact us as soon as possible at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a>.</p>
 
-            <p><strong>Shipping fees</strong></p>
-            <ul>
-              <li>Orders of A$59 or more receive free standard shipping.</li>
-              <li>Orders below A$59 have a flat A$9 shipping fee.</li>
-            </ul>
+          <h3>Refunds & Returns</h3>
+          <p>We want you to be happy with your Todo Mate order. If your item is damaged, faulty, incorrect, or not as described, please contact us at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a> with your order details and photos where relevant.</p>
+          <p>Nothing in this policy limits your rights under Australian Consumer Law. If a product does not meet consumer guarantees, you may be entitled to a repair, replacement, refund, or other remedy.</p>
+          <p>For hygiene and food safety reasons, we generally cannot accept returns of opened yerba mate, used mate cups, bombillas, or opened food products for change of mind.</p>
+          <p>If you ordered the wrong item or changed your mind, contact us within 7 days of receiving your order. We may accept returns of unopened, unused products in their original packaging. Return shipping costs are usually the customer’s responsibility unless the item is faulty or incorrect.</p>
+          <p>Approved refunds will be processed back to the original payment method where possible.</p>
 
-            <p><strong>Processing time</strong></p>
-            <p>Orders are usually prepared within 1–3 business days after payment is received.</p>
+          <h3>Privacy</h3>
+          <p>Todo Mate respects your privacy. When you place an order or contact us, we may collect your name, email address, phone number, delivery or pickup details, order information, and payment-related information.</p>
+          <p>We use your information to process your order, confirm payment, arrange pickup or delivery, respond to enquiries, and improve our customer experience.</p>
+          <p>Payments are processed securely through Adyen. Todo Mate does not store your full card details.</p>
+          <p>We do not sell your personal information. We may share limited information with service providers where needed to process payments, send emails, or deliver orders.</p>
 
-            <p><strong>Delivery time</strong></p>
-            <p>Delivery times depend on the destination and carrier. We will contact you if there are any delays or issues with your order.</p>
+          <h3>Contact</h3>
+          <p>Email: <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a></p>
+          <p>Pickup location: 18/59 Queens Road, Melbourne VIC 3004</p>
+          <p>For order questions, please include your order reference or payment reference if available.</p>
 
-            <p><strong>Local pickup</strong></p>
-            <p>Pickup is available from 18/59 Queens Road, Melbourne VIC 3004. After your order is paid, we will confirm the pickup time with you by email.</p>
-
-            <p><strong>Incorrect address</strong></p>
-            <p>Please make sure your delivery address is correct before placing an order. If you notice an error, contact us as soon as possible at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a>.</p>
-          </article>
-
-          <article class="policy-card" id="refund-policy">
-            <h3>Refund & Returns Policy</h3>
-            <p>We want you to be happy with your Todo Mate order.</p>
-
-            <p>If your item is damaged, faulty, incorrect, or not as described, please contact us at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a> with your order details and photos where relevant.</p>
-
-            <p><strong>Your rights under Australian Consumer Law</strong></p>
-            <p>Nothing in this policy limits your rights under Australian Consumer Law. If a product does not meet consumer guarantees, you may be entitled to a repair, replacement, refund, or other remedy.</p>
-
-            <p><strong>Change of mind</strong></p>
-            <p>For hygiene and food safety reasons, we generally cannot accept returns of opened yerba mate, used mate cups, bombillas, or opened food products for change of mind.</p>
-
-            <p><strong>Unopened products</strong></p>
-            <p>If you ordered the wrong item or changed your mind, contact us within 7 days of receiving your order. We may accept returns of unopened, unused products in their original packaging. Return shipping costs are usually the customer’s responsibility unless the item is faulty or incorrect.</p>
-
-            <p><strong>Refund processing</strong></p>
-            <p>Approved refunds will be processed back to the original payment method where possible.</p>
-          </article>
-
-          <article class="policy-card" id="privacy-policy">
-            <h3>Privacy Policy</h3>
-            <p>Todo Mate respects your privacy.</p>
-
-            <p><strong>Information we collect</strong></p>
-            <p>When you place an order or contact us, we may collect your name, email address, phone number, delivery or pickup details, order information, and payment-related information.</p>
-
-            <p><strong>How we use your information</strong></p>
-            <p>We use your information to process your order, confirm payment, arrange pickup or delivery, respond to enquiries, and improve our customer experience.</p>
-
-            <p><strong>Payments</strong></p>
-            <p>Payments are processed securely through Adyen. Todo Mate does not store your full card details.</p>
-
-            <p><strong>Emails</strong></p>
-            <p>We may send you order confirmations, payment confirmations, and customer service messages related to your order.</p>
-
-            <p><strong>Sharing information</strong></p>
-            <p>We do not sell your personal information. We may share limited information with service providers where needed to process payments, send emails, or deliver orders.</p>
-
-            <p><strong>Contact</strong></p>
-            <p>If you have any privacy questions, contact us at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a>.</p>
-          </article>
-
-          <article class="policy-card" id="contact">
-            <h3>Contact</h3>
-            <p><strong>Todo Mate</strong></p>
-
-            <p><strong>Email</strong><br>
-            <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a></p>
-
-            <p><strong>Pickup location</strong><br>
-            18/59 Queens Road, Melbourne VIC 3004</p>
-
-            <p><strong>For order questions</strong><br>
-            Please include your order reference or payment reference if available.</p>
-
-            <p><strong>For cultural experiences</strong><br>
-            Contact us about mate tastings, private gatherings, or corporate mate sessions.</p>
-
-            <p><strong>Instagram</strong><br>
-            <a href="https://www.instagram.com/arielgdangelo?igsh=cDY4N2VxdDEzOWs=" target="_blank" rel="noopener">Follow Todo Mate on Instagram</a></p>
-          </article>
-        </div>
+          <p class="terms-back"><a href="#top">Back to top</a></p>
+        </article>
       </div>
     </section>
 
+
+  
+  
   <footer class="footer">
-    <div class="container footer-inner">
-      <a class="footer-brand footer-logo-brand" href="#home" aria-label="Todo Mate home">
-        <img src="./logo-white.png" alt="Todo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
-        <span class="brand-fallback">Todo Mate</span>
-      </a>
-      <div class="footer-links">
-        <a href="#shop">Shop</a>
-        <a href="#culture">Culture</a>
-        <a href="#services">Cultural Experience</a>
-        <a href="#shipping-policy">Shipping Policy</a>
-        <a href="#refund-policy">Refund & Returns</a>
-        <a href="#privacy-policy">Privacy Policy</a>
-        <a href="#contact">Contact</a>
-        <a href="mailto:hello@todomate.com.au">Email</a>
-        <a href="https://www.instagram.com/arielgdangelo?igsh=cDY4N2VxdDEzOWs=" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=61576281096128&mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+    <div class="container">
+      <div class="footer-original-row">
+        <a class="footer-logo-brand" href="#top" aria-label="Todo Mate home">
+          <img src="logo-white.png" alt="Todo Mate logo">
+          <span>Todo Mate</span>
+        </a>
+
+        <nav class="footer-main-links" aria-label="Footer navigation">
+          <a href="#shop">Shop</a>
+          <a href="#services">Cultural Experience</a>
+          <a href="#terms">T&amp;C</a>
+        </nav>
+
+        <div class="footer-social-icons" aria-label="Social and contact links">
+          <a href="mailto:hello@todomate.com.au" aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+              <path d="M4 7l8 6 8-6"></path>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/todomate.au?igsh=MXRweXJvMmVkZjR4cA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61576281096128&mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 8h3V4h-3c-3.2 0-5 1.8-5 5v3H6v4h3v4h4v-4h3.2l.8-4H13V9c0-.7.3-1 1-1z"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -2188,6 +2919,123 @@
     };
 
     let cart = JSON.parse(localStorage.getItem('todoMateCart') || '{}');
+
+
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+      document.body.classList.remove('search-open');
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+    }
+
+    function openSearch() {
+      document.body.classList.add('search-open');
+      document.body.classList.remove('menu-open');
+
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+
+      if (input) {
+        input.focus();
+      }
+
+      if (results && !input.value.trim()) {
+        results.innerHTML = `
+          <a href="#shop" onclick="closeSearch()">
+            <strong>Shop yerba mate products</strong>
+            <span>Browse mate, kits, gourds, cups and tea bags.</span>
+          </a>
+          <a href="#services" onclick="closeSearch()">
+            <strong>Cultural Experience</strong>
+            <span>Book a mate tasting or private cultural session.</span>
+          </a>
+          <a href="#terms" onclick="closeSearch()">
+            <strong>T&C</strong>
+            <span>Shipping, refunds, privacy and contact information.</span>
+          </a>
+        `;
+      }
+    }
+
+    function closeSearch() {
+      document.body.classList.remove('search-open');
+
+      const input = document.getElementById('searchInput');
+      if (input) {
+        input.value = '';
+      }
+    }
+
+    function performSearch() {
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+
+      if (!input || !results) return;
+
+      const query = input.value.trim().toLowerCase();
+
+      const productResults = Object.entries(products).map(([id, product]) => ({
+        title: product.name,
+        subtitle: `A$${product.price.toFixed(2)} · View in shop`,
+        href: '#shop',
+        keywords: `${product.name} yerba mate tea gourd bombilla cup kit straw package`,
+        onClick: `closeSearch()`
+      }));
+
+      const pageResults = [
+        {
+          title: 'Shop',
+          subtitle: 'Browse Todo Mate products.',
+          href: '#shop',
+          keywords: 'shop products yerba mate buy order cart',
+          onClick: 'closeSearch()'
+        },
+        {
+          title: 'Cultural Experience',
+          subtitle: 'Book a mate tasting or private session.',
+          href: '#services',
+          keywords: 'cultural experience tasting booking event workshop',
+          onClick: 'closeSearch()'
+        },
+        {
+          title: 'T&C',
+          subtitle: 'Shipping, refunds, privacy and contact information.',
+          href: '#terms',
+          keywords: 'terms conditions shipping refund privacy contact policy',
+          onClick: 'closeSearch()'
+        }
+      ];
+
+      const allResults = [...pageResults, ...productResults];
+      const matches = query
+        ? allResults.filter((item) => item.keywords.toLowerCase().includes(query) || item.title.toLowerCase().includes(query))
+        : pageResults;
+
+      if (!matches.length) {
+        results.innerHTML = '<div class="search-empty">No results found. Try searching “mate”, “kit”, “cup”, “tasting” or “shipping”.</div>';
+        return;
+      }
+
+      results.innerHTML = matches.slice(0, 8).map((item) => `
+        <a href="${item.href}" onclick="${item.onClick}">
+          <strong>${item.title}</strong>
+          <span>${item.subtitle}</span>
+        </a>
+      `).join('');
+    }
+
+    document.addEventListener('click', function (event) {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+
+      if (!header.contains(event.target)) {
+        closeMenu();
+        document.body.classList.remove('search-open');
+      }
+    });
+
 
     function saveCart() {
       localStorage.setItem('todoMateCart', JSON.stringify(cart));
