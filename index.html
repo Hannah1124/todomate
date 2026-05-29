@@ -2298,8 +2298,106 @@
             cart = {};
             saveCart();
             renderCart();
-            placeholder.innerHTML =
-              '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
+
+            placeholder.innerHTML = `
+              <div style="
+                background: #eaf4e8;
+                border: 1px solid rgba(0, 63, 37, 0.18);
+                padding: 30px;
+                text-align: center;
+                color: #003f25;
+              ">
+                <div style="
+                  width: 54px;
+                  height: 54px;
+                  border-radius: 50%;
+                  background: #003f25;
+                  color: #ffffff;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 18px;
+                  font-size: 28px;
+                  font-weight: 700;
+                ">
+                  ✓
+                </div>
+
+                <h3 style="
+                  margin: 0 0 10px;
+                  font-size: 25px;
+                  letter-spacing: -0.02em;
+                  color: #003f25;
+                ">
+                  Payment received
+                </h3>
+
+                <p style="
+                  margin: 0 auto 18px;
+                  max-width: 540px;
+                  line-height: 1.7;
+                  color: #5f6f67;
+                ">
+                  Thank you for your order. We’re preparing your mate ritual with care.
+                  We will confirm your pickup or delivery details shortly.
+                </p>
+
+                <div style="
+                  margin: 22px auto;
+                  padding: 17px;
+                  max-width: 540px;
+                  background: #ffffff;
+                  border: 1px solid rgba(0, 63, 37, 0.12);
+                  color: #003f25;
+                  line-height: 1.6;
+                ">
+                  Know someone who would love mate?<br>
+                  Share Todo Mate with a friend and invite them to start their own ritual.
+                </div>
+
+                <div style="
+                  display: flex;
+                  justify-content: center;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                  margin-top: 8px;
+                ">
+                  <button
+                    type="button"
+                    onclick="navigator.clipboard.writeText('https://todomate.com.au'); this.innerText='Link copied ✓';"
+                    style="
+                      background: #003f25;
+                      color: #ffffff;
+                      border: none;
+                      padding: 14px 22px;
+                      text-transform: uppercase;
+                      letter-spacing: 0.14em;
+                      font-weight: 800;
+                      cursor: pointer;
+                    "
+                  >
+                    Share with a friend
+                  </button>
+
+                  <button
+                    type="button"
+                    onclick="closeCheckout();"
+                    style="
+                      background: transparent;
+                      color: #003f25;
+                      border: 1px solid rgba(0, 63, 37, 0.35);
+                      padding: 14px 22px;
+                      text-transform: uppercase;
+                      letter-spacing: 0.14em;
+                      font-weight: 800;
+                      cursor: pointer;
+                    "
+                  >
+                    Continue shopping
+                  </button>
+                </div>
+              </div>
+            `;
           },
 
           onPaymentFailed: function () {
