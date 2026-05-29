@@ -1462,7 +1462,7 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
+  <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.68.0/adyen.css">
 </head>
 
 <body>
@@ -2263,61 +2263,25 @@
 
         placeholder.innerHTML = '<div id="adyen-dropin-container"></div>';
 
-        const adyenWeb = window.AdyenWeb || {};
-        const AdyenCheckoutConstructor = adyenWeb.AdyenCheckout || window.AdyenCheckout;
-        const DropinConstructor = adyenWeb.Dropin || window.Dropin;
-        const CardConstructor = adyenWeb.Card || window.Card;
+const checkout = await AdyenCheckout({
+  environment: 'test',
+  clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
+  session,
+  onPaymentCompleted: function () {
+    cart = {};
+    saveCart();
+    renderCart();
+    placeholder.innerHTML = '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
+  },
+  onError: function (error) {
+    console.error('Adyen payment error:', error);
+    placeholder.innerHTML =
+      'Payment could not be completed: ' +
+      (error && error.message ? error.message : 'Please try again.');
+  }
+});
 
-        if (!AdyenCheckoutConstructor) {
-          console.error('AdyenCheckout is not loaded.', {
-            AdyenWeb: window.AdyenWeb,
-            AdyenCheckout: window.AdyenCheckout
-          });
-          placeholder.innerHTML = 'AdyenCheckout is not loaded. Please refresh the page and try again.';
-          return;
-        }
-
-        const checkout = await AdyenCheckoutConstructor({
-          environment: 'test',
-          clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
-          session,
-          onPaymentCompleted: () => {
-            cart = {};
-            saveCart();
-            renderCart();
-            placeholder.innerHTML = '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
-          },
-          onPaymentFailed: () => {
-            placeholder.innerHTML = 'Payment was not successful. Please try again.';
-          },
-          onError: (error) => {
-            console.error('Adyen payment error:', error);
-            placeholder.innerHTML = 'Payment could not be completed: ' + (error && error.message ? error.message : 'Please try again.');
-          }
-        });
-
-        try {
-          if (DropinConstructor) {
-            if (CardConstructor) {
-              new DropinConstructor(checkout, {
-                paymentMethodComponents: [CardConstructor]
-              }).mount('#adyen-dropin-container');
-            } else {
-              new DropinConstructor(checkout).mount('#adyen-dropin-container');
-            }
-            return;
-          }
-
-          if (checkout.create) {
-            checkout.create('dropin').mount('#adyen-dropin-container');
-            return;
-          }
-
-          placeholder.innerHTML = 'Adyen Drop-in could not be created. DropinConstructor=' + Boolean(DropinConstructor) + ', checkout.create=' + Boolean(checkout.create);
-        } catch (dropinError) {
-          console.error('Drop-in render error:', dropinError);
-          placeholder.innerHTML = 'Adyen Drop-in render error: ' + (dropinError && dropinError.message ? dropinError.message : JSON.stringify(dropinError));
-        }
+checkout.create('dropin').mount('#adyen-dropin-container');
       } catch (error) {
         console.error('Checkout error:', error);
         placeholder.innerHTML = 'Secure payment could not be loaded. Please try again or contact us to complete your order.';
@@ -2326,6 +2290,6 @@
 
     renderCart();
   </script>
-  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.js"></script>
+  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.68.0/adyen.js"></script>
 </body>
 </html>
