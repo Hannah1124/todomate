@@ -2198,53 +2198,110 @@
       `;
     }
 
-    async function startSecureCheckout(event) {
-      if (event) event.preventDefault();
-      console.log('Todo Mate checkout button clicked');
 
-      const items = getCartSummary();
-      const placeholder = document.getElementById('paymentPlaceholder');
+    function safeDebugText(value) {
+      try {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .slice(0, 1200);
+      } catch (error) {
+        return 'Unable to read error details';
+      }
+    }
 
-      if (!items.length) {
-        placeholder.innerHTML = 'Your cart is empty. Please add at least one product before checkout.';
+    function safePaymentText(value) {
+      try {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .slice(0, 1500);
+      } catch (error) {
+        return 'Unable to read error details.';
+      }
+    }
+
+    function showPaymentMessage(title, detail) {
+      const placeholder =
+        document.getElementById('paymentPlaceholder') ||
+        document.getElementById('paymentContainer');
+
+      if (!placeholder) {
+        alert(title + (detail ? '
+' + detail : ''));
         return;
       }
 
-      const deliveryMethod = getDeliveryMethod();
-      const shippingFee = getShippingFee();
-      const productSubtotal = getProductSubtotal();
-      const orderTotal = getOrderTotal();
+      placeholder.innerHTML =
+        '<strong>' + safePaymentText(title) + '</strong>' +
+        (detail
+          ? '<br><br><small style="display:block; white-space:pre-wrap; line-height:1.5;">' +
+            safePaymentText(detail) +
+            '</small>'
+          : '');
+    }
 
-      const customer = {
-        name: document.getElementById('checkoutName').value,
-        email: document.getElementById('checkoutEmail').value,
-        phone: document.getElementById('checkoutPhone').value,
-        address: deliveryMethod === 'pickup'
-          ? 'Pickup: 18/59 Queens Road, Melbourne VIC 3004'
-          : document.getElementById('checkoutAddress').value,
-        postcode: deliveryMethod === 'pickup'
-          ? '3004'
-          : document.getElementById('checkoutPostcode').value,
-        note: deliveryMethod === 'pickup'
-          ? 'Pickup order'
-          : document.getElementById('checkoutNote').value
-      };
+    async function startSecureCheckout(event) {
+      if (event) event.preventDefault();
 
-      const payload = {
-        type: 'product_order',
-        currency: 'AUD',
-        items,
-        deliveryMethod,
-        shippingFee,
-        productSubtotal,
-        orderTotal,
-        customer,
-        returnUrl: window.location.origin + '/?paymentResult=return'
-      };
+      const placeholder =
+        document.getElementById('paymentPlaceholder') ||
+        document.getElementById('paymentContainer');
+
+      if (!placeholder) {
+        alert('Payment area not found.');
+        return;
+      }
 
       placeholder.innerHTML = 'Loading secure payment...';
 
       try {
+        const items = getCartSummary();
+
+        if (!items.length) {
+          showPaymentMessage('Your cart is empty.', 'Please add at least one product before checkout.');
+          return;
+        }
+
+        const deliveryMethod = getDeliveryMethod();
+        const shippingFee = getShippingFee();
+        const productSubtotal = getProductSubtotal();
+        const orderTotal = getOrderTotal();
+
+        const customer = {
+          name: document.getElementById('checkoutName')?.value || '',
+          email: document.getElementById('checkoutEmail')?.value || '',
+          phone: document.getElementById('checkoutPhone')?.value || '',
+          address:
+            deliveryMethod === 'pickup'
+              ? 'Pickup: 18/59 Queens Road, Melbourne VIC 3004'
+              : document.getElementById('checkoutAddress')?.value || '',
+          postcode:
+            deliveryMethod === 'pickup'
+              ? '3004'
+              : document.getElementById('checkoutPostcode')?.value || '',
+          note:
+            deliveryMethod === 'pickup'
+              ? 'Pickup order'
+              : document.getElementById('checkoutNote')?.value || ''
+        };
+
+        const payload = {
+          type: 'product_order',
+          currency: 'AUD',
+          items,
+          deliveryMethod,
+          shippingFee,
+          productSubtotal,
+          orderTotal,
+          customer,
+          returnUrl: window.location.origin + '/?paymentResult=return'
+        };
+
         const sessionResponse = await fetch('/api/adyen/sessions', {
           method: 'POST',
           headers: {
@@ -2256,24 +2313,26 @@
         const session = await sessionResponse.json();
 
         if (!sessionResponse.ok) {
-          console.error('Adyen session error:', session);
-          placeholder.innerHTML = 'Secure payment could not be loaded. Please check the Adyen API key, merchant account, client key and allowed origin.';
+          showPaymentMessage('Adyen session API returned an error.', JSON.stringify(session, null, 2));
           return;
         }
 
         placeholder.innerHTML = '<div id="adyen-dropin-container"></div>';
 
         const adyenWeb = window.AdyenWeb || {};
-        const AdyenCheckoutConstructor = adyenWeb.AdyenCheckout || window.AdyenCheckout;
-        const DropinConstructor = adyenWeb.Dropin || window.Dropin;
+        const AdyenCheckoutConstructor =
+          adyenWeb.AdyenCheckout || window.AdyenCheckout;
+        const DropinConstructor =
+          adyenWeb.Dropin || window.Dropin;
+        const CardConstructor =
+          adyenWeb.Card || window.Card;
 
-        if (!AdyenCheckoutConstructor || !DropinConstructor) {
-          console.error('Adyen Web SDK is not loaded or Drop-in is unavailable.', {
-            AdyenWeb: window.AdyenWeb,
-            AdyenCheckout: window.AdyenCheckout,
-            Dropin: window.Dropin
-          });
-          placeholder.innerHTML = 'Secure payment could not be loaded because the Adyen payment library did not load. Please refresh the page and try again.';
+        if (!AdyenCheckoutConstructor) {
+          showPaymentMessage(
+            'AdyenCheckout is not loaded.',
+            'window.AdyenWeb=' + Boolean(window.AdyenWeb) +
+            ', window.AdyenCheckout=' + Boolean(window.AdyenCheckout)
+          );
           return;
         }
 
@@ -2281,10 +2340,65 @@
           environment: 'test',
           clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
           session,
-          onPaymentCompleted: () => {
+          onPaymentCompleted: function () {
             cart = {};
             saveCart();
             renderCart();
+            showPaymentMessage('Payment successful.', 'Thank you. We have received your order.');
+          },
+          onPaymentFailed: function () {
+            showPaymentMessage('Payment was not successful.', 'Please try again.');
+          },
+          onError: function (error) {
+            console.error('Adyen payment error:', error);
+            showPaymentMessage(
+              'Payment could not be completed.',
+              error && error.message ? error.message : JSON.stringify(error, null, 2)
+            );
+          }
+        });
+
+        if (DropinConstructor) {
+          try {
+            if (CardConstructor) {
+              new DropinConstructor(checkout, {
+                paymentMethodComponents: [CardConstructor]
+              }).mount('#adyen-dropin-container');
+            } else {
+              new DropinConstructor(checkout).mount('#adyen-dropin-container');
+            }
+            return;
+          } catch (dropinError) {
+            console.error('Drop-in constructor error:', dropinError);
+            showPaymentMessage(
+              'Adyen Drop-in constructor failed.',
+              dropinError && dropinError.message ? dropinError.message : JSON.stringify(dropinError, null, 2)
+            );
+            return;
+          }
+        }
+
+        if (checkout.create) {
+          checkout.create('dropin').mount('#adyen-dropin-container');
+          return;
+        }
+
+        showPaymentMessage(
+          'Adyen Drop-in could not be created.',
+          'DropinConstructor=' + Boolean(DropinConstructor) +
+          ', CardConstructor=' + Boolean(CardConstructor) +
+          ', checkout.create=' + Boolean(checkout.create)
+        );
+      } catch (error) {
+        console.error('Checkout error:', error);
+        showPaymentMessage(
+          'Secure payment could not be loaded.',
+          error && error.message ? error.message : JSON.stringify(error, null, 2)
+        );
+      }
+    }
+
+    renderCart();
             placeholder.innerHTML = '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
           },
           onPaymentFailed: () => {
@@ -2292,14 +2406,14 @@
           },
           onError: (error) => {
             console.error('Adyen payment error:', error);
-            placeholder.innerHTML = 'Payment could not be completed. Please try again.';
+            showPaymentDebug('Payment could not be completed.', error);
           }
         });
 
         new DropinConstructor(checkout).mount('#adyen-dropin-container');
       } catch (error) {
         console.error('Checkout error:', error);
-        placeholder.innerHTML = 'Secure payment could not be loaded. Please try again or contact us to complete your order.';
+        showPaymentDebug('Secure payment could not be loaded.', error);
       }
     }
 
