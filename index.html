@@ -1465,6 +1465,11 @@
       }
     }
   </style>
+  <link rel="stylesheet"
+    href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css"
+    integrity="sha384-KP3a/ZbfdtLkjcD4QKZXWRxgX0n75vagLFi67ccg0eDksVJkZjZuX3XdS4iJxY3L"
+    crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -2207,7 +2212,12 @@
       event.preventDefault();
 
       const items = getCartSummary();
-      if (!items.length) return;
+      const placeholder = document.getElementById('paymentPlaceholder');
+
+      if (!items.length) {
+        placeholder.innerHTML = 'Your cart is empty. Please add at least one product before checkout.';
+        return;
+      }
 
       const deliveryMethod = getDeliveryMethod();
       const shippingFee = getShippingFee();
@@ -2238,164 +2248,59 @@
         productSubtotal,
         orderTotal,
         customer,
-        returnUrl: window.location.origin + '/payment-result'
+        returnUrl: window.location.origin + '/?paymentResult=return'
       };
 
-      const placeholder = document.getElementById('paymentContainer');
-      placeholder.innerHTML = 'Creating secure checkout session...';
+      placeholder.innerHTML = 'Loading secure payment...';
 
       try {
-        const response = await fetch('/api/adyen/sessions', {
+        const sessionResponse = await fetch('/api/adyen/sessions', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify(payload)
         });
 
-        if (!response.ok) throw new Error('Unable to create secure session');
+        const session = await sessionResponse.json();
 
-        const session = await response.json();
+        if (!sessionResponse.ok) {
+          console.error('Adyen session error:', session);
+          placeholder.innerHTML = 'Secure payment could not be loaded. Please check the Adyen API key, merchant account, client key and allowed origin.';
+          return;
+        }
 
-        placeholder.innerHTML = '<div id="payment-dropin"></div>';
+        placeholder.innerHTML = '<div id="adyen-dropin-container"></div>';
 
         const checkout = await AdyenCheckout({
           environment: 'test',
           clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
           session,
           onPaymentCompleted: () => {
-            window.location.href = '/payment-success';
+            cart = {};
+            saveCart();
+            renderCart();
+            placeholder.innerHTML = '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
           },
-          onError: () => {
+          onError: (error) => {
+            console.error('Adyen payment error:', error);
             placeholder.innerHTML = 'Payment could not be completed. Please try again.';
           }
         });
 
-        checkout.create('dropin').mount('#payment-dropin');
+        checkout.create('dropin').mount('#adyen-dropin-container');
       } catch (error) {
-        placeholder.innerHTML = 'Secure payment is not connected yet. The checkout backend and payment client key still need to be configured.';
+        console.error('Checkout error:', error);
+        placeholder.innerHTML = 'Secure payment could not be loaded. Please try again or contact us to complete your order.';
       }
     }
-
-    function toggleMenu() {
-      document.body.classList.toggle('menu-open');
-    }
-
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-    }
-
-    document.addEventListener('click', function (event) {
-      const dropdown = document.getElementById('menuDropdown');
-      const toggle = document.querySelector('.menu-toggle');
-
-      if (!dropdown || !toggle) return;
-
-      const clickedInsideMenu = dropdown.contains(event.target);
-      const clickedToggle = toggle.contains(event.target);
-
-      if (!clickedInsideMenu && !clickedToggle) {
-        closeMenu();
-      }
-    });
-
-    function openSearch() {
-      closeMenu();
-      document.body.classList.add('search-open');
-      setTimeout(() => {
-        const input = document.getElementById('searchInput');
-        if (input) input.focus();
-      }, 50);
-      performSearch();
-    }
-
-    function closeSearch() {
-      document.body.classList.remove('search-open');
-      const input = document.getElementById('searchInput');
-      if (input) input.value = '';
-    }
-
-    function getSearchableItems() {
-      const productCards = Array.from(document.querySelectorAll('.product-card')).map(card => {
-        const title = card.querySelector('h3')?.textContent?.trim() || '';
-        const desc = card.querySelector('.product-desc')?.textContent?.trim() || '';
-        const price = card.querySelector('.product-price')?.textContent?.trim() || '';
-        return {
-          type: 'Product',
-          title,
-          desc,
-          meta: price,
-          target: card
-        };
-      });
-
-      const serviceCards = Array.from(document.querySelectorAll('.service-card')).map(card => {
-        const title = card.querySelector('h3')?.textContent?.trim() || '';
-        const desc = card.querySelector('p')?.textContent?.trim() || '';
-        return {
-          type: 'Experience',
-          title,
-          desc,
-          meta: 'Book an experience',
-          target: card
-        };
-      });
-
-      return [...productCards, ...serviceCards];
-    }
-
-    function performSearch() {
-      const input = document.getElementById('searchInput');
-      const results = document.getElementById('searchResults');
-      if (!input || !results) return;
-
-      const query = input.value.trim().toLowerCase();
-      const items = getSearchableItems();
-      const matches = query
-        ? items.filter(item => `${item.title} ${item.desc} ${item.meta} ${item.type}`.toLowerCase().includes(query))
-        : items.slice(0, 6);
-
-      if (!matches.length) {
-        results.innerHTML = '<div class="search-empty">No matching products or experiences found. Try “Playadito”, “kit”, “tasting” or “corporate”.</div>';
-        return;
-      }
-
-      results.innerHTML = matches.map((item, index) => `
-        <button class="search-result-item" type="button" onclick="goToSearchResult(${index})">
-          <div class="search-result-title">${item.title}</div>
-          <div class="search-result-meta">${item.type} · ${item.meta}</div>
-        </button>
-      `).join('');
-
-      window.__todoMateSearchMatches = matches;
-    }
-
-    function goToSearchResult(index) {
-      const item = window.__todoMateSearchMatches?.[index];
-      if (!item || !item.target) return;
-      closeSearch();
-      item.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    document.addEventListener('click', function (event) {
-      const panel = document.getElementById('searchPanel');
-      const searchButton = document.querySelector('.search-icon');
-      if (!panel || !searchButton) return;
-
-      const clickedInsideSearch = panel.contains(event.target);
-      const clickedSearchButton = searchButton.contains(event.target);
-
-      if (!clickedInsideSearch && !clickedSearchButton && document.body.classList.contains('search-open')) {
-        closeSearch();
-      }
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        closeSearch();
-        closeMenu();
-      }
-    });
 
     renderCart();
   </script>
+
+  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.js"
+    integrity="sha384-h4pGba2GA3lJz65EJhzTgUxUDaHrd7MQZTU+Aepfyv4pl/ZDmv6NNxt4SC9+1Ntc"
+    crossorigin="anonymous"></script>
+
 </body>
 </html>
