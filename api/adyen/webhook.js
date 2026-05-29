@@ -42,6 +42,11 @@ export default async function handler(req, res) {
       const amount = notification.amount || {};
       const additionalData = notification.additionalData || {};
 
+      if (!pspReference) {
+        console.error('Missing pspReference. Email skipped to avoid duplicate handling issue.');
+        continue;
+      }
+
       const currency = amount.currency || 'AUD';
       const value = amount.value ? Number(amount.value) / 100 : 0;
       const formattedAmount = `${currency} ${value.toFixed(2)}`;
@@ -88,7 +93,7 @@ export default async function handler(req, res) {
 
       const sender = 'Todo Mate <hello@todomate.com.au>';
 
-      // 1. Email to you / store owner
+      // 1. Email to store owner
       const ownerSubject = `New Todo Mate order paid - ${formattedAmount}`;
 
       const ownerHtml = `
@@ -126,7 +131,8 @@ export default async function handler(req, res) {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${resendApiKey}`,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Idempotency-Key': `todo-mate-owner-${pspReference}`
         },
         body: JSON.stringify({
           from: sender,
@@ -186,6 +192,10 @@ export default async function handler(req, res) {
               <p style="font-size: 13px; color: #5f6f67;">
                 Know someone who would enjoy mate? Share Todo Mate with a friend and invite them into the ritual.
               </p>
+
+              <p style="font-size: 13px;">
+                <a href="https://todomate.com.au" style="color: #003f25;">Visit Todo Mate</a>
+              </p>
             </div>
           </div>
         `;
@@ -194,13 +204,15 @@ export default async function handler(req, res) {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${resendApiKey}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Idempotency-Key': `todo-mate-customer-${pspReference}`
           },
           body: JSON.stringify({
             from: sender,
             to: [customerEmail],
             subject: customerSubject,
-            html: customerHtml
+            html: customerHtml,
+            reply_to: 'hello@todomate.com.au'
           })
         });
 
@@ -220,7 +232,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('Adyen webhook error:', error);
 
-    // Always accept webhook so Adyen does not keep retrying while we debug email issues.
+    // Always return accepted so Adyen does not keep retrying while email issues are debugged.
     return res.status(200).send('[accepted]');
   }
 }
