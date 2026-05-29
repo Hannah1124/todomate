@@ -74,14 +74,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const apiKey = process.env.ADYEN_API_KEY;
+    const apiKey = process.env.ADYEN_API_KEY || process.env.ADYEN_PAYMENT_API_KEY;
     const merchantAccount = process.env.ADYEN_MERCHANT_ACCOUNT;
 
     if (!apiKey || !merchantAccount) {
-      return res.status(500).json({
-        error: 'Missing ADYEN_API_KEY or ADYEN_MERCHANT_ACCOUNT in Vercel Environment Variables.'
-      });
-    }
+  return res.status(500).json({
+    error: 'Missing Adyen environment variables',
+    hasApiKey: Boolean(apiKey),
+    hasMerchantAccount: Boolean(merchantAccount)
+  });
+}
 
     const {
       items,
