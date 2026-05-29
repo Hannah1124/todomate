@@ -2205,6 +2205,11 @@
       const items = getCartSummary();
       const placeholder = document.getElementById('paymentPlaceholder');
 
+      if (!placeholder) {
+        alert('Payment area not found.');
+        return;
+      }
+
       if (!items.length) {
         placeholder.innerHTML = 'Your cart is empty. Please add at least one product before checkout.';
         return;
@@ -2216,18 +2221,18 @@
       const orderTotal = getOrderTotal();
 
       const customer = {
-        name: document.getElementById('checkoutName').value,
-        email: document.getElementById('checkoutEmail').value,
-        phone: document.getElementById('checkoutPhone').value,
+        name: document.getElementById('checkoutName')?.value || '',
+        email: document.getElementById('checkoutEmail')?.value || '',
+        phone: document.getElementById('checkoutPhone')?.value || '',
         address: deliveryMethod === 'pickup'
           ? 'Pickup: 18/59 Queens Road, Melbourne VIC 3004'
-          : document.getElementById('checkoutAddress').value,
+          : document.getElementById('checkoutAddress')?.value || '',
         postcode: deliveryMethod === 'pickup'
           ? '3004'
-          : document.getElementById('checkoutPostcode').value,
+          : document.getElementById('checkoutPostcode')?.value || '',
         note: deliveryMethod === 'pickup'
           ? 'Pickup order'
-          : document.getElementById('checkoutNote').value
+          : document.getElementById('checkoutNote')?.value || ''
       };
 
       const payload = {
@@ -2257,34 +2262,44 @@
 
         if (!sessionResponse.ok) {
           console.error('Adyen session error:', session);
-          placeholder.innerHTML = 'Secure payment could not be loaded. Please check the Adyen API key, merchant account, client key and allowed origin.';
+          placeholder.innerHTML =
+            'Secure payment could not be loaded: ' +
+            (session && session.error ? session.error : 'Adyen session API returned an error.');
           return;
         }
 
         placeholder.innerHTML = '<div id="adyen-dropin-container"></div>';
 
-const checkout = await AdyenCheckout({
-  environment: 'test',
-  clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
-  session,
-  onPaymentCompleted: function () {
-    cart = {};
-    saveCart();
-    renderCart();
-    placeholder.innerHTML = '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
-  },
-  onError: function (error) {
-    console.error('Adyen payment error:', error);
-    placeholder.innerHTML =
-      'Payment could not be completed: ' +
-      (error && error.message ? error.message : 'Please try again.');
-  }
-});
+        if (typeof AdyenCheckout === 'undefined') {
+          placeholder.innerHTML = 'AdyenCheckout is not loaded. Please refresh the page and try again.';
+          return;
+        }
 
-checkout.create('dropin').mount('#adyen-dropin-container');
+        const checkout = await AdyenCheckout({
+          environment: 'test',
+          clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
+          session,
+          onPaymentCompleted: function () {
+            cart = {};
+            saveCart();
+            renderCart();
+            placeholder.innerHTML =
+              '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
+          },
+          onError: function (error) {
+            console.error('Adyen payment error:', error);
+            placeholder.innerHTML =
+              'Payment could not be completed: ' +
+              (error && error.message ? error.message : 'Please try again.');
+          }
+        });
+
+        checkout.create('dropin').mount('#adyen-dropin-container');
       } catch (error) {
         console.error('Checkout error:', error);
-        placeholder.innerHTML = 'Secure payment could not be loaded. Please try again or contact us to complete your order.';
+        placeholder.innerHTML =
+          'Secure payment could not be loaded: ' +
+          (error && error.message ? error.message : 'Please try again or contact us to complete your order.');
       }
     }
 
