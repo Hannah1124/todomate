@@ -1924,7 +1924,7 @@
           Secure payment will load here once payment is active. For now, please submit your order details and we will confirm payment manually.
         </div>
 
-        <button class="pay-btn" type="submit">Continue to payment</button>
+        <button class="pay-btn" type="button" onclick="startSecureCheckout(event)">Continue to payment</button>
       </form>
     </div>
   </div>
@@ -2209,7 +2209,7 @@
     }
 
     async function startSecureCheckout(event) {
-      event.preventDefault();
+  if (event) event.preventDefault();
 
       const items = getCartSummary();
       const placeholder = document.getElementById('paymentPlaceholder');
