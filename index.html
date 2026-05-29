@@ -2270,59 +2270,58 @@
 
         placeholder.innerHTML = '<div id="adyen-dropin-container"></div>';
 
-        if (typeof AdyenCheckout === 'undefined') {
-          placeholder.innerHTML = 'AdyenCheckout is not loaded. Please refresh the page and try again.';
+        if (!window.AdyenWeb || !window.AdyenWeb.AdyenCheckout || !window.AdyenWeb.Dropin) {
+          placeholder.innerHTML = 'Adyen Web SDK is not loaded. Please refresh the page and try again.';
           return;
         }
 
- const { AdyenCheckout, Dropin } = window.AdyenWeb;
+        const { AdyenCheckout, Dropin } = window.AdyenWeb;
 
-const checkout = await AdyenCheckout({
-  environment: 'test',
-  clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
+        const checkout = await AdyenCheckout({
+          environment: 'test',
+          clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
 
-  session: {
-    id: session.id,
-    sessionData: session.sessionData
-  },
+          session: {
+            id: session.id,
+            sessionData: session.sessionData
+          },
 
-  amount: {
-    value: Math.round(orderTotal * 100),
-    currency: 'AUD'
-  },
+          amount: {
+            value: Math.round(orderTotal * 100),
+            currency: 'AUD'
+          },
 
-  countryCode: 'AU',
-  locale: 'en-AU',
+          countryCode: 'AU',
+          locale: 'en-AU',
 
-  onPaymentCompleted: function () {
-    cart = {};
-    saveCart();
-    renderCart();
-    placeholder.innerHTML =
-      '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
-  },
+          onPaymentCompleted: function () {
+            cart = {};
+            saveCart();
+            renderCart();
+            placeholder.innerHTML =
+              '<strong>Payment successful.</strong><br>Thank you. We have received your order.';
+          },
 
-  onPaymentFailed: function () {
-    placeholder.innerHTML =
-      'Payment was not successful. Please try again.';
-  },
+          onPaymentFailed: function () {
+            placeholder.innerHTML = 'Payment was not successful. Please try again.';
+          },
 
-  onError: function (error) {
-    console.error('Adyen payment error:', error);
-    placeholder.innerHTML =
-      'Payment could not be completed: ' +
-      (error && error.message ? error.message : 'Please try again.');
-  }
-});
+          onError: function (error) {
+            console.error('Adyen payment error:', error);
+            placeholder.innerHTML =
+              'Payment could not be completed: ' +
+              (error && error.message ? error.message : 'Please try again.');
+          }
+        });
 
-new Dropin(checkout, {
-  paymentMethodsConfiguration: {
-    card: {
-      hasHolderName: true,
-      holderNameRequired: true
-    }
-  }
-}).mount('#adyen-dropin-container');
+        new Dropin(checkout, {
+          paymentMethodsConfiguration: {
+            card: {
+              hasHolderName: true,
+              holderNameRequired: true
+            }
+          }
+        }).mount('#adyen-dropin-container');
       } catch (error) {
         console.error('Checkout error:', error);
         placeholder.innerHTML =
