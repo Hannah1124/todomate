@@ -15,9 +15,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/6.10.0/adyen.css" />
-
   <style>
     :root {
       --green: #004225;
@@ -1465,11 +1462,7 @@
       }
     }
   </style>
-  <link rel="stylesheet"
-    href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css"
-    integrity="sha384-KP3a/ZbfdtLkjcD4QKZXWRxgX0n75vagLFi67ccg0eDksVJkZjZuX3XdS4iJxY3L"
-    crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
 
 <body>
@@ -1920,17 +1913,14 @@
 
         <div class="checkout-summary" id="checkoutSummary"></div>
 
-        <div class="payment-placeholder" id="paymentContainer">
-          Secure payment will load here once payment is active. For now, please submit your order details and we will confirm payment manually.
+        <div class="payment-placeholder" id="paymentPlaceholder">
+          Secure payment will load here after you click Continue to payment.
         </div>
 
         <button class="pay-btn" type="button" onclick="startSecureCheckout(event)">Continue to payment</button>
       </form>
     </div>
   </div>
-
-  <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/6.10.0/adyen.js"></script>
-
   <script>
     const products = {
       playadito: {
@@ -2209,7 +2199,8 @@
     }
 
     async function startSecureCheckout(event) {
-  if (event) event.preventDefault();
+      if (event) event.preventDefault();
+      console.log('Todo Mate checkout button clicked');
 
       const items = getCartSummary();
       const placeholder = document.getElementById('paymentPlaceholder');
@@ -2297,10 +2288,6 @@
 
     renderCart();
   </script>
-
-  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.js"
-    integrity="sha384-h4pGba2GA3lJz65EJhzTgUxUDaHrd7MQZTU+Aepfyv4pl/ZDmv6NNxt4SC9+1Ntc"
-    crossorigin="anonymous"></script>
-
+  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.js"></script>
 </body>
 </html>
