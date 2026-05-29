@@ -2443,6 +2443,98 @@
       }
     }
 
+  
+    /* Mobile footer refinement: keep everything horizontal and compact */
+    @media (max-width: 980px) {
+      .footer {
+        padding: 28px 0 !important;
+      }
+
+      .footer-original-row {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 18px !important;
+        flex-wrap: wrap !important;
+      }
+
+      .footer-logo-brand {
+        gap: 8px !important;
+        flex: 0 0 auto !important;
+      }
+
+      .footer-logo-brand img {
+        height: 34px !important;
+        width: auto !important;
+        max-width: 42px !important;
+      }
+
+      .footer-logo-brand span {
+        font-size: 20px !important;
+        line-height: 1 !important;
+        font-weight: 600 !important;
+        letter-spacing: .02em !important;
+      }
+
+      .footer-main-links {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 10px 14px !important;
+      }
+
+      .footer-icon-link {
+        width: 30px !important;
+        height: 30px !important;
+      }
+
+      .footer-icon-link svg {
+        width: 13px !important;
+        height: 13px !important;
+      }
+
+      .footer-main-links a:not(.footer-icon-link) {
+        font-size: 11px !important;
+        letter-spacing: .08em !important;
+        line-height: 1 !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer {
+        padding: 24px 0 !important;
+      }
+
+      .footer-original-row {
+        gap: 14px !important;
+      }
+
+      .footer-logo-brand img {
+        height: 30px !important;
+        max-width: 38px !important;
+      }
+
+      .footer-logo-brand span {
+        font-size: 18px !important;
+      }
+
+      .footer-main-links {
+        gap: 9px 12px !important;
+      }
+
+      .footer-icon-link {
+        width: 28px !important;
+        height: 28px !important;
+      }
+
+      .footer-main-links a:not(.footer-icon-link) {
+        font-size: 10px !important;
+        letter-spacing: .07em !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
@@ -2861,7 +2953,7 @@
             </svg>
           </a>
           <a href="#shop">Shop</a>
-          <a href="#services">Cultural Experience</a>
+          <a href="#services">Cultural</a>
           <a href="#terms">T&amp;C</a>
         </nav>
       </div>
