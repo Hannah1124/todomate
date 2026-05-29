@@ -1100,6 +1100,65 @@
       border-radius: 2px;
     }
 
+
+    .policy-section {
+      background: #f7fbf4;
+      border-top: 1px solid rgba(0, 66, 37, .10);
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .policy-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 30px;
+      color: var(--text);
+      box-shadow: 0 10px 26px rgba(0,66,37,.05);
+    }
+
+    .policy-card h3 {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: 28px;
+      line-height: 1.15;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    .policy-card p,
+    .policy-card li {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .policy-card p {
+      margin: 0 0 14px;
+    }
+
+    .policy-card ul {
+      margin: 10px 0 16px;
+      padding-left: 20px;
+    }
+
+    .policy-card strong {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .policy-card a {
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     @media (max-width: 900px) {
       .top-strip {
         height: 8px;
@@ -1428,6 +1487,20 @@
 
       .checkout-header h3 {
         font-size: 26px;
+      }
+
+
+      .policy-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .policy-card {
+        padding: 24px;
+      }
+
+      .policy-card h3 {
+        font-size: 24px;
       }
 
       .checkout-body {
@@ -1809,6 +1882,106 @@
     </section>
   </main>
 
+
+    <section class="section policy-section" id="policies">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="label">Policies & Contact</div>
+            <h2>Simple, clear information before you order.</h2>
+          </div>
+          <p class="section-copy">Shipping, pickup, refunds, privacy and contact details for Todo Mate customers in Australia.</p>
+        </div>
+
+        <div class="policy-grid">
+          <article class="policy-card" id="shipping-policy">
+            <h3>Shipping Policy</h3>
+            <p>We currently ship Todo Mate products within Australia.</p>
+
+            <p><strong>Shipping fees</strong></p>
+            <ul>
+              <li>Orders of A$59 or more receive free standard shipping.</li>
+              <li>Orders below A$59 have a flat A$9 shipping fee.</li>
+            </ul>
+
+            <p><strong>Processing time</strong></p>
+            <p>Orders are usually prepared within 1–3 business days after payment is received.</p>
+
+            <p><strong>Delivery time</strong></p>
+            <p>Delivery times depend on the destination and carrier. We will contact you if there are any delays or issues with your order.</p>
+
+            <p><strong>Local pickup</strong></p>
+            <p>Pickup is available from 18/59 Queens Road, Melbourne VIC 3004. After your order is paid, we will confirm the pickup time with you by email.</p>
+
+            <p><strong>Incorrect address</strong></p>
+            <p>Please make sure your delivery address is correct before placing an order. If you notice an error, contact us as soon as possible at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a>.</p>
+          </article>
+
+          <article class="policy-card" id="refund-policy">
+            <h3>Refund & Returns Policy</h3>
+            <p>We want you to be happy with your Todo Mate order.</p>
+
+            <p>If your item is damaged, faulty, incorrect, or not as described, please contact us at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a> with your order details and photos where relevant.</p>
+
+            <p><strong>Your rights under Australian Consumer Law</strong></p>
+            <p>Nothing in this policy limits your rights under Australian Consumer Law. If a product does not meet consumer guarantees, you may be entitled to a repair, replacement, refund, or other remedy.</p>
+
+            <p><strong>Change of mind</strong></p>
+            <p>For hygiene and food safety reasons, we generally cannot accept returns of opened yerba mate, used mate cups, bombillas, or opened food products for change of mind.</p>
+
+            <p><strong>Unopened products</strong></p>
+            <p>If you ordered the wrong item or changed your mind, contact us within 7 days of receiving your order. We may accept returns of unopened, unused products in their original packaging. Return shipping costs are usually the customer’s responsibility unless the item is faulty or incorrect.</p>
+
+            <p><strong>Refund processing</strong></p>
+            <p>Approved refunds will be processed back to the original payment method where possible.</p>
+          </article>
+
+          <article class="policy-card" id="privacy-policy">
+            <h3>Privacy Policy</h3>
+            <p>Todo Mate respects your privacy.</p>
+
+            <p><strong>Information we collect</strong></p>
+            <p>When you place an order or contact us, we may collect your name, email address, phone number, delivery or pickup details, order information, and payment-related information.</p>
+
+            <p><strong>How we use your information</strong></p>
+            <p>We use your information to process your order, confirm payment, arrange pickup or delivery, respond to enquiries, and improve our customer experience.</p>
+
+            <p><strong>Payments</strong></p>
+            <p>Payments are processed securely through Adyen. Todo Mate does not store your full card details.</p>
+
+            <p><strong>Emails</strong></p>
+            <p>We may send you order confirmations, payment confirmations, and customer service messages related to your order.</p>
+
+            <p><strong>Sharing information</strong></p>
+            <p>We do not sell your personal information. We may share limited information with service providers where needed to process payments, send emails, or deliver orders.</p>
+
+            <p><strong>Contact</strong></p>
+            <p>If you have any privacy questions, contact us at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a>.</p>
+          </article>
+
+          <article class="policy-card" id="contact">
+            <h3>Contact</h3>
+            <p><strong>Todo Mate</strong></p>
+
+            <p><strong>Email</strong><br>
+            <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a></p>
+
+            <p><strong>Pickup location</strong><br>
+            18/59 Queens Road, Melbourne VIC 3004</p>
+
+            <p><strong>For order questions</strong><br>
+            Please include your order reference or payment reference if available.</p>
+
+            <p><strong>For cultural experiences</strong><br>
+            Contact us about mate tastings, private gatherings, or corporate mate sessions.</p>
+
+            <p><strong>Instagram</strong><br>
+            <a href="https://www.instagram.com/arielgdangelo?igsh=cDY4N2VxdDEzOWs=" target="_blank" rel="noopener">Follow Todo Mate on Instagram</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
   <footer class="footer">
     <div class="container footer-inner">
       <a class="footer-brand footer-logo-brand" href="#home" aria-label="Todo Mate home">
@@ -1819,7 +1992,11 @@
         <a href="#shop">Shop</a>
         <a href="#culture">Culture</a>
         <a href="#services">Cultural Experience</a>
-        <a href="mailto:arieldangelo91@proton.me">Email</a>
+        <a href="#shipping-policy">Shipping Policy</a>
+        <a href="#refund-policy">Refund & Returns</a>
+        <a href="#privacy-policy">Privacy Policy</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:hello@todomate.com.au">Email</a>
         <a href="https://www.instagram.com/arielgdangelo?igsh=cDY4N2VxdDEzOWs=" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61576281096128&mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
       </div>
