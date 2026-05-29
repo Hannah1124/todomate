@@ -110,7 +110,7 @@ export default async function handler(req, res) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            from: 'Todo Mate <onboarding@resend.dev>',
+            from: 'Todo Mate <hello@todomate.com.au>',
             to: [orderNotificationEmail],
             subject,
             html
