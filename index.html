@@ -2535,6 +2535,264 @@
       }
     }
 
+  
+    /* Welcome discount code */
+    .discount-box {
+      border: 1px solid var(--border);
+      background: rgba(234, 244, 232, .55);
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .discount-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .discount-row input {
+      width: 100%;
+    }
+
+    .discount-btn {
+      height: 46px;
+      padding: 0 16px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .discount-message {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      min-height: 18px;
+    }
+
+    .discount-message.is-success {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .discount-message.is-error {
+      color: #9b2c2c;
+      font-weight: 700;
+    }
+
+    @media (max-width: 520px) {
+      .discount-row {
+        grid-template-columns: 1fr;
+      }
+
+      .discount-btn {
+        width: 100%;
+      }
+    }
+
+  
+    /* Shop welcome discount banner */
+    .shop-promo-banner {
+      margin: 0 0 28px;
+      padding: 18px 22px;
+      border: 1px solid rgba(0, 66, 37, .16);
+      background: rgba(234, 244, 232, .62);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .shop-promo-copy {
+      color: var(--green);
+      line-height: 1.55;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .shop-promo-copy strong {
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .shop-promo-code {
+      color: var(--green);
+      background: #ffffff;
+      border: 1px solid rgba(0, 66, 37, .18);
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 700px) {
+      .shop-promo-banner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .shop-promo-code {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+  
+    /* Cleaner welcome promo copy */
+    .shop-promo-copy {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .shop-promo-copy span {
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    @media (max-width: 700px) {
+      .shop-promo-copy {
+        display: block;
+      }
+
+      .shop-promo-copy span {
+        display: block;
+        margin-top: 4px;
+      }
+    }
+
+  
+    /* Final ILOVEMATE banner: left copy + right offer */
+    .shop-promo-banner {
+      margin: 0 0 28px !important;
+      padding: 18px 22px !important;
+      border: 1px solid rgba(0, 66, 37, .16) !important;
+      background: rgba(234, 244, 232, .62) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 22px !important;
+    }
+
+    .shop-promo-copy {
+      color: var(--green) !important;
+      line-height: 1.45 !important;
+      font-size: 15px !important;
+      font-weight: 400 !important;
+    }
+
+    .shop-promo-copy strong {
+      font-weight: 800 !important;
+      color: var(--green) !important;
+    }
+
+    .shop-promo-code {
+      color: var(--green) !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      font-size: 15px !important;
+      font-weight: 400 !important;
+      letter-spacing: .02em !important;
+      text-transform: none !important;
+      white-space: nowrap !important;
+      text-align: right !important;
+    }
+
+    @media (max-width: 700px) {
+      .shop-promo-banner {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding: 16px !important;
+      }
+
+      .shop-promo-code {
+        width: auto !important;
+        text-align: left !important;
+        white-space: normal !important;
+      }
+    }
+
+  
+    /* Final refined welcome discount banner */
+    .shop-promo-banner {
+      margin: 0 auto 30px !important;
+      min-height: 54px !important;
+      padding: 0 28px !important;
+      border: 1px solid rgba(0, 66, 37, .14) !important;
+      background: rgba(234, 244, 232, .58) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      box-shadow: none !important;
+    }
+
+    .shop-promo-copy {
+      color: var(--green) !important;
+      font-size: 15px !important;
+      line-height: 1.45 !important;
+      font-weight: 400 !important;
+      letter-spacing: .01em !important;
+      max-width: 920px !important;
+    }
+
+    .shop-promo-copy strong {
+      color: var(--green) !important;
+      font-weight: 800 !important;
+      letter-spacing: .08em !important;
+    }
+
+    .shop-promo-code {
+      display: none !important;
+    }
+
+    @media (max-width: 700px) {
+      .shop-promo-banner {
+        min-height: 52px !important;
+        padding: 12px 18px !important;
+        margin-bottom: 24px !important;
+      }
+
+      .shop-promo-copy {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+      }
+    }
+
+  
+    /* Compact spacing between hero/home and shop promo banner */
+    .shop-section {
+      padding-top: 52px !important;
+    }
+
+    .shop-section .shop-promo-banner {
+      margin-top: 0 !important;
+      margin-bottom: 44px !important;
+    }
+
+    @media (max-width: 700px) {
+      .shop-section {
+        padding-top: 38px !important;
+      }
+
+      .shop-section .shop-promo-banner {
+        margin-bottom: 32px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
@@ -2588,6 +2846,12 @@
 
     <section class="section shop-section" id="shop">
       <div class="container">
+        <div class="shop-promo-banner">
+          <div class="shop-promo-copy">
+            Enjoy 10% off your first Todo Mate order — use code <strong>ILOVEMATE</strong> at checkout.
+          </div>
+        </div>
+
         <div class="section-head">
           <div>
             <div class="label">Most popular</div>
@@ -3045,6 +3309,15 @@
           Secure online payment is being activated. You can still submit your order details now, and we will confirm payment manually if checkout is not available yet.
         </div>
 
+        <div class="discount-box form-full">
+          <label for="discountCodeInput">Discount code</label>
+          <div class="discount-row">
+            <input id="discountCodeInput" type="text" placeholder="Enter code e.g. ILOVEMATE">
+            <button class="discount-btn" type="button" onclick="applyDiscountCode()">Apply</button>
+          </div>
+          <div class="discount-message" id="discountMessage">Use ILOVEMATE for 10% off your first order. For first-time customers only. One use per customer.</div>
+        </div>
+
         <div class="checkout-summary" id="checkoutSummary"></div>
 
         <div class="payment-placeholder" id="paymentPlaceholder">
@@ -3145,6 +3418,7 @@
     };
 
     let cart = JSON.parse(localStorage.getItem('todoMateCart') || '{}');
+    let appliedDiscountCode = null;
 
 
     function toggleMenu() {
@@ -3335,12 +3609,14 @@
       if (cart[productId] <= 0) delete cart[productId];
       saveCart();
       renderCart();
+      if (document.body.classList.contains('checkout-open')) renderCheckoutSummary();
     }
 
     function removeFromCart(productId) {
       delete cart[productId];
       saveCart();
       renderCart();
+      if (document.body.classList.contains('checkout-open')) renderCheckoutSummary();
     }
 
     function openCheckout() {
@@ -3362,17 +3638,69 @@
       return getCartSummary().reduce((sum, item) => sum + item.qty * item.price, 0);
     }
 
+    function normaliseDiscountCode(value) {
+      return String(value || '').trim().toUpperCase();
+    }
+
+    function isWelcomeDiscountApplied() {
+      return appliedDiscountCode === 'ILOVEMATE';
+    }
+
+    function getDiscountAmount() {
+      if (!isWelcomeDiscountApplied()) return 0;
+      return Math.round(getProductSubtotal() * 0.10 * 100) / 100;
+    }
+
     function getShippingFee() {
-      const subtotal = getProductSubtotal();
+      // Free shipping is based on product subtotal before discount.
+      const subtotalBeforeDiscount = getProductSubtotal();
       const method = getDeliveryMethod();
 
       if (method === 'pickup') return 0;
-      if (subtotal >= 59) return 0;
+      if (subtotalBeforeDiscount >= 59) return 0;
       return 9;
     }
 
     function getOrderTotal() {
-      return getProductSubtotal() + getShippingFee();
+      return Math.max(0, getProductSubtotal() - getDiscountAmount() + getShippingFee());
+    }
+
+    function applyDiscountCode() {
+      const input = document.getElementById('discountCodeInput');
+      const message = document.getElementById('discountMessage');
+      const code = normaliseDiscountCode(input?.value);
+
+      if (!code) {
+        appliedDiscountCode = null;
+        if (message) {
+          message.className = 'discount-message';
+          message.textContent = 'Use ILOVEMATE for 10% off your first order. For first-time customers only. One use per customer. For first-time customers only. One use per customer.';
+        }
+        renderCheckoutSummary();
+        return;
+      }
+
+      if (code === 'ILOVEMATE') {
+        appliedDiscountCode = 'ILOVEMATE';
+        if (input) input.value = 'ILOVEMATE';
+        if (message) {
+          message.className = 'discount-message is-success';
+          message.textContent = 'ILOVEMATE applied — 10% off your product subtotal.';
+        }
+      } else {
+        appliedDiscountCode = null;
+        if (message) {
+          message.className = 'discount-message is-error';
+          message.textContent = 'This discount code is not valid. Please check and try again.';
+        }
+      }
+
+      const placeholder = document.getElementById('paymentPlaceholder');
+      if (placeholder) {
+        placeholder.innerHTML = 'Secure payment will load here after you click Continue to payment.';
+      }
+
+      renderCheckoutSummary();
     }
 
     function updateDeliveryMethod() {
@@ -3401,6 +3729,7 @@
     function renderCheckoutSummary() {
       const items = getCartSummary();
       const subtotal = getProductSubtotal();
+      const discountAmount = getDiscountAmount();
       const shippingFee = getShippingFee();
       const total = getOrderTotal();
       const method = getDeliveryMethod();
@@ -3432,6 +3761,13 @@
           <strong>A$${subtotal.toFixed(2)}</strong>
         </div>
 
+        ${discountAmount > 0 ? `
+          <div class="checkout-summary-row">
+            <span>Discount — ILOVEMATE</span>
+            <strong>-A$${discountAmount.toFixed(2)}</strong>
+          </div>
+        ` : ''}
+
         <div class="checkout-summary-row">
           <span>${shippingLabel}</span>
           <strong>${shippingFee === 0 ? 'Free' : `A$${shippingFee.toFixed(2)}`}</strong>
@@ -3444,7 +3780,7 @@
 
         ${method === 'pickup'
           ? '<br><span>Pickup address: 18/59 Queens Road, Melbourne VIC 3004</span>'
-          : '<br><span>Free shipping on orders A$59+. Orders below A$59: A$9 flat shipping.</span>'
+          : '<br><span>Free shipping is based on your product subtotal before discount. Orders below A$59: A$9 flat shipping.</span>'
         }
       `;
     }
@@ -3469,6 +3805,8 @@
       const deliveryMethod = getDeliveryMethod();
       const shippingFee = getShippingFee();
       const productSubtotal = getProductSubtotal();
+      const discountCode = isWelcomeDiscountApplied() ? 'ILOVEMATE' : '';
+      const discountAmount = getDiscountAmount();
       const orderTotal = getOrderTotal();
 
       const customer = {
@@ -3493,6 +3831,8 @@
         deliveryMethod,
         shippingFee,
         productSubtotal,
+        discountCode,
+        discountAmount,
         orderTotal,
         customer,
         returnUrl: window.location.origin + '/?paymentResult=return'
