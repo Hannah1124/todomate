@@ -2959,6 +2959,24 @@
             </div>
           </article>
 
+          <article class="product-card" id="laTranqueraVariant" data-selected-product="laTranquera500g">
+            <div class="product-image">
+              <img src="product-la-tranquera-tradicional-500g.webp" alt="La Tranquera Tradicional">
+            </div>
+            <div class="product-body">
+              <h3>La Tranquera | Tradicional</h3>
+              <p class="product-desc">A traditional Argentinian yerba mate with a balanced flavour, perfect as an affordable refill or first taste.</p>
+              <div class="product-price" data-price-display>A$9.00</div>
+              <div class="variant-picker" aria-label="Choose La Tranquera size">
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera500g', this)">500g</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera1kg', this)">1kg</button>
+              </div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addSelectedVariant('laTranqueraVariant')">Add to cart</button>
+            </div>
+          </article>
+
+
           <article class="product-card">
             <div class="product-image">
               <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Starter">
@@ -3037,18 +3055,6 @@
             </div>
           </article>
 
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-la-tranquera-tradicional-500g.webp" alt="La Tranquera Tradicional 500g">
-            </div>
-            <div class="product-body">
-              <h3>La Tranquera | Tradicional | 500g</h3>
-              <p class="product-desc">A traditional Argentinian yerba mate with a balanced flavour, perfect as an affordable refill or first taste.</p>
-              <div class="product-price">A$9.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('laTranquera500g')">Add to cart</button>
-            </div>
-          </article>
 
 
           <article class="product-card">
@@ -3419,6 +3425,16 @@
         price: 17.5,
         image: 'product-canarias-1kg.jpg'
       },
+      laTranquera500g: {
+        name: 'La Tranquera | Tradicional | 500g',
+        price: 9,
+        image: 'product-la-tranquera-tradicional-500g.webp'
+      },
+      laTranquera1kg: {
+        name: 'La Tranquera | Tradicional | 1kg',
+        price: 18,
+        image: 'product-la-tranquera-tradicional-500g.webp'
+      },
       kitTorpedo: {
         name: 'Mate Kit | Starter',
         price: 59,
@@ -3448,11 +3464,6 @@
         name: '3kg Mate Package | La Tranquera',
         price: 48,
         image: 'product-3kg-la-tranquera.webp'
-      },
-      laTranquera500g: {
-        name: 'La Tranquera | Tradicional | 500g',
-        price: 9,
-        image: 'product-la-tranquera-tradicional-500g.webp'
       },
       cupTruckyArgentina: {
         name: 'MATE CUP | Trucky Argentina Flag',
