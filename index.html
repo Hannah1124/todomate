@@ -562,6 +562,41 @@
       color: #fff;
     }
 
+    .variant-picker {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .variant-option {
+      min-height: 40px;
+      border: 1px solid rgba(0,66,37,.22);
+      background: #fff;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      transition: all .18s ease;
+    }
+
+    .variant-option.is-active {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .variant-option:hover {
+      border-color: var(--green);
+    }
+
+
     .story-section {
       background: var(--green);
       color: #fff;
@@ -1387,6 +1422,18 @@
         letter-spacing: .06em;
         padding: 0 8px;
       }
+
+      .variant-picker {
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+
+      .variant-option {
+        min-height: 34px;
+        font-size: 10px;
+        letter-spacing: .05em;
+      }
+
 
       .story-layout {
         min-height: 560px;
@@ -2861,42 +2908,54 @@
         </div>
 
         <div class="product-grid">
-          <article class="product-card">
+          <article class="product-card" id="playaditoVariant" data-selected-product="playadito500g">
             <div class="product-image">
-              <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate 500g">
+              <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate">
             </div>
             <div class="product-body">
-              <h3>Playadito Yerba Mate 500g</h3>
-              <p class="product-desc">A smooth and approachable yerba mate from Argentina. A great first choice for beginners and everyday drinking.</p>
-              <div class="product-price">A$12.90</div>
+              <h3>Playadito Yerba Mate</h3>
+              <p class="product-desc">A smooth and approachable yerba mate from Argentina. Choose 500g for a first try or 1kg for everyday drinking.</p>
+              <div class="product-price" data-price-display>A$9.00</div>
+              <div class="variant-picker" aria-label="Choose Playadito size">
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito500g', this)">500g</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito1kg', this)">1kg</button>
+              </div>
               <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('playadito')">Add to cart</button>
+              <button class="add-btn" type="button" onclick="addSelectedVariant('playaditoVariant')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" id="baldoVariant" data-selected-product="baldo500g">
             <div class="product-image">
-              <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate 1kg">
+              <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate">
             </div>
             <div class="product-body">
-              <h3>Baldo Yerba Mate 1kg</h3>
-              <p class="product-desc">A traditional Uruguayan-style yerba mate with a stronger profile, ideal for people who enjoy a deeper taste.</p>
-              <div class="product-price">A$13.50</div>
+              <h3>Baldo Yerba Mate</h3>
+              <p class="product-desc">A traditional Uruguayan-style yerba mate with a stronger profile. Choose 500g or 1kg.</p>
+              <div class="product-price" data-price-display>A$8.50</div>
+              <div class="variant-picker" aria-label="Choose Baldo size">
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('baldoVariant', 'baldo500g', this)">500g</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('baldoVariant', 'baldo1kg', this)">1kg</button>
+              </div>
               <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('baldo')">Add to cart</button>
+              <button class="add-btn" type="button" onclick="addSelectedVariant('baldoVariant')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" id="canariasVariant" data-selected-product="canarias500g">
             <div class="product-image">
-              <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate 1kg">
+              <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate">
             </div>
             <div class="product-body">
-              <h3>Canarias Yerba Mate 1kg</h3>
-              <p class="product-desc">A bold and iconic Uruguayan yerba mate. Best for experienced mate drinkers or customers wanting a stronger ritual.</p>
-              <div class="product-price">A$14.50</div>
+              <h3>Canarias Yerba Mate</h3>
+              <p class="product-desc">A bold and iconic Uruguayan yerba mate. Choose 500g or 1kg for a stronger ritual.</p>
+              <div class="product-price" data-price-display>A$9.00</div>
+              <div class="variant-picker" aria-label="Choose Canarias size">
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('canariasVariant', 'canarias500g', this)">500g</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('canariasVariant', 'canarias1kg', this)">1kg</button>
+              </div>
               <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('canarias')">Add to cart</button>
+              <button class="add-btn" type="button" onclick="addSelectedVariant('canariasVariant')">Add to cart</button>
             </div>
           </article>
 
@@ -3066,7 +3125,7 @@
             <div class="product-body">
               <h3>EcoTeas Yerba Mate Tea Bags | 24 bags</h3>
               <p class="product-desc">Unsmoked yerba mate tea bags for an easy everyday energy ritual. Includes 24 tea bags, total 48g.</p>
-              <div class="product-price">A$18.00</div>
+              <div class="product-price">A$20.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('ecoteasTeaBags24')">Add to cart</button>
             </div>
@@ -3079,7 +3138,7 @@
             <div class="product-body">
               <h3>Playadito Mate Cocido Tea Bags | 60 bags</h3>
               <p class="product-desc">A convenient Playadito mate cocido option for customers who prefer yerba mate in a simple tea bag format. Includes 60 tea bags. Includes 60 tea bags.</p>
-              <div class="product-price">A$15.00</div>
+              <div class="product-price">A$18.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('playaditoMateCocido')">Add to cart</button>
             </div>
@@ -3330,19 +3389,34 @@
   </div>
   <script>
     const products = {
-      playadito: {
-        name: 'Playadito Yerba Mate 500g',
-        price: 12.9,
+      playadito500g: {
+        name: 'Playadito Yerba Mate | 500g',
+        price: 9,
         image: 'product-playadito-500g.jpg'
       },
-      baldo: {
-        name: 'Baldo Yerba Mate 1kg',
-        price: 13.5,
+      playadito1kg: {
+        name: 'Playadito Yerba Mate | 1kg',
+        price: 18,
+        image: 'product-playadito-500g.jpg'
+      },
+      baldo500g: {
+        name: 'Baldo Yerba Mate | 500g',
+        price: 8.5,
         image: 'product-baldo-1kg.jpg'
       },
-      canarias: {
-        name: 'Canarias Yerba Mate 1kg',
-        price: 14.5,
+      baldo1kg: {
+        name: 'Baldo Yerba Mate | 1kg',
+        price: 17,
+        image: 'product-baldo-1kg.jpg'
+      },
+      canarias500g: {
+        name: 'Canarias Yerba Mate | 500g',
+        price: 9,
+        image: 'product-canarias-1kg.jpg'
+      },
+      canarias1kg: {
+        name: 'Canarias Yerba Mate | 1kg',
+        price: 17.5,
         image: 'product-canarias-1kg.jpg'
       },
       kitTorpedo: {
@@ -3407,12 +3481,12 @@
       },
       ecoteasTeaBags24: {
         name: 'EcoTeas Yerba Mate Tea Bags | 24 bags',
-        price: 18,
+        price: 20,
         image: 'product-ecoteas-green-energy-24-bags.jpg'
       },
       playaditoMateCocido: {
         name: 'Playadito Mate Cocido Tea Bags | 60 bags',
-        price: 15,
+        price: 18,
         image: 'product-playadito-mate-cocido-tea-bags.webp'
       }
     };
@@ -3595,6 +3669,27 @@
 
     function closeCart() {
       document.body.classList.remove('cart-open');
+    }
+
+    function selectProductVariant(cardId, productId, button) {
+      const card = document.getElementById(cardId);
+      const product = products[productId];
+      if (!card || !product) return;
+
+      card.dataset.selectedProduct = productId;
+
+      const priceDisplay = card.querySelector('[data-price-display]');
+      if (priceDisplay) priceDisplay.textContent = `A$${product.price.toFixed(2)}`;
+
+      card.querySelectorAll('.variant-option').forEach(option => option.classList.remove('is-active'));
+      if (button) button.classList.add('is-active');
+    }
+
+    function addSelectedVariant(cardId) {
+      const card = document.getElementById(cardId);
+      const selectedProductId = card?.dataset.selectedProduct;
+      if (!selectedProductId || !products[selectedProductId]) return;
+      addToCart(selectedProductId);
     }
 
     function addToCart(productId) {
