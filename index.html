@@ -2969,6 +2969,55 @@
       }
     }
 
+
+    /* Search: popular kit suggestions */
+    .search-suggestions-title {
+      padding: 16px 18px 8px;
+      color: var(--green-button);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .search-result-link {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      padding: 15px 18px;
+      border-bottom: 1px solid rgba(0,66,37,.08);
+      color: var(--green);
+      background: #fff;
+      text-decoration: none;
+    }
+
+    .search-result-link:hover {
+      background: #f4f8f5;
+    }
+
+    .search-result-link strong {
+      display: block;
+      color: var(--green);
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .search-result-link span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .search-result-price {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
   </style>
   <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
@@ -3063,6 +3112,19 @@
 
           <article class="product-card">
             <div class="product-image">
+              <img src="product-kit-playadito-thermo.png" alt="Mate Kit Playadito Thermo">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Playadito Thermo</h3>
+              <p class="product-desc">A complete wood-colour set with Playadito 1kg, mate cup, thermos, bombilla, cleaning brush and guide.</p>
+              <div class="product-price">A$69.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitPlayaditoThermo')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
               <img src="product-kit-baldo-classic.png" alt="Mate Kit Baldo Classic">
             </div>
             <div class="product-body">
@@ -3103,7 +3165,7 @@
           <div class="product-group-heading with-divider" id="daily-drinkers">
             <div class="label">For daily drinkers</div>
             <h3>Already drink mate every day?</h3>
-            <p>Choose 1kg yerba, 3kg value packs, mate cups, bombillas and easy tea bag options for your everyday ritual.</p>
+            <p>Choose 1kg yerba, 3kg value packs and easy tea bag options for your everyday ritual.</p>
           </div>
 
           <article class="product-card" id="playaditoVariant" data-selected-product="playadito1kg">
@@ -3213,6 +3275,52 @@
             </div>
           </article>
 
+
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-teelux-yerba-mate-tea-bags-50.avif" alt="TeeLux Yerba Mate Tea Bags 50 bags">
+            </div>
+            <div class="product-body">
+              <h3>TeeLux Yerba Mate Tea Bags | 50 bags</h3>
+              <p class="product-desc">Pure natural Argentine yerba mate tea bags with a rich flavour. Includes 50 tea bags, 3g per bag, total 150g.</p>
+              <div class="product-price">A$35.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('teeluxTeaBags50')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-ecoteas-green-energy-24-bags.jpg" alt="EcoTeas Yerba Mate Tea Bags 24 bags">
+            </div>
+            <div class="product-body">
+              <h3>EcoTeas Yerba Mate Tea Bags | 24 bags</h3>
+              <p class="product-desc">Unsmoked yerba mate tea bags for an easy everyday energy ritual. Includes 24 tea bags, total 48g.</p>
+              <div class="product-price">A$20.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('ecoteasTeaBags24')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-playadito-mate-cocido-tea-bags.webp" alt="Playadito Mate Cocido Tea Bags | 60 bags">
+            </div>
+            <div class="product-body">
+              <h3>Playadito Mate Cocido Tea Bags | 60 bags</h3>
+              <p class="product-desc">A convenient Playadito mate cocido option for customers who prefer yerba mate in a simple tea bag format. Includes 60 tea bags.</p>
+              <div class="product-price">A$18.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('playaditoMateCocido')">Add to cart</button>
+            </div>
+          </article>
+
+          <div class="product-group-heading with-divider" id="tools">
+            <div class="label">Gourds, Bombillas and Tools</div>
+            <h3>Everything you need to build or refresh your mate ritual.</h3>
+          </div>
+
           <article class="product-card">
             <div class="product-image">
               <img src="product-cup-trucky-argentina-flag.png" alt="MATE CUP Trucky Argentina Flag">
@@ -3265,44 +3373,11 @@
             </div>
           </article>
 
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-teelux-yerba-mate-tea-bags-50.avif" alt="TeeLux Yerba Mate Tea Bags 50 bags">
-            </div>
-            <div class="product-body">
-              <h3>TeeLux Yerba Mate Tea Bags | 50 bags</h3>
-              <p class="product-desc">Pure natural Argentine yerba mate tea bags with a rich flavour. Includes 50 tea bags, 3g per bag, total 150g.</p>
-              <div class="product-price">A$35.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('teeluxTeaBags50')">Add to cart</button>
-            </div>
-          </article>
 
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-ecoteas-green-energy-24-bags.jpg" alt="EcoTeas Yerba Mate Tea Bags 24 bags">
-            </div>
-            <div class="product-body">
-              <h3>EcoTeas Yerba Mate Tea Bags | 24 bags</h3>
-              <p class="product-desc">Unsmoked yerba mate tea bags for an easy everyday energy ritual. Includes 24 tea bags, total 48g.</p>
-              <div class="product-price">A$20.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('ecoteasTeaBags24')">Add to cart</button>
-            </div>
-          </article>
 
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-playadito-mate-cocido-tea-bags.webp" alt="Playadito Mate Cocido Tea Bags | 60 bags">
-            </div>
-            <div class="product-body">
-              <h3>Playadito Mate Cocido Tea Bags | 60 bags</h3>
-              <p class="product-desc">A convenient Playadito mate cocido option for customers who prefer yerba mate in a simple tea bag format. Includes 60 tea bags. Includes 60 tea bags.</p>
-              <div class="product-price">A$18.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('playaditoMateCocido')">Add to cart</button>
-            </div>
-          </article>
+
+
+
 
         </div>
       </div>
@@ -3599,6 +3674,11 @@
         price: 69,
         image: 'product-kit-playadito-wood.png'
       },
+      kitPlayaditoThermo: {
+        name: 'Mate Kit | Playadito Thermo',
+        price: 69,
+        image: 'product-kit-playadito-thermo.png'
+      },
       kitBaldoClassic: {
         name: 'Mate Kit | Baldo Classic',
         price: 79,
@@ -3679,20 +3759,67 @@
       document.body.classList.remove('menu-open');
     }
 
+    const featuredKitIds = [
+      'kitTranqueraSuave',
+      'kitPlayaditoWood',
+      'kitPlayaditoThermo',
+      'kitBaldoClassic',
+      'kitCanariasStrong',
+      'kitTranqueraPremium'
+    ];
+
+    function getSearchResultHtml(item) {
+      return `
+        <a class="search-result-link" href="${item.href}" onclick="${item.onClick}">
+          <span>
+            <strong>${item.title}</strong>
+            <span>${item.subtitle}</span>
+          </span>
+          <span class="search-result-price">${item.priceLabel || ''}</span>
+        </a>
+      `;
+    }
+
+    function renderKitSuggestions() {
+      const results = document.getElementById('searchResults');
+      if (!results) return;
+
+      const kitSuggestions = featuredKitIds
+        .filter((id) => products[id])
+        .map((id) => ({
+          title: products[id].name,
+          subtitle: 'Starter kit',
+          priceLabel: `A$${products[id].price.toFixed(2)}`,
+          href: '#kits',
+          onClick: 'closeSearch()'
+        }));
+
+      results.innerHTML = `
+        <div class="search-suggestions-title">Popular kits</div>
+        ${kitSuggestions.map(getSearchResultHtml).join('')}
+      `;
+    }
+
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+      document.body.classList.remove('search-open');
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+    }
+
     function openSearch() {
       document.body.classList.add('search-open');
       document.body.classList.remove('menu-open');
 
       const input = document.getElementById('searchInput');
-      const results = document.getElementById('searchResults');
-
       if (input) {
-        input.value = 'kits';
+        input.value = '';
         input.focus();
-        input.select();
       }
 
-      performSearch();
+      renderKitSuggestions();
     }
 
     function closeSearch() {
@@ -3713,54 +3840,59 @@
       const query = input.value.trim().toLowerCase();
       const normalizedQuery = query.replace(/kits/g, 'kit').replace(/sets/g, 'set');
 
+      if (!query) {
+        renderKitSuggestions();
+        return;
+      }
+
       const productResults = Object.entries(products).map(([id, product]) => ({
         title: product.name,
-        subtitle: `A$${product.price.toFixed(2)} · View in shop`,
-        href: '#shop',
-        keywords: `${product.name} yerba mate tea gourd bombilla cup kit kits starter beginner set bundle straw package`,
+        subtitle: product.name.toLowerCase().includes('kit') ? 'Starter kit' : 'View in shop',
+        priceLabel: `A$${product.price.toFixed(2)}`,
+        href: product.name.toLowerCase().includes('kit') ? '#kits' : '#shop',
+        keywords: `${product.name} yerba mate tea gourd bombilla cup kit kits starter beginner set bundle straw package tools thermo thermos`,
         onClick: `closeSearch()`
       }));
 
       const pageResults = [
         {
-          title: 'Shop',
-          subtitle: 'Browse Todo Mate products.',
-          href: '#shop',
-          keywords: 'shop products yerba mate buy order cart',
-          onClick: 'closeSearch()'
-        },
-        {
           title: 'Cultural Experience',
           subtitle: 'Book a mate tasting or private session.',
+          priceLabel: '',
           href: '#services',
           keywords: 'cultural experience tasting booking event workshop',
           onClick: 'closeSearch()'
         },
         {
+          title: 'Gourds, Bombillas and Tools',
+          subtitle: 'Build or refresh your mate ritual.',
+          priceLabel: '',
+          href: '#tools',
+          keywords: 'gourd gourds cup cups bombilla straw tools cleaning brush setup',
+          onClick: 'closeSearch()'
+        },
+        {
           title: 'T&C',
           subtitle: 'Shipping, refunds, privacy and contact information.',
+          priceLabel: '',
           href: '#terms',
           keywords: 'terms conditions shipping refund privacy contact policy',
           onClick: 'closeSearch()'
         }
       ];
 
-      const allResults = [...pageResults, ...productResults];
-      const matches = query
-        ? allResults.filter((item) => item.keywords.toLowerCase().includes(normalizedQuery) || item.title.toLowerCase().includes(normalizedQuery))
-        : pageResults;
+      const allResults = [...productResults, ...pageResults];
+      const matches = allResults.filter((item) =>
+        item.keywords.toLowerCase().includes(normalizedQuery) ||
+        item.title.toLowerCase().includes(normalizedQuery)
+      );
 
       if (!matches.length) {
-        results.innerHTML = '<div class="search-empty">No results found. Try searching “mate”, “kit”, “cup”, “tasting” or “shipping”.</div>';
+        results.innerHTML = '<div class="search-empty">No results found. Try searching “kit”, “yerba”, “cup”, “bombilla” or “tasting”.</div>';
         return;
       }
 
-      results.innerHTML = matches.slice(0, 8).map((item) => `
-        <a href="${item.href}" onclick="${item.onClick}">
-          <strong>${item.title}</strong>
-          <span>${item.subtitle}</span>
-        </a>
-      `).join('');
+      results.innerHTML = matches.slice(0, 8).map(getSearchResultHtml).join('');
     }
 
     document.addEventListener('click', function (event) {
