@@ -2840,6 +2840,135 @@
       }
     }
 
+  
+
+    /* Shop guidance: minimal product-section update */
+    .shop-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 0 34px;
+    }
+
+    .shop-choice-card {
+      display: block;
+      min-height: auto;
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, .52);
+      border: 1px solid rgba(0, 66, 37, .14);
+      color: var(--text);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .shop-choice-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 66, 37, .32);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .shop-choice-card span {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--green-button);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .shop-choice-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 21px;
+      line-height: 1.18;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+
+    .shop-choice-card p {
+      display: none;
+    }
+
+    .product-group-heading {
+      grid-column: 1 / -1;
+      padding-top: 6px;
+      margin: 8px 0 -10px;
+    }
+
+    .product-group-heading.with-divider {
+      margin-top: 30px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(0, 66, 37, .14);
+    }
+
+    .product-group-heading .label {
+      margin-bottom: 10px;
+    }
+
+    .product-group-heading h3 {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(32px, 3vw, 48px);
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .product-group-heading p {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .shop-choice-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .shop-choice-card {
+        min-height: auto;
+        padding: 16px 18px;
+      }
+
+      .shop-choice-card strong {
+        font-size: 19px;
+      }
+
+      .product-group-heading {
+        margin: 4px 0 -6px;
+      }
+
+      .product-group-heading.with-divider {
+        margin-top: 22px;
+        padding-top: 28px;
+      }
+
+      .product-group-heading h3 {
+        font-size: 30px;
+      }
+
+      .product-group-heading p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+
+    /* Promo banner moved after the beginner kits section */
+    .product-grid .product-promo-banner {
+      grid-column: 1 / -1;
+      margin: 8px 0 6px !important;
+    }
+
+    .product-promo-banner + .product-group-heading.with-divider {
+      margin-top: 18px;
+    }
+
+    @media (max-width: 700px) {
+      .product-grid .product-promo-banner {
+        margin: 4px 0 2px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
@@ -2899,120 +3028,149 @@
           </div>
         </div>
 
-        <div class="section-head">
-          <div>
-            <div class="label">Most popular</div>
-            <h2>Yerba mate favourites.</h2>
-          </div>
-          <p class="section-copy">Choose your mate, add it to cart, enter your delivery details and continue to secure payment.</p>
-        </div>
-
         <div class="product-grid">
-          <article class="product-card" id="playaditoVariant" data-selected-product="playadito500g">
+
+          <div class="product-group-heading" id="kits">
+            <div class="label">For beginners</div>
+            <h3>New to mate? Start here.</h3>
+          </div>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-kit-la-tranquera-suave-argentina.png" alt="Mate Kit La Tranquera Suave">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | La Tranquera Suave</h3>
+              <p class="product-desc">Not sure where to start? A smooth beginner kit with yerba, mate cup, bombilla and a simple guide.</p>
+              <div class="product-price">A$59.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitTranqueraSuave')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-kit-playadito-wood.png" alt="Mate Kit Playadito Wood">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Playadito Wood</h3>
+              <p class="product-desc">A balanced everyday starter kit with yerba, wooden mate cup, bombilla and beginner guide.</p>
+              <div class="product-price">A$69.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitPlayaditoWood')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-kit-baldo-classic.png" alt="Mate Kit Baldo Classic">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Baldo Classic</h3>
+              <p class="product-desc">For a more traditional mate flavour, with yerba, classic mate cup, bombilla and guide.</p>
+              <div class="product-price">A$79.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitBaldoClassic')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-kit-canarias-strong.png" alt="Mate Kit Canarias Strong">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | Canarias Strong</h3>
+              <p class="product-desc">A stronger mate kit for people who want a bold ritual, with yerba, mate cup, bombilla and guide.</p>
+              <div class="product-price">A$79.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitCanariasStrong')">Add to cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="product-kit-la-tranquera-premium.png" alt="Mate Kit La Tranquera Premium">
+            </div>
+            <div class="product-body">
+              <h3>Mate Kit | La Tranquera Premium</h3>
+              <p class="product-desc">A premium kit with an elevated mate cup, yerba, bombilla and guide for a refined first ritual.</p>
+              <div class="product-price">A$110.00</div>
+              <div class="product-stock">Low stock</div>
+              <button class="add-btn" type="button" onclick="addToCart('kitTranqueraPremium')">Add to cart</button>
+            </div>
+          </article>
+
+          <div class="product-group-heading with-divider" id="daily-drinkers">
+            <div class="label">For daily drinkers</div>
+            <h3>Already drink mate every day?</h3>
+            <p>Choose 1kg yerba, 3kg value packs, mate cups, bombillas and easy tea bag options for your everyday ritual.</p>
+          </div>
+
+          <article class="product-card" id="playaditoVariant" data-selected-product="playadito1kg">
             <div class="product-image">
               <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate">
             </div>
             <div class="product-body">
               <h3>Playadito Yerba Mate</h3>
               <p class="product-desc">A smooth and approachable yerba mate from Argentina. Choose 500g for a first try or 1kg for everyday drinking.</p>
-              <div class="product-price" data-price-display>A$9.00</div>
+              <div class="product-price" data-price-display>A$18.00</div>
               <div class="variant-picker" aria-label="Choose Playadito size">
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito500g', this)">500g</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito1kg', this)">1kg</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito500g', this)">500g</button>
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito1kg', this)">1kg</button>
               </div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addSelectedVariant('playaditoVariant')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card" id="baldoVariant" data-selected-product="baldo500g">
+          <article class="product-card" id="baldoVariant" data-selected-product="baldo1kg">
             <div class="product-image">
               <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate">
             </div>
             <div class="product-body">
               <h3>Baldo Yerba Mate</h3>
               <p class="product-desc">A traditional Uruguayan-style yerba mate with a stronger profile. Choose 500g or 1kg.</p>
-              <div class="product-price" data-price-display>A$8.50</div>
+              <div class="product-price" data-price-display>A$17.00</div>
               <div class="variant-picker" aria-label="Choose Baldo size">
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('baldoVariant', 'baldo500g', this)">500g</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('baldoVariant', 'baldo1kg', this)">1kg</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('baldoVariant', 'baldo500g', this)">500g</button>
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('baldoVariant', 'baldo1kg', this)">1kg</button>
               </div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addSelectedVariant('baldoVariant')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card" id="canariasVariant" data-selected-product="canarias500g">
+          <article class="product-card" id="canariasVariant" data-selected-product="canarias1kg">
             <div class="product-image">
               <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate">
             </div>
             <div class="product-body">
               <h3>Canarias Yerba Mate</h3>
               <p class="product-desc">A bold and iconic Uruguayan yerba mate. Choose 500g or 1kg for a stronger ritual.</p>
-              <div class="product-price" data-price-display>A$9.00</div>
+              <div class="product-price" data-price-display>A$17.50</div>
               <div class="variant-picker" aria-label="Choose Canarias size">
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('canariasVariant', 'canarias500g', this)">500g</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('canariasVariant', 'canarias1kg', this)">1kg</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('canariasVariant', 'canarias500g', this)">500g</button>
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('canariasVariant', 'canarias1kg', this)">1kg</button>
               </div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addSelectedVariant('canariasVariant')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card" id="laTranqueraVariant" data-selected-product="laTranquera500g">
+          <article class="product-card" id="laTranqueraVariant" data-selected-product="laTranquera1kg">
             <div class="product-image">
               <img src="product-la-tranquera-tradicional-500g.webp" alt="La Tranquera Tradicional">
             </div>
             <div class="product-body">
               <h3>La Tranquera | Tradicional</h3>
               <p class="product-desc">A traditional Argentinian yerba mate with a balanced flavour, perfect as an affordable refill or first taste.</p>
-              <div class="product-price" data-price-display>A$9.00</div>
+              <div class="product-price" data-price-display>A$18.00</div>
               <div class="variant-picker" aria-label="Choose La Tranquera size">
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera500g', this)">500g</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera1kg', this)">1kg</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera500g', this)">500g</button>
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera1kg', this)">1kg</button>
               </div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addSelectedVariant('laTranqueraVariant')">Add to cart</button>
-            </div>
-          </article>
-
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-mate-kit-torpedo.jpg" alt="Mate Kit Starter">
-            </div>
-            <div class="product-body">
-              <h3>Mate Kit | Starter</h3>
-              <p class="product-desc">Beginner-friendly mate starter kit with one mate cup, one bombilla straw, 1kg yerba mate and a beginner guide booklet.</p>
-              <div class="product-price">A$59.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitTorpedo')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-mate-kit-pro.jpg" alt="Mate Kit Pro">
-            </div>
-            <div class="product-body">
-              <h3>Mate Kit | Pro</h3>
-              <p class="product-desc">Premium starter kit with La Tranquera yerba and a refined traditional mate cup.</p>
-              <div class="product-price">A$110.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitPro')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-mate-kit-advanced.jpg" alt="Mate Kit Advanced">
-            </div>
-            <div class="product-body">
-              <h3>Mate Kit | Advanced</h3>
-              <p class="product-desc">A stronger-style mate kit with Baldo yerba and a classic cup for deeper flavour lovers.</p>
-              <div class="product-price">A$78.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitAdvanced')">Add to cart</button>
             </div>
           </article>
 
@@ -3022,7 +3180,7 @@
             </div>
             <div class="product-body">
               <h3>3kg Mate Package | Playadito</h3>
-              <p class="product-desc">A value pack for regular mate drinkers. Includes three packs of Playadito yerba mate, smooth and beginner-friendly for everyday drinking.</p>
+              <p class="product-desc">Already drink mate every day? Save more with a 3kg pack, perfect for regular drinkers or sharing with friends.</p>
               <div class="product-price">A$48.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('packagePlayadito3kg')">Add to cart</button>
@@ -3035,7 +3193,7 @@
             </div>
             <div class="product-body">
               <h3>3kg Mate Package | Baldo</h3>
-              <p class="product-desc">A stronger Uruguayan-style value pack for people who enjoy a deeper mate flavour.</p>
+              <p class="product-desc">Already drink mate every day? Save more with a 3kg pack, perfect for regular drinkers or sharing with friends.</p>
               <div class="product-price">A$48.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('packageBaldo3kg')">Add to cart</button>
@@ -3048,14 +3206,12 @@
             </div>
             <div class="product-body">
               <h3>3kg Mate Package | La Tranquera</h3>
-              <p class="product-desc">A classic La Tranquera value pack for everyday mate drinkers. Includes three packs with a smooth traditional flavour.</p>
+              <p class="product-desc">Already drink mate every day? Save more with a 3kg pack, perfect for regular drinkers or sharing with friends.</p>
               <div class="product-price">A$48.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('packageLaTranquera3kg')">Add to cart</button>
             </div>
           </article>
-
-
 
           <article class="product-card">
             <div class="product-image">
@@ -3096,7 +3252,6 @@
             </div>
           </article>
 
-
           <article class="product-card">
             <div class="product-image">
               <img src="product-bombilla-parrot-beak.png" alt="Stainless Steel Parrot Beak Bombilla">
@@ -3109,7 +3264,6 @@
               <button class="add-btn" type="button" onclick="addToCart('bombillaParrotBeak')">Add to cart</button>
             </div>
           </article>
-
 
           <article class="product-card">
             <div class="product-image">
@@ -3173,8 +3327,8 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="label">Cultural Experience</div>
-            <h2>Mate tastings, gatherings and cultural sessions.</h2>
+            <div class="label">For culture lovers</div>
+            <h2>Curious about mate culture?</h2>
           </div>
           <p class="section-copy">Book a mate cultural experience, from beginner-friendly tastings to private gatherings and brand activations. Each session introduces mate as a ritual of sharing, conversation and connection.</p>
         </div>
@@ -3184,7 +3338,7 @@
             <div>
               <div class="service-number">01 / Tasting</div>
               <h3>Mate Tasting Experience</h3>
-              <p>A beginner-friendly mate tasting experience. Learn what yerba mate is, how to prepare it, and how people share it in South American culture.</p>
+              <p>Curious about mate but don’t know how to prepare it? Join our cultural tasting session and learn the ritual, tools and stories behind yerba mate.</p>
             </div>
             <a class="add-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book an Experience</a>
           </article>
@@ -3193,7 +3347,7 @@
             <div>
               <div class="service-number">02 / Private</div>
               <h3>Private Mate Gathering</h3>
-              <p>A private mate experience for small groups. Enjoy a relaxed cultural gathering with mate tasting, simple preparation guidance, and slow conversation.</p>
+              <p>Want to share mate with friends? Enjoy a relaxed private gathering with mate tasting, simple preparation guidance and slow conversation.</p>
             </div>
             <a class="add-btn" href="https://reservo-five.vercel.app/booking/ed8e88b3-4ed6-4acf-b962-4956c8d8c967" target="_blank" rel="noopener">Book an Experience</a>
           </article>
@@ -3202,7 +3356,7 @@
             <div>
               <div class="service-number">03 / Corporate</div>
               <h3>Corporate Mate Session</h3>
-              <p>A cultural mate session for teams and groups. A relaxed way to introduce South American mate culture, encourage conversation, and create a shared team experience.</p>
+              <p>Looking for a different team experience? Introduce South American mate culture, encourage conversation and create a shared ritual at work.</p>
             </div>
             <a class="add-btn" href="https://reservo-five.vercel.app/booking/2fec5085-8c48-4961-bc23-be47b51dffdf" target="_blank" rel="noopener">Book an Experience</a>
           </article>
@@ -3435,20 +3589,30 @@
         price: 18,
         image: 'product-la-tranquera-tradicional-500g.webp'
       },
-      kitTorpedo: {
-        name: 'Mate Kit | Starter',
+      kitTranqueraSuave: {
+        name: 'Mate Kit | La Tranquera Suave',
         price: 59,
-        image: 'product-mate-kit-torpedo.jpg'
+        image: 'product-kit-la-tranquera-suave-argentina.png'
       },
-      kitPro: {
-        name: 'Mate Kit | Pro',
+      kitPlayaditoWood: {
+        name: 'Mate Kit | Playadito Wood',
+        price: 69,
+        image: 'product-kit-playadito-wood.png'
+      },
+      kitBaldoClassic: {
+        name: 'Mate Kit | Baldo Classic',
+        price: 79,
+        image: 'product-kit-baldo-classic.png'
+      },
+      kitCanariasStrong: {
+        name: 'Mate Kit | Canarias Strong',
+        price: 79,
+        image: 'product-kit-canarias-strong.png'
+      },
+      kitTranqueraPremium: {
+        name: 'Mate Kit | La Tranquera Premium',
         price: 110,
-        image: 'product-mate-kit-pro.jpg'
-      },
-      kitAdvanced: {
-        name: 'Mate Kit | Advanced',
-        price: 78,
-        image: 'product-mate-kit-advanced.jpg'
+        image: 'product-kit-la-tranquera-premium.png'
       },
       packagePlayadito3kg: {
         name: '3kg Mate Package | Playadito',
@@ -3523,25 +3687,12 @@
       const results = document.getElementById('searchResults');
 
       if (input) {
+        input.value = 'kits';
         input.focus();
+        input.select();
       }
 
-      if (results && !input.value.trim()) {
-        results.innerHTML = `
-          <a href="#shop" onclick="closeSearch()">
-            <strong>Shop yerba mate products</strong>
-            <span>Browse mate, kits, gourds, cups and tea bags.</span>
-          </a>
-          <a href="#services" onclick="closeSearch()">
-            <strong>Cultural Experience</strong>
-            <span>Book a mate tasting or private cultural session.</span>
-          </a>
-          <a href="#terms" onclick="closeSearch()">
-            <strong>T&C</strong>
-            <span>Shipping, refunds, privacy and contact information.</span>
-          </a>
-        `;
-      }
+      performSearch();
     }
 
     function closeSearch() {
@@ -3560,12 +3711,13 @@
       if (!input || !results) return;
 
       const query = input.value.trim().toLowerCase();
+      const normalizedQuery = query.replace(/kits/g, 'kit').replace(/sets/g, 'set');
 
       const productResults = Object.entries(products).map(([id, product]) => ({
         title: product.name,
         subtitle: `A$${product.price.toFixed(2)} · View in shop`,
         href: '#shop',
-        keywords: `${product.name} yerba mate tea gourd bombilla cup kit straw package`,
+        keywords: `${product.name} yerba mate tea gourd bombilla cup kit kits starter beginner set bundle straw package`,
         onClick: `closeSearch()`
       }));
 
@@ -3595,7 +3747,7 @@
 
       const allResults = [...pageResults, ...productResults];
       const matches = query
-        ? allResults.filter((item) => item.keywords.toLowerCase().includes(query) || item.title.toLowerCase().includes(query))
+        ? allResults.filter((item) => item.keywords.toLowerCase().includes(normalizedQuery) || item.title.toLowerCase().includes(normalizedQuery))
         : pageResults;
 
       if (!matches.length) {
