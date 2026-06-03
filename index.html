@@ -596,6 +596,20 @@
       border-color: var(--green);
     }
 
+    /* Kit cards: clean option buttons without changing the product grid */
+    .kit-variant-picker {
+      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+    }
+
+    .kit-card .product-desc {
+      min-height: 78px;
+    }
+
+    .kit-card .variant-picker {
+      margin-top: 4px;
+      margin-bottom: 16px;
+    }
+
 
     .story-section {
       background: var(--green);
@@ -3084,81 +3098,51 @@
             <h3>New to mate? Start here.</h3>
           </div>
 
-          <article class="product-card">
+          <article class="product-card kit-card">
             <div class="product-image">
-              <img src="product-kit-la-tranquera-suave-argentina.png" alt="Mate Kit La Tranquera Suave">
+              <img src="kit-beginner-playadito-starter.png" alt="Beginner Kit Playadito Starter">
             </div>
             <div class="product-body">
-              <h3>Mate Kit | La Tranquera Suave</h3>
-              <p class="product-desc">Not sure where to start? A smooth beginner kit with yerba, mate cup, bombilla and a simple guide.</p>
+              <h3>Beginner Kit | Playadito Starter</h3>
+              <p class="product-desc">A simple first mate kit with Playadito, stainless steel gourd, bombilla, cleaning brush and intro card.</p>
               <div class="product-price">A$59.00</div>
               <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitTranqueraSuave')">Add to cart</button>
+              <button class="add-btn" type="button" onclick="addToCart('kitBeginnerPlayaditoStarter')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card kit-card" id="intermediateKitVariant" data-selected-product="kitIntermediateCalabash">
             <div class="product-image">
-              <img src="product-kit-playadito-wood.png" alt="Mate Kit Playadito Wood">
+              <img src="kit-intermediate-calabash.png" alt="Intermediate Kit La Tranquera Traditional Calabash" data-variant-image>
             </div>
             <div class="product-body">
-              <h3>Mate Kit | Playadito Wood</h3>
-              <p class="product-desc">A balanced everyday starter kit with yerba, wooden mate cup, bombilla and beginner guide.</p>
-              <div class="product-price">A$69.00</div>
+              <h3>Intermediate Kit | La Tranquera Traditional</h3>
+              <p class="product-desc">A more traditional mate setup with La Tranquera, your choice of calabash or wooden gourd, bombilla, cleaning brush and intro card.</p>
+              <div class="variant-picker kit-variant-picker" aria-label="Choose Intermediate Kit gourd">
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('intermediateKitVariant', 'kitIntermediateCalabash', this)">Calabash</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('intermediateKitVariant', 'kitIntermediateWooden', this)">Wooden</button>
+              </div>
+              <div class="product-price" data-price-display>A$59.00</div>
               <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitPlayaditoWood')">Add to cart</button>
+              <button class="add-btn" type="button" onclick="addSelectedVariant('intermediateKitVariant')">Add to cart</button>
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card kit-card" id="premiumKitVariant" data-selected-product="kitPremiumImperial">
             <div class="product-image">
-              <img src="product-kit-playadito-thermo.png" alt="Mate Kit Playadito Thermo">
+              <img src="kit-premium-imperial.png" alt="Premium Kit Canarias Ritual Set Imperial" data-variant-image>
             </div>
             <div class="product-body">
-              <h3>Mate Kit | Playadito Thermo</h3>
-              <p class="product-desc">A complete wood-colour set with Playadito 1kg, mate cup, thermos, bombilla, cleaning brush and guide.</p>
-              <div class="product-price">A$69.00</div>
+              <h3>Premium Kit | Canarias Ritual Set</h3>
+              <p class="product-desc">A premium mate kit with Canarias, your choice of ritual gourd, bombilla, cleaning brush and intro card.</p>
+              <div class="variant-picker kit-variant-picker" aria-label="Choose Premium Kit gourd">
+                <button class="variant-option is-active" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumImperial', this)">Imperial</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumCamionero', this)">Camionero</button>
+                <button class="variant-option" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumTorpedo', this)">Torpedo</button>
+              </div>
+              <div class="product-price" data-price-display>A$110.00</div>
               <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitPlayaditoThermo')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-kit-baldo-classic.png" alt="Mate Kit Baldo Classic">
-            </div>
-            <div class="product-body">
-              <h3>Mate Kit | Baldo Classic</h3>
-              <p class="product-desc">For a more traditional mate flavour, with yerba, classic mate cup, bombilla and guide.</p>
-              <div class="product-price">A$79.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitBaldoClassic')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-kit-canarias-strong.png" alt="Mate Kit Canarias Strong">
-            </div>
-            <div class="product-body">
-              <h3>Mate Kit | Canarias Strong</h3>
-              <p class="product-desc">A stronger mate kit for people who want a bold ritual, with yerba, mate cup, bombilla and guide.</p>
-              <div class="product-price">A$79.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitCanariasStrong')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-kit-la-tranquera-premium.png" alt="Mate Kit La Tranquera Premium">
-            </div>
-            <div class="product-body">
-              <h3>Mate Kit | La Tranquera Premium</h3>
-              <p class="product-desc">A premium kit with an elevated mate cup, yerba, bombilla and guide for a refined first ritual.</p>
-              <div class="product-price">A$110.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitTranqueraPremium')">Add to cart</button>
+              <button class="add-btn" type="button" onclick="addSelectedVariant('premiumKitVariant')">Add to cart</button>
             </div>
           </article>
 
@@ -3664,35 +3648,35 @@
         price: 18,
         image: 'product-la-tranquera-tradicional-500g.webp'
       },
-      kitTranqueraSuave: {
-        name: 'Mate Kit | La Tranquera Suave',
+      kitBeginnerPlayaditoStarter: {
+        name: 'Beginner Kit | Playadito Starter',
         price: 59,
-        image: 'product-kit-la-tranquera-suave-argentina.png'
+        image: 'kit-beginner-playadito-starter.png'
       },
-      kitPlayaditoWood: {
-        name: 'Mate Kit | Playadito Wood',
+      kitIntermediateCalabash: {
+        name: 'Intermediate Kit | La Tranquera Traditional - Calabash',
+        price: 59,
+        image: 'kit-intermediate-calabash.png'
+      },
+      kitIntermediateWooden: {
+        name: 'Intermediate Kit | La Tranquera Traditional - Wooden',
         price: 69,
-        image: 'product-kit-playadito-wood.png'
+        image: 'kit-intermediate-wooden.png'
       },
-      kitPlayaditoThermo: {
-        name: 'Mate Kit | Playadito Thermo',
-        price: 69,
-        image: 'product-kit-playadito-thermo.png'
-      },
-      kitBaldoClassic: {
-        name: 'Mate Kit | Baldo Classic',
-        price: 79,
-        image: 'product-kit-baldo-classic.png'
-      },
-      kitCanariasStrong: {
-        name: 'Mate Kit | Canarias Strong',
-        price: 79,
-        image: 'product-kit-canarias-strong.png'
-      },
-      kitTranqueraPremium: {
-        name: 'Mate Kit | La Tranquera Premium',
+      kitPremiumImperial: {
+        name: 'Premium Kit | Canarias Ritual Set - Imperial',
         price: 110,
-        image: 'product-kit-la-tranquera-premium.png'
+        image: 'kit-premium-imperial.png'
+      },
+      kitPremiumCamionero: {
+        name: 'Premium Kit | Canarias Ritual Set - Camionero',
+        price: 79,
+        image: 'kit-premium-camionero.png'
+      },
+      kitPremiumTorpedo: {
+        name: 'Premium Kit | Canarias Ritual Set - Torpedo',
+        price: 79,
+        image: 'kit-premium-torpedo.png'
       },
       packagePlayadito3kg: {
         name: '3kg Mate Package | Playadito',
@@ -3760,12 +3744,12 @@
     }
 
     const featuredKitIds = [
-      'kitTranqueraSuave',
-      'kitPlayaditoWood',
-      'kitPlayaditoThermo',
-      'kitBaldoClassic',
-      'kitCanariasStrong',
-      'kitTranqueraPremium'
+      'kitBeginnerPlayaditoStarter',
+      'kitIntermediateCalabash',
+      'kitIntermediateWooden',
+      'kitPremiumImperial',
+      'kitPremiumCamionero',
+      'kitPremiumTorpedo'
     ];
 
     function getSearchResultHtml(item) {
@@ -3975,6 +3959,12 @@
 
       const priceDisplay = card.querySelector('[data-price-display]');
       if (priceDisplay) priceDisplay.textContent = `A$${product.price.toFixed(2)}`;
+
+      const image = card.querySelector('[data-variant-image]');
+      if (image && product.image) {
+        image.src = product.image;
+        image.alt = product.name;
+      }
 
       card.querySelectorAll('.variant-option').forEach(option => option.classList.remove('is-active'));
       if (button) button.classList.add('is-active');
