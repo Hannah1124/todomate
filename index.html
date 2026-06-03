@@ -3032,6 +3032,165 @@
       white-space: nowrap;
     }
 
+  
+
+    /* Mobile refinement for the 3 starter kit cards
+       Keep desktop as 3 columns, but make kit cards full-width on mobile
+       so variant buttons and prices stay clean and easy to read. */
+    @media (max-width: 900px) {
+      #kits ~ .kit-card {
+        grid-column: 1 / -1;
+      }
+
+      #kits ~ .kit-card .product-image {
+        height: 245px;
+        padding: 18px;
+      }
+
+      #kits ~ .kit-card .product-body {
+        padding-top: 18px;
+      }
+
+      #kits ~ .kit-card .product-body h3 {
+        font-size: 25px;
+        line-height: 1.12;
+        max-width: 96%;
+      }
+
+      #kits ~ .kit-card .product-desc {
+        display: block;
+        min-height: auto;
+        margin-bottom: 16px;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      #kits ~ .kit-card .product-price {
+        font-size: 24px;
+        margin-top: 4px;
+      }
+
+      #kits ~ .kit-card .add-btn {
+        min-height: 48px;
+        font-size: 11px;
+      }
+
+      #intermediateKitVariant .kit-variant-picker {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #premiumKitVariant .kit-variant-picker {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #kits ~ .kit-card .variant-option {
+        min-height: 42px;
+        font-size: 10px;
+        letter-spacing: .07em;
+        padding: 0 8px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      #kits ~ .kit-card .product-image {
+        height: 220px;
+      }
+
+      #kits ~ .kit-card .product-body h3 {
+        font-size: 23px;
+      }
+
+      #premiumKitVariant .kit-variant-picker {
+        gap: 6px;
+      }
+
+      #premiumKitVariant .variant-option {
+        font-size: 9.5px;
+        letter-spacing: .045em;
+        padding: 0 6px;
+      }
+    }
+
+
+    /* Refined section copy: concise question-led guidance */
+    .product-group-heading p {
+      display: block;
+      max-width: 650px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .variant-label {
+      margin: 4px 0 10px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .product-group-heading p {
+        display: block;
+        max-width: 92%;
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .variant-label {
+        font-size: 10.5px;
+        margin: 2px 0 8px;
+      }
+    }
+
+  
+
+    /* Robust mobile menu dropdown fix */
+    .site-header,
+    .header-inner {
+      overflow: visible !important;
+    }
+
+    .menu-dropdown {
+      position: fixed !important;
+      top: 92px !important;
+      right: max(16px, calc((100vw - min(var(--container), calc(100% - 92px))) / 2)) !important;
+      left: auto !important;
+      width: min(300px, calc(100vw - 32px)) !important;
+      min-width: 0 !important;
+      z-index: 9999 !important;
+      display: none !important;
+      background: #ffffff !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: 0 18px 44px rgba(0,66,37,.20) !important;
+    }
+
+    body.menu-open .menu-dropdown {
+      display: flex !important;
+    }
+
+    body.menu-open .menu-toggle {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .menu-dropdown {
+        top: 70px !important;
+        left: 14px !important;
+        right: 14px !important;
+        width: auto !important;
+      }
+
+      .menu-dropdown a {
+        padding: 17px 20px !important;
+        font-size: 13px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
@@ -3050,12 +3209,13 @@
         <button class="cart-btn" type="button" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
         <a class="outline-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book now</a>
         <button class="search-icon" type="button" aria-label="Search products" onclick="openSearch()">⌕</button>
-        <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(event)">☰</button>
       </div>
 
-      <div class="menu-dropdown" id="menuDropdown">
-        <a href="#shop" onclick="closeMenu()">Shop</a>
-        <a href="#services" onclick="closeMenu()">Cultural Experience</a>
+            <div class="menu-dropdown" id="menuDropdown">
+        <a href="#kits" onclick="closeMenu()">New to mate? Start here.</a>
+        <a href="#shop" onclick="closeMenu()">Already drink mate every day?</a>
+        <a href="#services" onclick="closeMenu()">Curious about mate culture?</a>
       </div>
 
       <div class="search-panel" id="searchPanel" aria-label="Search panel">
@@ -3074,7 +3234,7 @@
       <div class="hero-content">
         <div class="hero-copy">
           <h1>Your first mate<br>ritual starts here.</h1>
-          <p>Yerba mate, gourds, bombillas, and beginner-friendly starter kits curated for Australia.</p>
+          <p>New to yerba mate? We make it simple to choose, prepare and enjoy your first mate at home.</p>
           <div class="hero-buttons">
             <a class="primary-btn" href="#shop">Shop starter kits</a>
             <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book a tasting</a>
@@ -3096,6 +3256,7 @@
           <div class="product-group-heading" id="kits">
             <div class="label">For beginners</div>
             <h3>New to mate? Start here.</h3>
+            <p>Choose a kit based on how you want to begin — simple, traditional or premium.</p>
           </div>
 
           <article class="product-card kit-card">
@@ -3104,7 +3265,7 @@
             </div>
             <div class="product-body">
               <h3>Beginner Kit | Playadito Starter</h3>
-              <p class="product-desc">A simple first mate kit with Playadito, stainless steel gourd, bombilla, cleaning brush and intro card.</p>
+              <p class="product-desc">Not sure where to start? Everything you need for your first mate at home — Playadito, stainless steel gourd, bombilla, brush and intro card.</p>
               <div class="product-price">A$59.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('kitBeginnerPlayaditoStarter')">Add to cart</button>
@@ -3117,7 +3278,8 @@
             </div>
             <div class="product-body">
               <h3>Intermediate Kit | La Tranquera Traditional</h3>
-              <p class="product-desc">A more traditional mate setup with La Tranquera, your choice of calabash or wooden gourd, bombilla, cleaning brush and intro card.</p>
+              <p class="product-desc">Want a more traditional setup? Choose La Tranquera with a calabash or wooden gourd, plus bombilla, brush and intro card.</p>
+              <div class="variant-label">Choose your gourd</div>
               <div class="variant-picker kit-variant-picker" aria-label="Choose Intermediate Kit gourd">
                 <button class="variant-option is-active" type="button" onclick="selectProductVariant('intermediateKitVariant', 'kitIntermediateCalabash', this)">Calabash</button>
                 <button class="variant-option" type="button" onclick="selectProductVariant('intermediateKitVariant', 'kitIntermediateWooden', this)">Wooden</button>
@@ -3134,7 +3296,8 @@
             </div>
             <div class="product-body">
               <h3>Premium Kit | Canarias Ritual Set</h3>
-              <p class="product-desc">A premium mate kit with Canarias, your choice of ritual gourd, bombilla, cleaning brush and intro card.</p>
+              <p class="product-desc">Looking for a stronger ritual or gift-ready set? Pair Canarias with your choice of ritual gourd, plus bombilla, brush and intro card.</p>
+              <div class="variant-label">Choose your gourd</div>
               <div class="variant-picker kit-variant-picker" aria-label="Choose Premium Kit gourd">
                 <button class="variant-option is-active" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumImperial', this)">Imperial</button>
                 <button class="variant-option" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumCamionero', this)">Camionero</button>
@@ -3149,7 +3312,7 @@
           <div class="product-group-heading with-divider" id="daily-drinkers">
             <div class="label">For daily drinkers</div>
             <h3>Already drink mate every day?</h3>
-            <p>Choose 1kg yerba, 3kg value packs and easy tea bag options for your everyday ritual.</p>
+            <p>Stock up on your favourite yerba, value packs and easy everyday options.</p>
           </div>
 
           <article class="product-card" id="playaditoVariant" data-selected-product="playadito1kg">
@@ -3158,7 +3321,7 @@
             </div>
             <div class="product-body">
               <h3>Playadito Yerba Mate</h3>
-              <p class="product-desc">A smooth and approachable yerba mate from Argentina. Choose 500g for a first try or 1kg for everyday drinking.</p>
+              <p class="product-desc">Know your everyday yerba? Choose 500g to try or 1kg to keep your ritual stocked at home.</p>
               <div class="product-price" data-price-display>A$18.00</div>
               <div class="variant-picker" aria-label="Choose Playadito size">
                 <button class="variant-option" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito500g', this)">500g</button>
@@ -3175,7 +3338,7 @@
             </div>
             <div class="product-body">
               <h3>Baldo Yerba Mate</h3>
-              <p class="product-desc">A traditional Uruguayan-style yerba mate with a stronger profile. Choose 500g or 1kg.</p>
+              <p class="product-desc">Prefer a stronger profile? A traditional Uruguayan-style yerba for regular mate drinkers.</p>
               <div class="product-price" data-price-display>A$17.00</div>
               <div class="variant-picker" aria-label="Choose Baldo size">
                 <button class="variant-option" type="button" onclick="selectProductVariant('baldoVariant', 'baldo500g', this)">500g</button>
@@ -3192,7 +3355,7 @@
             </div>
             <div class="product-body">
               <h3>Canarias Yerba Mate</h3>
-              <p class="product-desc">A bold and iconic Uruguayan yerba mate. Choose 500g or 1kg for a stronger ritual.</p>
+              <p class="product-desc">Want a bold daily mate? Canarias is a strong, iconic option for experienced drinkers.</p>
               <div class="product-price" data-price-display>A$17.50</div>
               <div class="variant-picker" aria-label="Choose Canarias size">
                 <button class="variant-option" type="button" onclick="selectProductVariant('canariasVariant', 'canarias500g', this)">500g</button>
@@ -3209,7 +3372,7 @@
             </div>
             <div class="product-body">
               <h3>La Tranquera | Tradicional</h3>
-              <p class="product-desc">A traditional Argentinian yerba mate with a balanced flavour, perfect as an affordable refill or first taste.</p>
+              <p class="product-desc">Looking for a balanced refill? A traditional Argentinian yerba that is smooth enough for everyday drinking.</p>
               <div class="product-price" data-price-display>A$18.00</div>
               <div class="variant-picker" aria-label="Choose La Tranquera size">
                 <button class="variant-option" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera500g', this)">500g</button>
@@ -3226,7 +3389,7 @@
             </div>
             <div class="product-body">
               <h3>3kg Mate Package | Playadito</h3>
-              <p class="product-desc">Already drink mate every day? Save more with a 3kg pack, perfect for regular drinkers or sharing with friends.</p>
+              <p class="product-desc">Drink mate often? Save more with a 3kg pack — ideal for daily drinkers, families or sharing with friends.</p>
               <div class="product-price">A$48.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('packagePlayadito3kg')">Add to cart</button>
@@ -3239,7 +3402,7 @@
             </div>
             <div class="product-body">
               <h3>3kg Mate Package | Baldo</h3>
-              <p class="product-desc">Already drink mate every day? Save more with a 3kg pack, perfect for regular drinkers or sharing with friends.</p>
+              <p class="product-desc">Drink mate often? Save more with a 3kg pack — ideal for daily drinkers, families or sharing with friends.</p>
               <div class="product-price">A$48.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('packageBaldo3kg')">Add to cart</button>
@@ -3252,7 +3415,7 @@
             </div>
             <div class="product-body">
               <h3>3kg Mate Package | La Tranquera</h3>
-              <p class="product-desc">Already drink mate every day? Save more with a 3kg pack, perfect for regular drinkers or sharing with friends.</p>
+              <p class="product-desc">Drink mate often? Save more with a 3kg pack — ideal for daily drinkers, families or sharing with friends.</p>
               <div class="product-price">A$48.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('packageLaTranquera3kg')">Add to cart</button>
@@ -3267,7 +3430,7 @@
             </div>
             <div class="product-body">
               <h3>TeeLux Yerba Mate Tea Bags | 50 bags</h3>
-              <p class="product-desc">Pure natural Argentine yerba mate tea bags with a rich flavour. Includes 50 tea bags, 3g per bag, total 150g.</p>
+              <p class="product-desc">Want mate the easy way? Tea bags are simple for work, travel or days without the full setup.</p>
               <div class="product-price">A$35.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('teeluxTeaBags50')">Add to cart</button>
@@ -3280,7 +3443,7 @@
             </div>
             <div class="product-body">
               <h3>EcoTeas Yerba Mate Tea Bags | 24 bags</h3>
-              <p class="product-desc">Unsmoked yerba mate tea bags for an easy everyday energy ritual. Includes 24 tea bags, total 48g.</p>
+              <p class="product-desc">Want mate the easy way? Tea bags are simple for work, travel or days without the full setup.</p>
               <div class="product-price">A$20.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('ecoteasTeaBags24')">Add to cart</button>
@@ -3293,7 +3456,7 @@
             </div>
             <div class="product-body">
               <h3>Playadito Mate Cocido Tea Bags | 60 bags</h3>
-              <p class="product-desc">A convenient Playadito mate cocido option for customers who prefer yerba mate in a simple tea bag format. Includes 60 tea bags.</p>
+              <p class="product-desc">Want mate the easy way? Mate cocido is a simple option when you want Playadito without the full setup.</p>
               <div class="product-price">A$18.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('playaditoMateCocido')">Add to cart</button>
@@ -3301,8 +3464,9 @@
           </article>
 
           <div class="product-group-heading with-divider" id="tools">
-            <div class="label">Gourds, Bombillas and Tools</div>
-            <h3>Everything you need to build or refresh your mate ritual.</h3>
+            <div class="label">For your setup</div>
+            <h3>Gourds, Bombillas &amp; Tools</h3>
+            <p>Everything you need to build, upgrade or refresh your mate setup.</p>
           </div>
 
           <article class="product-card">
@@ -3311,7 +3475,7 @@
             </div>
             <div class="product-body">
               <h3>MATE CUP | Trucky Argentina Flag</h3>
-              <p class="product-desc">An Argentina-inspired mate cup set with bombilla straw. A beautiful everyday option for customers who already have yerba mate at home.</p>
+              <p class="product-desc">Ready to upgrade your cup? An Argentina-inspired mate cup set for everyday use.</p>
               <div class="product-price">A$50.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('cupTruckyArgentina')">Add to cart</button>
@@ -3324,7 +3488,7 @@
             </div>
             <div class="product-body">
               <h3>MATE CUP | Imperial</h3>
-              <p class="product-desc">A premium imperial-style mate cup with bombilla, designed for a more traditional and elevated mate ritual.</p>
+              <p class="product-desc">Want a more elevated ritual? A premium imperial-style mate cup with bombilla.</p>
               <div class="product-price">A$80.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('cupImperial')">Add to cart</button>
@@ -3337,7 +3501,7 @@
             </div>
             <div class="product-body">
               <h3>Mate Gourd Set | Handmade Natural</h3>
-              <p class="product-desc">A handmade natural mate gourd set including one original mate cup, one bombilla straw and one cleaning brush.</p>
+              <p class="product-desc">Building your own setup? A natural mate gourd set with bombilla and cleaning brush.</p>
               <div class="product-price">A$49.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('gourdHandmadeNatural')">Add to cart</button>
@@ -3350,7 +3514,7 @@
             </div>
             <div class="product-body">
               <h3>STRAW Bombilla | Stainless Steel Parrot Beak</h3>
-              <p class="product-desc">A durable stainless steel bombilla straw with a parrot beak filter, essential for enjoying yerba mate smoothly.</p>
+              <p class="product-desc">Need a better straw? A stainless steel bombilla for smoother drinking and everyday use.</p>
               <div class="product-price">A$18.00</div>
               <div class="product-stock">Low stock</div>
               <button class="add-btn" type="button" onclick="addToCart('bombillaParrotBeak')">Add to cart</button>
@@ -3389,7 +3553,7 @@
             <div class="label">For culture lovers</div>
             <h2>Curious about mate culture?</h2>
           </div>
-          <p class="section-copy">Book a mate cultural experience, from beginner-friendly tastings to private gatherings and brand activations. Each session introduces mate as a ritual of sharing, conversation and connection.</p>
+          <p class="section-copy">Join a guided tasting and learn the ritual, tools and stories behind yerba mate.</p>
         </div>
 
         <div class="services-grid">
@@ -3397,7 +3561,7 @@
             <div>
               <div class="service-number">01 / Tasting</div>
               <h3>Mate Tasting Experience</h3>
-              <p>Curious about mate but don’t know how to prepare it? Join our cultural tasting session and learn the ritual, tools and stories behind yerba mate.</p>
+              <p>Curious but not sure how to prepare mate? Learn the basics through a guided cultural tasting.</p>
             </div>
             <a class="add-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book an Experience</a>
           </article>
@@ -3406,7 +3570,7 @@
             <div>
               <div class="service-number">02 / Private</div>
               <h3>Private Mate Gathering</h3>
-              <p>Want to share mate with friends? Enjoy a relaxed private gathering with mate tasting, simple preparation guidance and slow conversation.</p>
+              <p>Want to share mate with friends? A relaxed private session for small groups and meaningful conversations.</p>
             </div>
             <a class="add-btn" href="https://reservo-five.vercel.app/booking/ed8e88b3-4ed6-4acf-b962-4956c8d8c967" target="_blank" rel="noopener">Book an Experience</a>
           </article>
@@ -3415,7 +3579,7 @@
             <div>
               <div class="service-number">03 / Corporate</div>
               <h3>Corporate Mate Session</h3>
-              <p>Looking for a different team experience? Introduce South American mate culture, encourage conversation and create a shared ritual at work.</p>
+              <p>Looking for a unique team experience? Bring your team together through mate, culture and conversation.</p>
             </div>
             <a class="add-btn" href="https://reservo-five.vercel.app/booking/2fec5085-8c48-4961-bc23-be47b51dffdf" target="_blank" rel="noopener">Book an Experience</a>
           </article>
@@ -3848,8 +4012,8 @@
           onClick: 'closeSearch()'
         },
         {
-          title: 'Gourds, Bombillas and Tools',
-          subtitle: 'Build or refresh your mate ritual.',
+          title: 'Gourds, Bombillas & Tools',
+          subtitle: 'Build, upgrade or refresh your mate setup.',
           priceLabel: '',
           href: '#tools',
           keywords: 'gourd gourds cup cups bombilla straw tools cleaning brush setup',
@@ -4402,5 +4566,165 @@
     renderCart();
   </script>
   <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.js"></script>
+
+  <script>
+    // Robust header controls: keeps Search and Menu working even if inline handlers are affected by deployment/minification.
+    (function () {
+      function showKitSuggestionsIfAvailable() {
+        if (typeof renderKitSuggestions === 'function') {
+          renderKitSuggestions();
+        }
+      }
+
+      window.toggleMenu = function () {
+        document.body.classList.toggle('menu-open');
+        document.body.classList.remove('search-open');
+      };
+
+      window.closeMenu = function () {
+        document.body.classList.remove('menu-open');
+      };
+
+      window.openSearch = function () {
+        document.body.classList.add('search-open');
+        document.body.classList.remove('menu-open');
+
+        var input = document.getElementById('searchInput');
+        if (input) {
+          input.value = '';
+          setTimeout(function () { input.focus(); }, 0);
+        }
+
+        showKitSuggestionsIfAvailable();
+      };
+
+      window.closeSearch = function () {
+        document.body.classList.remove('search-open');
+
+        var input = document.getElementById('searchInput');
+        if (input) {
+          input.value = '';
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var searchButton = document.querySelector('.search-icon');
+        var menuButton = document.querySelector('.menu-toggle');
+
+        if (searchButton) {
+          searchButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.openSearch();
+          });
+        }
+
+        if (menuButton) {
+          menuButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.toggleMenu();
+          });
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    // Final robust menu/search binding for mobile Safari and desktop.
+    (function () {
+      function qs(selector) { return document.querySelector(selector); }
+
+      window.toggleMenu = function (event) {
+        if (event && event.preventDefault) event.preventDefault();
+        if (event && event.stopPropagation) event.stopPropagation();
+
+        var willOpen = !document.body.classList.contains('menu-open');
+        document.body.classList.toggle('menu-open', willOpen);
+        document.body.classList.remove('search-open');
+
+        var menuButton = qs('.menu-toggle');
+        if (menuButton) menuButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      };
+
+      window.closeMenu = function () {
+        document.body.classList.remove('menu-open');
+        var menuButton = qs('.menu-toggle');
+        if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+      };
+
+      window.openSearch = function (event) {
+        if (event && event.preventDefault) event.preventDefault();
+        if (event && event.stopPropagation) event.stopPropagation();
+
+        document.body.classList.add('search-open');
+        window.closeMenu();
+
+        var input = document.getElementById('searchInput');
+        if (input) {
+          input.value = '';
+          setTimeout(function () { input.focus(); }, 0);
+        }
+
+        if (typeof renderKitSuggestions === 'function') renderKitSuggestions();
+      };
+
+      window.closeSearch = function () {
+        document.body.classList.remove('search-open');
+        var input = document.getElementById('searchInput');
+        if (input) input.value = '';
+      };
+
+      function bindHeaderControls() {
+        var menuButton = qs('.menu-toggle');
+        var searchButton = qs('.search-icon');
+        var dropdown = qs('.menu-dropdown');
+        var searchPanel = qs('.search-panel');
+
+        if (menuButton && !menuButton.dataset.boundFinal) {
+          menuButton.dataset.boundFinal = 'true';
+          menuButton.addEventListener('click', window.toggleMenu, true);
+          menuButton.addEventListener('touchend', window.toggleMenu, true);
+        }
+
+        if (searchButton && !searchButton.dataset.boundFinal) {
+          searchButton.dataset.boundFinal = 'true';
+          searchButton.addEventListener('click', window.openSearch, true);
+          searchButton.addEventListener('touchend', window.openSearch, true);
+        }
+
+        if (dropdown && !dropdown.dataset.boundFinal) {
+          dropdown.dataset.boundFinal = 'true';
+          dropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+          });
+        }
+
+        if (searchPanel && !searchPanel.dataset.boundFinal) {
+          searchPanel.dataset.boundFinal = 'true';
+          searchPanel.addEventListener('click', function (event) {
+            event.stopPropagation();
+          });
+        }
+
+        document.addEventListener('click', function (event) {
+          var header = qs('.site-header');
+          if (!header) return;
+          if (!header.contains(event.target) && !(dropdown && dropdown.contains(event.target)) && !(searchPanel && searchPanel.contains(event.target))) {
+            window.closeMenu();
+            window.closeSearch();
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindHeaderControls);
+      } else {
+        bindHeaderControls();
+      }
+    })();
+  </script>
+
 </body>
 </html>
