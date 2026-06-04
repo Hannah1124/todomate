@@ -3740,7 +3740,111 @@
   .guide-image { padding: 10px; }
 }
 
-  </style>
+  
+
+/* =========================================================
+   Todo Mate guide pages — mobile responsive correction only
+   Scope: guide/article pages.
+   No content, copy, image, or desktop layout changes.
+========================================================= */
+@media (max-width: 900px) {
+  .guide-main {
+    padding: 28px 0 58px !important;
+  }
+
+  .guide-wrap {
+    width: calc(100% - 28px) !important;
+  }
+
+  .guide-article {
+    max-width: none !important;
+  }
+
+  .section-block,
+  .guide-section {
+    margin-bottom: 42px !important;
+    scroll-margin-top: 82px !important;
+  }
+
+  .section-block h2,
+  .guide-section h2,
+  .guide-card h2 {
+    font-size: 34px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 18px !important;
+  }
+
+  .lead,
+  .guide-lead {
+    font-size: 17px !important;
+    line-height: 1.62 !important;
+    margin-bottom: 20px !important;
+    max-width: none !important;
+  }
+
+  .body-copy,
+  .guide-card p,
+  .body-copy p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+
+  .body-copy p,
+  .guide-card p {
+    margin-bottom: 17px !important;
+  }
+
+  .guide-card {
+    padding: 28px 22px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .guide-text-block {
+    max-width: none !important;
+  }
+
+  .guide-image,
+  .guide-image.clean {
+    margin-top: 22px !important;
+  }
+
+  .set-grid,
+  .tip-grid,
+  .care-grid,
+  .tool-grid,
+  .gourd-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px 14px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .guide-main {
+    padding-top: 22px !important;
+  }
+
+  .guide-wrap {
+    width: calc(100% - 24px) !important;
+  }
+
+  .section-block h2,
+  .guide-section h2,
+  .guide-card h2 {
+    font-size: 31px !important;
+  }
+
+  .guide-card {
+    padding: 26px 20px !important;
+  }
+}
+</style>
 </head>
 <body id="top">
   <div class="top-strip"></div>
