@@ -4,18 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Todo Mate | Yerba Mate in Australia</title>
-  <meta name="description" content="Todo Mate brings yerba mate, mate kits, gourds, bombillas and mate cultural experiences to Australia." />
-  <meta name="keywords" content="yerba mate Australia, mate starter kit, bombilla, mate gourd, mate tasting Melbourne" />
-
-  <meta property="og:title" content="Todo Mate | More than a drink" />
-  <meta property="og:description" content="Yerba mate, mate kits and cultural experiences — thoughtfully curated in Australia." />
-  <meta property="og:type" content="website" />
+  <title>How to choose your first mate kit | Todo Mate</title>
+  <meta name="description" content="A beginner-friendly guide to choosing your first yerba mate kit, from the ritual and tools to starter kit recommendations." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
+
     :root {
       --green: #004225;
       --green-deep: #00351f;
@@ -3191,196 +3188,565 @@
       }
     }
 
-    .story-subtitle {
-      margin: -16px 0 26px !important;
-      color: rgba(255,255,255,.82) !important;
-      font-size: 18px !important;
-      line-height: 1.55 !important;
-      font-weight: 300 !important;
-    }
-
-    .story-panel {
-      width: min(760px, 58%);
-      padding: 72px 0 72px 72px;
-    }
-
-    .story-guide-cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      width: min(1040px, calc(100vw - 180px));
-      margin-top: 22px;
-    }
-
-    .story-guide-card {
-      min-height: 188px;
-      padding: 22px 22px 20px;
-      background: rgba(255,255,255,.94);
-      border: 1px solid rgba(255,255,255,.46);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 14px 34px rgba(0,20,12,.18);
-      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
-    }
-
-    .story-guide-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 46px rgba(0,20,12,.24);
-      background: #fff;
-    }
-
-    .story-guide-card span {
-      display: block;
-      margin-bottom: 14px;
-      color: var(--green-button);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .story-guide-card h3 {
-      margin: 0 0 12px;
-      color: var(--green);
-      font-size: 20px;
-      line-height: 1.16;
-      font-weight: 500;
-      letter-spacing: -.02em;
-    }
-
-    .story-guide-card p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    .story-guide-card strong {
-      margin-top: auto;
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 1100px) {
-      .story-panel {
-        width: min(720px, 76%);
-      }
-
-      .story-guide-cards {
-        width: 100%;
-        grid-template-columns: 1fr;
-      }
-
-      .story-guide-card {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .story-layout,
-      .story-panel {
-        min-height: auto;
-      }
-
-      .story-panel {
-        width: 100%;
-        padding: 58px 24px 42px;
-      }
-
-      .story-guide-cards {
-        gap: 14px;
-      }
-    }
-
   
-    .story-subtitle {
-      margin: -16px 0 26px !important;
-      color: rgba(255,255,255,.82) !important;
-      font-size: 18px !important;
-      line-height: 1.55 !important;
-      font-weight: 300 !important;
-    }
 
-    .story-panel {
-      width: min(720px, 56%);
-      padding: 72px 0 72px 72px;
-    }
 
-    .story-guide-cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      width: min(820px, 100%);
-      margin-top: 22px;
-    }
+/* ===== Todo Mate guide pages ===== */
+.guide-hero {
+  padding: 96px 0 74px;
+  background:
+    radial-gradient(circle at 84% 0%, rgba(255,255,255,.18), transparent 30%),
+    linear-gradient(180deg, var(--green), var(--green-deep));
+  color: #fff;
+}
+.guide-hero-inner {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 56px;
+  align-items: end;
+}
+.label-light,
+.guide-label {
+  margin-bottom: 18px;
+  color: rgba(255,255,255,.68);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.guide-hero h1 {
+  margin: 0;
+  max-width: 920px;
+  font-size: clamp(50px, 7vw, 92px);
+  line-height: .92;
+  letter-spacing: -.06em;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: none;
+}
+.guide-hero .hero-copy,
+.guide-hero p {
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.guide-wrap {
+  width: min(var(--container), calc(100% - 92px));
+  margin: 0 auto;
+}
+.guide-main {
+  padding: 78px 0 98px;
+  background: var(--mint);
+}
+.guide-article {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.section-block,
+.guide-section {
+  margin-bottom: 72px;
+  scroll-margin-top: 112px;
+}
+.section-block .label,
+.guide-section .label,
+.guide-card .label {
+  margin-bottom: 12px;
+  color: var(--green-button);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.section-block h2,
+.guide-section h2,
+.guide-card h2 {
+  margin: 0 0 22px;
+  color: var(--green);
+  font-size: clamp(38px, 4.8vw, 70px);
+  line-height: .96;
+  letter-spacing: -.045em;
+  font-weight: 500;
+  text-shadow: none;
+}
+.lead,
+.guide-lead,
+.body-copy {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 300;
+}
+.lead,
+.guide-lead {
+  margin: 0 0 26px;
+  font-size: 19px;
+  max-width: 850px;
+}
+.body-copy p,
+.guide-card p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 300;
+}
+.body-copy strong,
+.guide-card strong {
+  color: var(--green);
+  font-weight: 800;
+}
+.quote-card {
+  margin: 34px 0 0;
+  padding: 30px 34px;
+  background: var(--green);
+  color: rgba(255,255,255,.82);
+  box-shadow: var(--shadow);
+  font-size: 20px;
+  line-height: 1.65;
+  font-weight: 300;
+}
+.quote-card p { margin: 0; color: rgba(255,255,255,.82); }
 
-    .story-guide-card {
-      min-height: 72px;
-      padding: 0 18px;
-      border: 1px solid rgba(255,255,255,.66);
-      background: rgba(0,53,31,.18);
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 11px;
-      line-height: 1.35;
-      font-weight: 700;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-      transition: all .22s ease;
-    }
+.set-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 30px;
+}
+.set-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 22px 18px;
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.set-number {
+  color: var(--green-button);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.set-item h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+.set-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 300;
+}
 
-    .story-guide-card:hover {
-      background: rgba(255,255,255,.12);
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.9);
-    }
+.kit-product-grid,
+.yerba-product-grid {
+  display: grid;
+  gap: 34px;
+  margin-top: 34px;
+}
+.kit-product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.yerba-product-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.kit-product-card,
+.yerba-product-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 28px rgba(0,66,37,.06);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.kit-product-image,
+.yerba-product-image {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-bottom: 1px solid rgba(0,66,37,.08);
+}
+.kit-product-image { height: 250px; }
+.yerba-product-image { height: 230px; }
+.kit-product-image img,
+.yerba-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.kit-product-body,
+.yerba-product-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.yerba-product-body { padding: 24px; }
+.kit-tag,
+.yerba-tag {
+  margin-bottom: 16px;
+  color: var(--green-button);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.kit-product-body h3,
+.yerba-product-body h3 {
+  margin: 0 0 14px;
+  color: var(--green);
+  font-size: 27px;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  font-weight: 500;
+}
+.yerba-product-body h3 { font-size: 22px; }
+.kit-product-body p,
+.yerba-product-body p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 300;
+  flex: 1;
+}
+.kit-product-price,
+.yerba-product-price {
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 500;
+}
+.kit-choice-label {
+  margin: 2px 0 10px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.kit-variant-picker,
+.variant-picker {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.kit-variant-picker.two-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.kit-variant-picker.three-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.variant-picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.kit-variant-option,
+.variant-option {
+  min-height: 42px;
+  border: 1px solid rgba(0,66,37,.22);
+  background: #fff;
+  color: var(--green);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 14px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+.kit-variant-option.is-active,
+.variant-option.is-active {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+.kit-stock,
+.stock-note {
+  color: #c92b2b;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.wide-image {
+  margin-top: 34px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 28px rgba(0,66,37,.06);
+  padding: 18px;
+}
+.wide-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+}
+.lifestyle-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 34px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 28px rgba(0,66,37,.06);
+  padding: 28px;
+}
+.lifestyle-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+.lifestyle-copy p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+.tip-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 22px 24px;
+}
+.tip-card h3 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 20px;
+  font-weight: 700;
+}
+.tip-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 300;
+}
+.cta-strip {
+  margin-top: 34px;
+  padding: 34px;
+  background: var(--green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cta-strip p {
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.cta-btn {
+  min-height: 52px;
+  padding: 0 28px;
+  border: 1px solid rgba(255,255,255,.78);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
 
-    @media (max-width: 1100px) {
-      .story-panel {
-        width: min(720px, 76%);
-      }
+.guide-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 52px;
+}
+.guide-text-block { max-width: 980px; }
+.guide-image {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 14px;
+  margin-top: 34px;
+}
+.guide-image.clean { border: none; padding: 0; }
+.guide-image img {
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+.guide-shop-card {
+  margin-top: 34px;
+  background: rgba(234, 244, 232, .62);
+  border: 1px solid rgba(0,66,37,.16);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 22px;
+}
+.guide-shop-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.guide-shop-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.guide-shop-card a {
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.guide-shop-card a:hover { background: var(--green); color: #fff; }
+.guide-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.guide-mini {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 28px;
+  min-height: 200px;
+}
+.guide-mini-label {
+  margin-bottom: 16px;
+  color: var(--green-button);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.guide-mini p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.guide-callout {
+  margin-top: 26px;
+  padding: 22px 26px;
+  background: #fff;
+  border-left: 4px solid var(--green);
+}
+.guide-callout p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.guide-do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+.guide-note {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 26px;
+}
+.guide-note strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.guide-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.guide-list li {
+  position: relative;
+  margin: 0 0 12px;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 300;
+}
+.guide-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--green);
+}
 
-      .story-guide-cards {
-        grid-template-columns: 1fr;
-        width: min(420px, 100%);
-      }
-    }
-
-    @media (max-width: 700px) {
-      .story-layout,
-      .story-panel {
-        min-height: auto;
-      }
-
-      .story-panel {
-        width: 100%;
-        padding: 58px 24px 42px;
-      }
-
-      .story-guide-cards {
-        width: 100%;
-        gap: 12px;
-      }
-    }
+@media (max-width: 980px) {
+  .guide-hero-inner,
+  .lifestyle-card,
+  .cta-strip {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+  .set-grid,
+  .yerba-product-grid,
+  .guide-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kit-product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .guide-hero { padding: 62px 0 56px; }
+  .guide-hero-inner { gap: 24px; }
+  .guide-hero h1 { font-size: 46px; }
+  .guide-main { padding: 54px 0 70px; }
+  .section-block,
+  .guide-section { margin-bottom: 54px; }
+  .set-grid,
+  .tip-grid,
+  .yerba-product-grid,
+  .guide-grid-4,
+  .guide-do-dont,
+  .guide-shop-card {
+    grid-template-columns: 1fr;
+  }
+  .guide-card { padding: 30px 22px; }
+  .guide-shop-card a { width: 100%; }
+  .lifestyle-card { padding: 18px; }
+  .lifestyle-card img { height: auto; }
+  .wide-image,
+  .guide-image { padding: 10px; }
+}
 
   </style>
-  <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.css">
 </head>
-
 <body id="top">
   <div class="top-strip"></div>
-
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand logo-brand" href="#home" aria-label="Todo Mate home">
+      <a class="brand logo-brand" href="index.html#home" aria-label="Todo Mate home">
         <img src="./logo-white.png" alt="Todo Mate logo" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline';}; this.src='./logo.png';">
         <span class="brand-fallback">Todo Mate</span>
       </a>
@@ -3393,9 +3759,9 @@
       </div>
 
             <div class="menu-dropdown" id="menuDropdown">
-        <a href="#kits" onclick="closeMenu()">New to mate? Start here.</a>
-        <a href="#shop" onclick="closeMenu()">Already drink mate every day?</a>
-        <a href="#services" onclick="closeMenu()">Curious about mate culture?</a>
+        <a href="index.html#kits" onclick="closeMenu()">New to mate? Start here.</a>
+        <a href="index.html#shop" onclick="closeMenu()">Already drink mate every day?</a>
+        <a href="index.html#services" onclick="closeMenu()">Curious about mate culture?</a>
       </div>
 
       <div class="search-panel" id="searchPanel" aria-label="Search panel">
@@ -3408,419 +3774,148 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-content">
-        <div class="hero-copy">
-          <h1>Your first mate<br>ritual starts here.</h1>
-          <p>New to yerba mate? We make it simple to choose, prepare and enjoy your first mate at home.</p>
-          <div class="hero-buttons">
-            <a class="primary-btn" href="#shop">Shop starter kits</a>
-            <a class="secondary-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book a tasting</a>
-          </div>
+  <main id="top">
+    <section class="guide-hero">
+      <div class="container guide-hero-inner">
+        <div>
+          <div class="label-light">More than a drink</div>
+          <h1>How to choose your first mate kit.</h1>
         </div>
+        <p class="hero-copy">
+          Not sure what to buy first? Start by understanding the ritual — then choose the setup that fits how you want to begin.
+        </p>
       </div>
     </section>
 
-    <section class="section shop-section" id="shop">
+    <section class="guide-main">
       <div class="container">
-        <div class="shop-promo-banner">
-          <div class="shop-promo-copy">
-            Enjoy 10% off your first Todo Mate order — use code <strong>ILOVEMATE</strong> at checkout.
-          </div>
-        </div>
-
-        <div class="product-grid">
-
-          <div class="product-group-heading" id="kits">
-            <div class="label">For beginners</div>
-            <h3>New to mate? Start here.</h3>
-            <p>Choose a kit based on how you want to begin — simple, traditional or premium.</p>
-          </div>
-
-          <article class="product-card kit-card">
-            <div class="product-image">
-              <img src="kit-beginner-playadito-starter.png" alt="Beginner Kit Playadito Starter">
+        <article class="guide-article">
+          <section class="section-block" id="ritual">
+            <div class="label">First, understand mate</div>
+            <h2>Mate is not just tea in a cup.</h2>
+            <div class="body-copy">
+              <p>
+                Yerba mate is traditionally prepared with dried leaves from the <strong>Ilex paraguariensis</strong> plant, placed inside a gourd and sipped through a filtered metal straw called a <strong>bombilla</strong>.
+              </p>
+              <p>
+                The drink is especially common across Argentina, Paraguay, Uruguay and southern Brazil, with roots often traced back to Indigenous Guaraní communities. Over time, mate became part of daily life, family gatherings and friendship across South America.
+              </p>
+              <p>
+                That is why mate feels different from ordinary tea or coffee. It is not only about flavour or energy. It is about a small ritual: preparing the gourd, placing the bombilla, adding hot water and taking a moment to slow down.
+              </p>
             </div>
-            <div class="product-body">
-              <h3>Beginner Kit | Playadito Starter</h3>
-              <p class="product-desc">Not sure where to start? Everything you need for your first mate at home — Playadito, stainless steel gourd, bombilla, brush and intro card.</p>
-              <div class="product-price">A$59.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('kitBeginnerPlayaditoStarter')">Add to cart</button>
+            <div class="quote-card">
+              <p>One gourd. One bombilla. A slower way to gather, talk and be present — whether you share it with others or enjoy it on your own.</p>
             </div>
-          </article>
+          </section>
 
-          <article class="product-card kit-card" id="intermediateKitVariant" data-selected-product="kitIntermediateCalabash">
-            <div class="product-image">
-              <img src="kit-intermediate-calabash.png" alt="Intermediate Kit La Tranquera Traditional Calabash" data-variant-image>
-            </div>
-            <div class="product-body">
-              <h3>Intermediate Kit | La Tranquera Traditional</h3>
-              <p class="product-desc">Want a more traditional setup? Choose La Tranquera with a calabash or wooden gourd, plus bombilla, brush and intro card.</p>
-              <div class="variant-label">Choose your gourd</div>
-              <div class="variant-picker kit-variant-picker" aria-label="Choose Intermediate Kit gourd">
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('intermediateKitVariant', 'kitIntermediateCalabash', this)">Calabash</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('intermediateKitVariant', 'kitIntermediateWooden', this)">Wooden</button>
+          <section class="section-block" id="complete-set">
+            <div class="label">The basic setup</div>
+            <h2>What does a complete mate set include?</h2>
+            <p class="lead">
+              For beginners, the confusing part is usually not drinking mate — it is knowing which tools you actually need. A complete set brings the essentials together.
+            </p>
+
+            <div class="set-grid">
+              <div class="set-item">
+                <div class="set-number">01</div>
+                <h3>Yerba mate</h3>
+                <p>The tea itself. Some blends are smoother and lighter; others are stronger and more intense.</p>
               </div>
-              <div class="product-price" data-price-display>A$59.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addSelectedVariant('intermediateKitVariant')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card kit-card" id="premiumKitVariant" data-selected-product="kitPremiumImperial">
-            <div class="product-image">
-              <img src="kit-premium-imperial.png" alt="Premium Kit Canarias Ritual Set Imperial" data-variant-image>
-            </div>
-            <div class="product-body">
-              <h3>Premium Kit | Canarias Ritual Set</h3>
-              <p class="product-desc">Looking for a stronger ritual or gift-ready set? Pair Canarias with your choice of ritual gourd, plus bombilla, brush and intro card.</p>
-              <div class="variant-label">Choose your gourd</div>
-              <div class="variant-picker kit-variant-picker" aria-label="Choose Premium Kit gourd">
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumImperial', this)">Imperial</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumCamionero', this)">Camionero</button>
-                <button class="variant-option" type="button" onclick="selectProductVariant('premiumKitVariant', 'kitPremiumTorpedo', this)">Torpedo</button>
+              <div class="set-item">
+                <div class="set-number">02</div>
+                <h3>Mate gourd</h3>
+                <p>The cup used to prepare and drink mate. Stainless steel is easy to clean; wood or calabash feels more traditional.</p>
               </div>
-              <div class="product-price" data-price-display>A$110.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addSelectedVariant('premiumKitVariant')">Add to cart</button>
-            </div>
-          </article>
-
-          <div class="product-group-heading with-divider" id="daily-drinkers">
-            <div class="label">For daily drinkers</div>
-            <h3>Already drink mate every day?</h3>
-            <p>Stock up on your favourite yerba, value packs and easy everyday options.</p>
-          </div>
-
-          <article class="product-card" id="playaditoVariant" data-selected-product="playadito1kg">
-            <div class="product-image">
-              <img src="product-playadito-500g.jpg" alt="Playadito Yerba Mate">
-            </div>
-            <div class="product-body">
-              <h3>Playadito Yerba Mate</h3>
-              <p class="product-desc">Know your everyday yerba? Choose 500g to try or 1kg to keep your ritual stocked at home.</p>
-              <div class="product-price" data-price-display>A$18.00</div>
-              <div class="variant-picker" aria-label="Choose Playadito size">
-                <button class="variant-option" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito500g', this)">500g</button>
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('playaditoVariant', 'playadito1kg', this)">1kg</button>
+              <div class="set-item">
+                <div class="set-number">03</div>
+                <h3>Bombilla</h3>
+                <p>The filtered metal straw that lets you drink mate without drinking the loose leaves.</p>
               </div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addSelectedVariant('playaditoVariant')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card" id="baldoVariant" data-selected-product="baldo1kg">
-            <div class="product-image">
-              <img src="product-baldo-1kg.jpg" alt="Baldo Yerba Mate">
-            </div>
-            <div class="product-body">
-              <h3>Baldo Yerba Mate</h3>
-              <p class="product-desc">Prefer a stronger profile? A traditional Uruguayan-style yerba for regular mate drinkers.</p>
-              <div class="product-price" data-price-display>A$17.00</div>
-              <div class="variant-picker" aria-label="Choose Baldo size">
-                <button class="variant-option" type="button" onclick="selectProductVariant('baldoVariant', 'baldo500g', this)">500g</button>
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('baldoVariant', 'baldo1kg', this)">1kg</button>
+              <div class="set-item">
+                <div class="set-number">04</div>
+                <h3>Cleaning brush</h3>
+                <p>A simple tool to help keep your bombilla clean, especially if you drink mate often.</p>
               </div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addSelectedVariant('baldoVariant')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card" id="canariasVariant" data-selected-product="canarias1kg">
-            <div class="product-image">
-              <img src="product-canarias-1kg.jpg" alt="Canarias Yerba Mate">
-            </div>
-            <div class="product-body">
-              <h3>Canarias Yerba Mate</h3>
-              <p class="product-desc">Want a bold daily mate? Canarias is a strong, iconic option for experienced drinkers.</p>
-              <div class="product-price" data-price-display>A$17.50</div>
-              <div class="variant-picker" aria-label="Choose Canarias size">
-                <button class="variant-option" type="button" onclick="selectProductVariant('canariasVariant', 'canarias500g', this)">500g</button>
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('canariasVariant', 'canarias1kg', this)">1kg</button>
+              <div class="set-item">
+                <div class="set-number">05</div>
+                <h3>Intro card</h3>
+                <p>A short guide to help you prepare your first mate and care for your tools with confidence.</p>
               </div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addSelectedVariant('canariasVariant')">Add to cart</button>
             </div>
-          </article>
+          </section>
 
-          <article class="product-card" id="laTranqueraVariant" data-selected-product="laTranquera1kg">
-            <div class="product-image">
-              <img src="product-la-tranquera-tradicional-500g.webp" alt="La Tranquera Tradicional">
+          <section class="section-block" id="choose-kit">
+            <div class="label">Choose by how you want to begin</div>
+            <h2>Which kit should I choose?</h2>
+            <p class="lead">
+              Once you understand the ritual, choosing a kit becomes easier. It is less about finding the “best” product and more about choosing the right starting point.
+            </p>
+
+            <div class="kit-product-grid">
+              <article class="kit-product-card">
+                <div class="kit-product-image">
+                  <img src="guide-kit-beginner-playadito-starter.png" alt="Beginner Kit Playadito Starter">
+                </div>
+                <div class="kit-product-body">
+                  <div class="kit-tag">Start simple</div>
+                  <h3>Beginner Kit | Playadito Starter</h3>
+                  <p>For the easiest, lowest-maintenance way to try mate at home without worrying about tools or cleaning.</p>
+                  <div class="kit-product-price">A$59.00</div>
+                  <div class="kit-stock">Low stock</div>
+                  <button class="add-btn" type="button" onclick="addToCart('kitBeginnerPlayaditoStarter')">Add to cart</button>
+                </div>
+              </article>
+
+              <article class="kit-product-card" data-guide-kit="intermediate">
+                <div class="kit-product-image">
+                  <img id="guideIntermediateImage" src="kit-intermediate-calabash.png" alt="Intermediate Kit La Tranquera Traditional - Calabash">
+                </div>
+                <div class="kit-product-body">
+                  <div class="kit-tag">Go traditional</div>
+                  <h3>Intermediate Kit | La Tranquera Traditional</h3>
+                  <p>For a more authentic South American mate experience, with La Tranquera and a traditional gourd setup.</p>
+                  <div class="kit-choice-label">Choose your gourd</div>
+                  <div class="kit-variant-picker two-options" aria-label="Choose your Intermediate Kit gourd">
+                    <button class="kit-variant-option is-active" type="button" onclick="selectGuideKitVariant('intermediate', 'kitIntermediateCalabash', this)">Calabash</button>
+                    <button class="kit-variant-option" type="button" onclick="selectGuideKitVariant('intermediate', 'kitIntermediateWooden', this)">Wooden</button>
+                  </div>
+                  <div class="kit-product-price" id="guideIntermediatePrice">A$59.00</div>
+                  <div class="kit-stock">Low stock</div>
+                  <button class="add-btn" type="button" onclick="addSelectedGuideKitToCart('intermediate')">Add to cart</button>
+                </div>
+              </article>
+
+              <article class="kit-product-card" data-guide-kit="premium">
+                <div class="kit-product-image">
+                  <img id="guidePremiumImage" src="kit-premium-imperial.png" alt="Premium Kit Canarias Ritual Set - Imperial">
+                </div>
+                <div class="kit-product-body">
+                  <div class="kit-tag">Make it special</div>
+                  <h3>Premium Kit | Canarias Ritual Set</h3>
+                  <p>For a stronger yerba, a more premium gourd or a gift-ready ritual set with a deeper mate character.</p>
+                  <div class="kit-choice-label">Choose your gourd</div>
+                  <div class="kit-variant-picker three-options" aria-label="Choose your Premium Kit gourd">
+                    <button class="kit-variant-option is-active" type="button" onclick="selectGuideKitVariant('premium', 'kitPremiumImperial', this)">Imperial</button>
+                    <button class="kit-variant-option" type="button" onclick="selectGuideKitVariant('premium', 'kitPremiumCamionero', this)">Camionero</button>
+                    <button class="kit-variant-option" type="button" onclick="selectGuideKitVariant('premium', 'kitPremiumTorpedo', this)">Torpedo</button>
+                  </div>
+                  <div class="kit-product-price" id="guidePremiumPrice">A$110.00</div>
+                  <div class="kit-stock">Low stock</div>
+                  <button class="add-btn" type="button" onclick="addSelectedGuideKitToCart('premium')">Add to cart</button>
+                </div>
+              </article>
             </div>
-            <div class="product-body">
-              <h3>La Tranquera | Tradicional</h3>
-              <p class="product-desc">Looking for a balanced refill? A traditional Argentinian yerba that is smooth enough for everyday drinking.</p>
-              <div class="product-price" data-price-display>A$18.00</div>
-              <div class="variant-picker" aria-label="Choose La Tranquera size">
-                <button class="variant-option" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera500g', this)">500g</button>
-                <button class="variant-option is-active" type="button" onclick="selectProductVariant('laTranqueraVariant', 'laTranquera1kg', this)">1kg</button>
-              </div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addSelectedVariant('laTranqueraVariant')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-3kg-playadito.webp" alt="3kg Mate Package Playadito">
-            </div>
-            <div class="product-body">
-              <h3>3kg Mate Package | Playadito</h3>
-              <p class="product-desc">Drink mate often? Save more with a 3kg pack — ideal for daily drinkers, families or sharing with friends.</p>
-              <div class="product-price">A$48.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('packagePlayadito3kg')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-3kg-baldo.webp" alt="3kg Mate Package Baldo">
-            </div>
-            <div class="product-body">
-              <h3>3kg Mate Package | Baldo</h3>
-              <p class="product-desc">Drink mate often? Save more with a 3kg pack — ideal for daily drinkers, families or sharing with friends.</p>
-              <div class="product-price">A$48.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('packageBaldo3kg')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-3kg-la-tranquera.webp" alt="3kg Mate Package La Tranquera">
-            </div>
-            <div class="product-body">
-              <h3>3kg Mate Package | La Tranquera</h3>
-              <p class="product-desc">Drink mate often? Save more with a 3kg pack — ideal for daily drinkers, families or sharing with friends.</p>
-              <div class="product-price">A$48.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('packageLaTranquera3kg')">Add to cart</button>
-            </div>
-          </article>
-
-
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-teelux-yerba-mate-tea-bags-50.avif" alt="TeeLux Yerba Mate Tea Bags 50 bags">
-            </div>
-            <div class="product-body">
-              <h3>TeeLux Yerba Mate Tea Bags | 50 bags</h3>
-              <p class="product-desc">Want mate the easy way? Tea bags are simple for work, travel or days without the full setup.</p>
-              <div class="product-price">A$35.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('teeluxTeaBags50')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-ecoteas-green-energy-24-bags.jpg" alt="EcoTeas Yerba Mate Tea Bags 24 bags">
-            </div>
-            <div class="product-body">
-              <h3>EcoTeas Yerba Mate Tea Bags | 24 bags</h3>
-              <p class="product-desc">Want mate the easy way? Tea bags are simple for work, travel or days without the full setup.</p>
-              <div class="product-price">A$20.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('ecoteasTeaBags24')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-playadito-mate-cocido-tea-bags.webp" alt="Playadito Mate Cocido Tea Bags | 60 bags">
-            </div>
-            <div class="product-body">
-              <h3>Playadito Mate Cocido Tea Bags | 60 bags</h3>
-              <p class="product-desc">Want mate the easy way? Mate cocido is a simple option when you want Playadito without the full setup.</p>
-              <div class="product-price">A$18.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('playaditoMateCocido')">Add to cart</button>
-            </div>
-          </article>
-
-          <div class="product-group-heading with-divider" id="tools">
-            <div class="label">For your setup</div>
-            <h3>Gourds, Bombillas &amp; Tools</h3>
-            <p>Everything you need to build, upgrade or refresh your mate setup.</p>
-          </div>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-cup-trucky-argentina-flag.png" alt="MATE CUP Trucky Argentina Flag">
-            </div>
-            <div class="product-body">
-              <h3>MATE CUP | Trucky Argentina Flag</h3>
-              <p class="product-desc">Ready to upgrade your cup? An Argentina-inspired mate cup set for everyday use.</p>
-              <div class="product-price">A$50.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('cupTruckyArgentina')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-cup-imperial.webp" alt="MATE CUP Imperial">
-            </div>
-            <div class="product-body">
-              <h3>MATE CUP | Imperial</h3>
-              <p class="product-desc">Want a more elevated ritual? A premium imperial-style mate cup with bombilla.</p>
-              <div class="product-price">A$80.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('cupImperial')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-gourd-handmade-natural.jpg" alt="Mate Gourd Set Handmade Natural">
-            </div>
-            <div class="product-body">
-              <h3>Mate Gourd Set | Handmade Natural</h3>
-              <p class="product-desc">Building your own setup? A natural mate gourd set with bombilla and cleaning brush.</p>
-              <div class="product-price">A$49.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('gourdHandmadeNatural')">Add to cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="product-bombilla-parrot-beak.png" alt="Stainless Steel Parrot Beak Bombilla">
-            </div>
-            <div class="product-body">
-              <h3>STRAW Bombilla | Stainless Steel Parrot Beak</h3>
-              <p class="product-desc">Need a better straw? A stainless steel bombilla for smoother drinking and everyday use.</p>
-              <div class="product-price">A$18.00</div>
-              <div class="product-stock">Low stock</div>
-              <button class="add-btn" type="button" onclick="addToCart('bombillaParrotBeak')">Add to cart</button>
-            </div>
-          </article>
-
-
-
-
-
-
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section story-section" id="culture">
-      <div class="container">
-        <div class="story-layout">
-          <div class="story-panel">
-            <div class="label">MORE THAN A DRINK</div>
-            <h2>What is yerba mate?</h2>
-            <p class="story-subtitle">The basics of yerba mate, taste and tradition.</p>
-            <p>Yerba mate is a traditional South American drink made from the leaves of the yerba mate plant. It has a naturally earthy, herbal taste and is often enjoyed for focus, energy and connection.</p>
-            <p>But mate is more than a drink. Across Argentina, Uruguay, Paraguay, Brazil and beyond, it is part of daily life — shared at home, during study, on long drives, at work and with friends.</p>
-            <p>At Todo Mate, we make it easier to understand the culture, choose your first setup and enjoy your own mate ritual in Australia.</p>
-
-            <div class="story-guide-cards">
-              <a class="story-guide-card" href="how-to-choose-your-first-mate-kit.html">How do I choose my first mate kit?</a>
-              <a class="story-guide-card" href="how-to-prepare-yerba-mate.html">How do I prepare yerba mate?</a>
-              <a class="story-guide-card" href="mate-tools-care-guide.html">How do I choose and care for my mate tools?</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="label">For culture lovers</div>
-            <h2>Curious about mate culture?</h2>
-          </div>
-          <p class="section-copy">Join a guided tasting and learn the ritual, tools and stories behind yerba mate.</p>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card">
-            <div>
-              <div class="service-number">01 / Tasting</div>
-              <h3>Mate Tasting Experience</h3>
-              <p>Curious but not sure how to prepare mate? Learn the basics through a guided cultural tasting.</p>
-            </div>
-            <a class="add-btn" href="https://reservo-five.vercel.app/booking/332333ae-472a-4fad-b6fe-cb8846e1d7b5" target="_blank" rel="noopener">Book an Experience</a>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-number">02 / Private</div>
-              <h3>Private Mate Gathering</h3>
-              <p>Want to share mate with friends? A relaxed private session for small groups and meaningful conversations.</p>
-            </div>
-            <a class="add-btn" href="https://reservo-five.vercel.app/booking/ed8e88b3-4ed6-4acf-b962-4956c8d8c967" target="_blank" rel="noopener">Book an Experience</a>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="service-number">03 / Corporate</div>
-              <h3>Corporate Mate Session</h3>
-              <p>Looking for a unique team experience? Bring your team together through mate, culture and conversation.</p>
-            </div>
-            <a class="add-btn" href="https://reservo-five.vercel.app/booking/2fec5085-8c48-4961-bc23-be47b51dffdf" target="_blank" rel="noopener">Book an Experience</a>
-          </article>
-        </div>
+          </section>
+        </article>
       </div>
     </section>
   </main>
 
-    <section class="section terms-section" id="terms" aria-label="Todo Mate terms and policies">
-      <div class="container">
-        <article class="terms-page">
-          <div class="label">Todo Mate</div>
-          <h2>Terms & Policies</h2>
-
-          <h3>Shipping & Pickup</h3>
-          <p>We currently ship Todo Mate products within Australia.</p>
-          <ul>
-            <li>Orders of A$59 or more receive free standard shipping.</li>
-            <li>Orders below A$59 have a flat A$9 shipping fee.</li>
-            <li>Orders are usually prepared within 1–3 business days after payment is received.</li>
-          </ul>
-          <p>Pickup is available from 18/59 Queens Road, Melbourne VIC 3004. After your order is paid, we will confirm the pickup time with you by email.</p>
-          <p>Please make sure your delivery address is correct before placing an order. If you notice an error, contact us as soon as possible at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a>.</p>
-
-          <h3>Refunds & Returns</h3>
-          <p>We want you to be happy with your Todo Mate order. If your item is damaged, faulty, incorrect, or not as described, please contact us at <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a> with your order details and photos where relevant.</p>
-          <p>Nothing in this policy limits your rights under Australian Consumer Law. If a product does not meet consumer guarantees, you may be entitled to a repair, replacement, refund, or other remedy.</p>
-          <p>For hygiene and food safety reasons, we generally cannot accept returns of opened yerba mate, used mate cups, bombillas, or opened food products for change of mind.</p>
-          <p>If you ordered the wrong item or changed your mind, contact us within 7 days of receiving your order. We may accept returns of unopened, unused products in their original packaging. Return shipping costs are usually the customer’s responsibility unless the item is faulty or incorrect.</p>
-          <p>Approved refunds will be processed back to the original payment method where possible.</p>
-
-          <h3>Privacy</h3>
-          <p>Todo Mate respects your privacy. When you place an order or contact us, we may collect your name, email address, phone number, delivery or pickup details, order information, and payment-related information.</p>
-          <p>We use your information to process your order, confirm payment, arrange pickup or delivery, respond to enquiries, and improve our customer experience.</p>
-          <p>Payments are processed securely through Adyen. Todo Mate does not store your full card details.</p>
-          <p>We do not sell your personal information. We may share limited information with service providers where needed to process payments, send emails, or deliver orders.</p>
-
-          <h3>Contact</h3>
-          <p>Email: <a href="mailto:hello@todomate.com.au">hello@todomate.com.au</a></p>
-          <p>Pickup location: 18/59 Queens Road, Melbourne VIC 3004</p>
-          <p>For order questions, please include your order reference or payment reference if available.</p>
-
-          <p class="terms-back"><a href="#top">Back to top</a></p>
-        </article>
-      </div>
-    </section>
-
-
-  
-  
-  
   <footer class="footer">
     <div class="container">
       <div class="footer-original-row">
-        <a class="footer-logo-brand" href="#top" aria-label="Todo Mate home">
+        <a class="footer-logo-brand" href="index.html#top" aria-label="Todo Mate home">
           <img src="logo-white.png" alt="Todo Mate logo">
           <span>Todo Mate</span>
         </a>
@@ -3844,164 +3939,38 @@
               <path d="M14 8h3V4h-3c-3.2 0-5 1.8-5 5v3H6v4h3v4h4v-4h3.2l.8-4H13V9c0-.7.3-1 1-1z"></path>
             </svg>
           </a>
-          <a href="#shop">Shop</a>
-          <a href="#services">Cultural</a>
-          <a href="#terms">T&amp;C</a>
+          <a href="index.html#shop">Shop</a>
+          <a href="index.html#services">Cultural</a>
+          <a href="index.html#terms">T&amp;C</a>
         </nav>
       </div>
     </div>
   </footer>
+  
 
   <div class="cart-overlay" onclick="closeCart()"></div>
-
   <aside class="cart-drawer" aria-label="Shopping cart">
     <div class="cart-header">
       <h3>Your cart</h3>
       <button class="close-btn" type="button" onclick="closeCart()" aria-label="Close cart">×</button>
     </div>
-
     <div class="cart-items" id="cartItems"></div>
-
     <div class="cart-footer">
       <div class="cart-total">
         <span>Total</span>
-        <span id="cartTotal">A$0</span>
+        <span id="cartTotal">A$0.00</span>
       </div>
-
-      <button class="checkout-btn" type="button" onclick="openCheckout()">Continue to order details</button>
-
-      <p class="cart-note">Free shipping on orders A$59+. Orders below A$59: A$9 flat shipping. Pickup available at 18/59 Queens Road, Melbourne VIC 3004.</p>
+      <button class="checkout-btn" type="button" onclick="window.location.href='index.html#cart'">Continue to checkout on Todo Mate</button>
+      <p class="cart-note">Your cart is saved in this browser and will be available on the main Todo Mate shop page.</p>
     </div>
   </aside>
 
-  <div class="checkout-modal" onclick="closeCheckout()">
-    <div class="checkout-card" onclick="event.stopPropagation()">
-      <div class="checkout-header">
-        <h3>Secure checkout</h3>
-        <button class="close-btn" type="button" onclick="closeCheckout()" aria-label="Close checkout">×</button>
-      </div>
-
-      <form class="checkout-body" onsubmit="startSecureCheckout(event)">
-        <div class="delivery-method">
-          <label>Delivery method</label>
-          <div class="delivery-options">
-            <label class="delivery-option">
-              <input type="radio" name="deliveryMethod" value="ship" checked onchange="updateDeliveryMethod()">
-              Ship
-            </label>
-            <label class="delivery-option">
-              <input type="radio" name="deliveryMethod" value="pickup" onchange="updateDeliveryMethod()">
-              Pickup
-            </label>
-          </div>
-        </div>
-
-        <div class="pickup-note" id="pickupNote">
-          <strong>Pickup address</strong><br>
-          18/59 Queens Road, Melbourne VIC 3004<br>
-          We will confirm pickup time after receiving your order.
-        </div>
-
-        <div>
-          <label for="checkoutName">Name</label>
-          <input id="checkoutName" type="text" required placeholder="Your name">
-        </div>
-
-        <div>
-          <label for="checkoutEmail">Email</label>
-          <input id="checkoutEmail" type="email" required placeholder="you@email.com">
-        </div>
-
-        <div>
-          <label for="checkoutPhone">Phone</label>
-          <input id="checkoutPhone" type="tel" placeholder="Your phone number">
-        </div>
-
-        <div id="postcodeGroup">
-          <label for="checkoutPostcode">Postcode</label>
-          <input id="checkoutPostcode" type="text" required placeholder="e.g. 3000">
-        </div>
-
-        <div class="form-full" id="addressGroup">
-          <label for="checkoutAddress">Delivery address</label>
-          <input id="checkoutAddress" type="text" required placeholder="Street, suburb, state">
-        </div>
-
-        <div class="form-full" id="noteGroup">
-          <label for="checkoutNote">Delivery note</label>
-          <textarea id="checkoutNote" placeholder="Optional delivery notes"></textarea>
-        </div>
-
-        <div class="checkout-notice">
-          <strong>Payment activation notice</strong>
-          Secure online payment is being activated. You can still submit your order details now, and we will confirm payment manually if checkout is not available yet.
-        </div>
-
-        <div class="discount-box form-full">
-          <label for="discountCodeInput">Discount code</label>
-          <div class="discount-row">
-            <input id="discountCodeInput" type="text" placeholder="Enter code e.g. ILOVEMATE">
-            <button class="discount-btn" type="button" onclick="applyDiscountCode()">Apply</button>
-          </div>
-          <div class="discount-message" id="discountMessage">Use ILOVEMATE for 10% off your first order. For first-time customers only. One use per customer.</div>
-        </div>
-
-        <div class="checkout-summary" id="checkoutSummary"></div>
-
-        <div class="payment-placeholder" id="paymentPlaceholder">
-          Secure payment will load here after you click Continue to payment.
-        </div>
-
-        <button class="pay-btn" type="button" onclick="startSecureCheckout(event)">Continue to payment</button>
-      </form>
-    </div>
-  </div>
   <script>
     const products = {
-      playadito500g: {
-        name: 'Playadito Yerba Mate | 500g',
-        price: 9,
-        image: 'product-playadito-500g.jpg'
-      },
-      playadito1kg: {
-        name: 'Playadito Yerba Mate | 1kg',
-        price: 18,
-        image: 'product-playadito-500g.jpg'
-      },
-      baldo500g: {
-        name: 'Baldo Yerba Mate | 500g',
-        price: 8.5,
-        image: 'product-baldo-1kg.jpg'
-      },
-      baldo1kg: {
-        name: 'Baldo Yerba Mate | 1kg',
-        price: 17,
-        image: 'product-baldo-1kg.jpg'
-      },
-      canarias500g: {
-        name: 'Canarias Yerba Mate | 500g',
-        price: 9,
-        image: 'product-canarias-1kg.jpg'
-      },
-      canarias1kg: {
-        name: 'Canarias Yerba Mate | 1kg',
-        price: 17.5,
-        image: 'product-canarias-1kg.jpg'
-      },
-      laTranquera500g: {
-        name: 'La Tranquera | Tradicional | 500g',
-        price: 9,
-        image: 'product-la-tranquera-tradicional-500g.webp'
-      },
-      laTranquera1kg: {
-        name: 'La Tranquera | Tradicional | 1kg',
-        price: 18,
-        image: 'product-la-tranquera-tradicional-500g.webp'
-      },
       kitBeginnerPlayaditoStarter: {
         name: 'Beginner Kit | Playadito Starter',
         price: 59,
-        image: 'kit-beginner-playadito-starter.png'
+        image: 'guide-kit-beginner-playadito-starter.png'
       },
       kitIntermediateCalabash: {
         name: 'Intermediate Kit | La Tranquera Traditional - Calabash',
@@ -4027,114 +3996,159 @@
         name: 'Premium Kit | Canarias Ritual Set - Torpedo',
         price: 79,
         image: 'kit-premium-torpedo.png'
-      },
-      packagePlayadito3kg: {
-        name: '3kg Mate Package | Playadito',
-        price: 48,
-        image: 'product-3kg-playadito.webp'
-      },
-      packageBaldo3kg: {
-        name: '3kg Mate Package | Baldo',
-        price: 48,
-        image: 'product-3kg-baldo.webp'
-      },
-      packageLaTranquera3kg: {
-        name: '3kg Mate Package | La Tranquera',
-        price: 48,
-        image: 'product-3kg-la-tranquera.webp'
-      },
-      cupTruckyArgentina: {
-        name: 'MATE CUP | Trucky Argentina Flag',
-        price: 50,
-        image: 'product-cup-trucky-argentina-flag.png'
-      },
-      cupImperial: {
-        name: 'MATE CUP | Imperial',
-        price: 80,
-        image: 'product-cup-imperial.webp'
-      },
-      gourdHandmadeNatural: {
-        name: 'Mate Gourd Set | Handmade Natural',
-        price: 49,
-        image: 'product-gourd-handmade-natural.jpg'
-      },
-      bombillaParrotBeak: {
-        name: 'STRAW Bombilla | Stainless Steel Parrot Beak',
-        price: 18,
-        image: 'product-bombilla-parrot-beak.png'
-      },
-      teeluxTeaBags50: {
-        name: 'TeeLux Yerba Mate Tea Bags | 50 bags',
-        price: 35,
-        image: 'product-teelux-yerba-mate-tea-bags-50.avif'
-      },
-      ecoteasTeaBags24: {
-        name: 'EcoTeas Yerba Mate Tea Bags | 24 bags',
-        price: 20,
-        image: 'product-ecoteas-green-energy-24-bags.jpg'
-      },
-      playaditoMateCocido: {
-        name: 'Playadito Mate Cocido Tea Bags | 60 bags',
-        price: 18,
-        image: 'product-playadito-mate-cocido-tea-bags.webp'
       }
     };
 
+    const selectedGuideKits = {
+      intermediate: 'kitIntermediateCalabash',
+      premium: 'kitPremiumImperial'
+    };
+
     let cart = JSON.parse(localStorage.getItem('todoMateCart') || '{}');
-    let appliedDiscountCode = null;
 
-
-    function toggleMenu() {
-      document.body.classList.toggle('menu-open');
-      document.body.classList.remove('search-open');
+    function formatPrice(value) {
+      const safeValue = Number(value);
+      return `A$${Number.isFinite(safeValue) ? safeValue.toFixed(2) : '0.00'}`;
     }
 
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
+    function normaliseCart() {
+      const cleaned = {};
+      Object.entries(cart || {}).forEach(([id, item]) => {
+        if (!item || typeof item !== 'object') return;
+
+        const quantity = Number(item.quantity ?? item.qty ?? 1);
+        const price = Number(item.price ?? item.amount ?? 0);
+
+        if (!Number.isFinite(quantity) || quantity <= 0) return;
+        if (!Number.isFinite(price) || price < 0) return;
+
+        cleaned[id] = {
+          ...item,
+          quantity,
+          price,
+          name: item.name || item.title || 'Todo Mate item',
+          image: item.image || item.img || ''
+        };
+      });
+
+      cart = cleaned;
+      localStorage.setItem('todoMateCart', JSON.stringify(cart));
     }
 
-    const featuredKitIds = [
-      'kitBeginnerPlayaditoStarter',
-      'kitIntermediateCalabash',
-      'kitIntermediateWooden',
-      'kitPremiumImperial',
-      'kitPremiumCamionero',
-      'kitPremiumTorpedo'
-    ];
-
-    function getSearchResultHtml(item) {
-      return `
-        <a class="search-result-link" href="${item.href}" onclick="${item.onClick}">
-          <span>
-            <strong>${item.title}</strong>
-            <span>${item.subtitle}</span>
-          </span>
-          <span class="search-result-price">${item.priceLabel || ''}</span>
-        </a>
-      `;
+    function saveCart() {
+      normaliseCart();
+      localStorage.setItem('todoMateCart', JSON.stringify(cart));
     }
 
-    function renderKitSuggestions() {
-      const results = document.getElementById('searchResults');
-      if (!results) return;
-
-      const kitSuggestions = featuredKitIds
-        .filter((id) => products[id])
-        .map((id) => ({
-          title: products[id].name,
-          subtitle: 'Starter kit',
-          priceLabel: `A$${products[id].price.toFixed(2)}`,
-          href: '#kits',
-          onClick: 'closeSearch()'
-        }));
-
-      results.innerHTML = `
-        <div class="search-suggestions-title">Popular kits</div>
-        ${kitSuggestions.map(getSearchResultHtml).join('')}
-      `;
+    function getCartCount() {
+      normaliseCart();
+      return Object.values(cart).reduce((sum, item) => sum + Number(item.quantity || 0), 0);
     }
 
-    function toggleMenu() {
+    function getCartTotal() {
+      normaliseCart();
+      return Object.values(cart).reduce((sum, item) => sum + Number(item.price || 0) * Number(item.quantity || 0), 0);
+    }
+
+    function renderCart() {
+      normaliseCart();
+      const cartCount = document.getElementById('cartCount');
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+
+      if (cartCount) cartCount.textContent = getCartCount();
+      if (cartTotal) cartTotal.textContent = formatPrice(getCartTotal());
+
+      if (!cartItems) return;
+      const entries = Object.entries(cart);
+      if (!entries.length) {
+        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+        return;
+      }
+
+      cartItems.innerHTML = entries.map(([id, item]) => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div>
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-meta">${formatPrice(item.price)} each</div>
+            <div class="qty-control">
+              <button type="button" onclick="changeQty('${id}', -1)">−</button>
+              <span>${item.quantity}</span>
+              <button type="button" onclick="changeQty('${id}', 1)">+</button>
+            </div>
+          </div>
+          <button class="remove-item-btn" type="button" onclick="removeItem('${id}')">Remove</button>
+        </div>
+      `).join('');
+    }
+
+    function selectGuideKitVariant(group, productId, button) {
+      const product = products[productId];
+      if (!product) return;
+
+      selectedGuideKits[group] = productId;
+
+      const image = document.getElementById(group === 'intermediate' ? 'guideIntermediateImage' : 'guidePremiumImage');
+      const price = document.getElementById(group === 'intermediate' ? 'guideIntermediatePrice' : 'guidePremiumPrice');
+      const card = button ? button.closest('[data-guide-kit]') : null;
+
+      if (image) {
+        image.src = product.image;
+        image.alt = product.name;
+      }
+
+      if (price) {
+        price.textContent = formatPrice(product.price);
+      }
+
+      if (card) {
+        card.querySelectorAll('.kit-variant-option').forEach((option) => option.classList.remove('is-active'));
+        button.classList.add('is-active');
+      }
+    }
+
+    function addSelectedGuideKitToCart(group) {
+      const productId = selectedGuideKits[group];
+      addToCart(productId);
+    }
+
+    function addToCart(id) {
+      const product = products[id];
+      if (!product) return;
+      if (!cart[id]) cart[id] = { ...product, quantity: 0 };
+      cart[id].quantity += 1;
+      saveCart();
+      renderCart();
+      openCart();
+    }
+
+    function changeQty(id, amount) {
+      if (!cart[id]) return;
+      cart[id].quantity += amount;
+      if (cart[id].quantity <= 0) delete cart[id];
+      saveCart();
+      renderCart();
+    }
+
+    function removeItem(id) {
+      delete cart[id];
+      saveCart();
+      renderCart();
+    }
+
+    function openCart() {
+      document.body.classList.add('cart-open');
+      closeMenu();
+      closeSearch();
+    }
+
+    function closeCart() {
+      document.body.classList.remove('cart-open');
+    }
+
+    function toggleMenu(event) {
+      if (event) event.stopPropagation();
       document.body.classList.toggle('menu-open');
       document.body.classList.remove('search-open');
     }
@@ -4146,778 +4160,50 @@
     function openSearch() {
       document.body.classList.add('search-open');
       document.body.classList.remove('menu-open');
-
       const input = document.getElementById('searchInput');
-      if (input) {
-        input.value = '';
-        input.focus();
-      }
-
-      renderKitSuggestions();
+      if (input) setTimeout(() => input.focus(), 30);
+      performSearch();
     }
 
     function closeSearch() {
       document.body.classList.remove('search-open');
-
-      const input = document.getElementById('searchInput');
-      if (input) {
-        input.value = '';
-      }
     }
 
     function performSearch() {
       const input = document.getElementById('searchInput');
       const results = document.getElementById('searchResults');
+      if (!results) return;
+      const query = (input?.value || '').toLowerCase().trim();
+      const suggestions = [
+        { title: 'How to choose your first mate kit', subtitle: 'Understand the ritual and choose the right setup.', href: '#choose-kit' },
+        { title: 'Beginner Kit | Playadito Starter', subtitle: 'The easiest first mate setup.', href: '#choose-kit' },
+        { title: 'Shop starter kits', subtitle: 'View the full kit range on the shop page.', href: 'index.html#kits' }
+      ].filter(item => !query || item.title.toLowerCase().includes(query) || item.subtitle.toLowerCase().includes(query));
 
-      if (!input || !results) return;
-
-      const query = input.value.trim().toLowerCase();
-      const normalizedQuery = query.replace(/kits/g, 'kit').replace(/sets/g, 'set');
-
-      if (!query) {
-        renderKitSuggestions();
-        return;
-      }
-
-      const productResults = Object.entries(products).map(([id, product]) => ({
-        title: product.name,
-        subtitle: product.name.toLowerCase().includes('kit') ? 'Starter kit' : 'View in shop',
-        priceLabel: `A$${product.price.toFixed(2)}`,
-        href: product.name.toLowerCase().includes('kit') ? '#kits' : '#shop',
-        keywords: `${product.name} yerba mate tea gourd bombilla cup kit kits starter beginner set bundle straw package tools thermo thermos`,
-        onClick: `closeSearch()`
-      }));
-
-      const pageResults = [
-        {
-          title: 'How do I choose my first mate kit?',
-          subtitle: 'Learn what a complete mate set includes and how to choose the right kit.',
-          priceLabel: '',
-          href: 'how-to-choose-your-first-mate-kit.html',
-          keywords: 'choose first mate kit beginner starter complete set gourd bombilla guide',
-          onClick: 'closeSearch()'
-        },
-        {
-          title: 'How do I prepare yerba mate?',
-          subtitle: 'Learn the traditional preparation steps and how to choose your yerba.',
-          priceLabel: '',
-          href: 'how-to-prepare-yerba-mate.html',
-          keywords: 'prepare yerba mate how to make mate steps water temperature cebador',
-          onClick: 'closeSearch()'
-        },
-        {
-          title: 'How do I choose and care for my mate tools?',
-          subtitle: 'Understand gourds, bombillas and everyday care.',
-          priceLabel: '',
-          href: 'mate-tools-care-guide.html',
-          keywords: 'gourd gourds cup cups bombilla straw tools cleaning brush care calabash',
-          onClick: 'closeSearch()'
-        },
-        {
-          title: 'Cultural Experience',
-          subtitle: 'Book a mate tasting or private session.',
-          priceLabel: '',
-          href: '#services',
-          keywords: 'cultural experience tasting booking event workshop',
-          onClick: 'closeSearch()'
-        }
-      ];
-
-      const allResults = [...productResults, ...pageResults];
-      const matches = allResults.filter((item) =>
-        item.keywords.toLowerCase().includes(normalizedQuery) ||
-        item.title.toLowerCase().includes(normalizedQuery)
-      );
-
-      if (!matches.length) {
-        results.innerHTML = '<div class="search-empty">No results found. Try searching “kit”, “yerba”, “cup”, “bombilla” or “tasting”.</div>';
-        return;
-      }
-
-      results.innerHTML = matches.slice(0, 8).map(getSearchResultHtml).join('');
+      results.innerHTML = suggestions.length ? suggestions.map(item => `
+        <a class="search-result-link" href="${item.href}" onclick="closeSearch()">
+          <span><strong>${item.title}</strong><span>${item.subtitle}</span></span>
+        </a>
+      `).join('') : '<div class="search-result-link"><span><strong>No results found</strong><span>Try searching for kit, Playadito or starter.</span></span></div>';
     }
 
-    document.addEventListener('click', function (event) {
+    document.addEventListener('click', function(event) {
       const header = document.querySelector('.site-header');
-      if (!header) return;
-
-      if (!header.contains(event.target)) {
+      if (header && !header.contains(event.target)) {
         closeMenu();
-        document.body.classList.remove('search-open');
+        closeSearch();
       }
     });
 
-
-    function saveCart() {
-      localStorage.setItem('todoMateCart', JSON.stringify(cart));
-    }
-
-    function getCartSummary() {
-      return Object.entries(cart)
-        .filter(([id, qty]) => products[id] && qty > 0)
-        .map(([id, qty]) => ({ id, qty, ...products[id] }));
-    }
-
-    function renderCart() {
-      const items = getCartSummary();
-      const count = items.reduce((sum, item) => sum + item.qty, 0);
-      const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
-
-      document.getElementById('cartCount').textContent = count;
-      document.getElementById('cartTotal').textContent = `A$${total.toFixed(2)}`;
-
-      const cartItems = document.getElementById('cartItems');
-
-      if (!items.length) {
-        cartItems.innerHTML = `
-          <div class="empty-cart-card">
-            <strong>Your cart is empty.</strong>
-            <p>Start with a beginner-friendly mate kit or choose your favourite yerba mate.</p>
-            <a href="#shop" onclick="closeCart()">Shop starter kits</a>
-          </div>
-        `;
-        return;
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+        closeSearch();
+        closeCart();
       }
-
-      cartItems.innerHTML = items.map(item => `
-        <div class="cart-item">
-          <img src="${item.image}" alt="${item.name}">
-          <div>
-            <div class="cart-item-title">${item.name}</div>
-            <div class="cart-item-meta">A$${item.price.toFixed(2)} each</div>
-            <div class="qty-control">
-              <button type="button" onclick="updateQty('${item.id}', -1)">−</button>
-              <span>${item.qty}</span>
-              <button type="button" onclick="updateQty('${item.id}', 1)">+</button>
-            </div>
-            <div class="cart-actions-row">
-              <button class="remove-item-btn" type="button" onclick="removeFromCart('${item.id}')">Remove</button>
-            </div>
-          </div>
-          <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
-        </div>
-      `).join('');
-    }
-
-    function openCart() {
-      document.body.classList.add('cart-open');
-      renderCart();
-    }
-
-    function closeCart() {
-      document.body.classList.remove('cart-open');
-    }
-
-    function selectProductVariant(cardId, productId, button) {
-      const card = document.getElementById(cardId);
-      const product = products[productId];
-      if (!card || !product) return;
-
-      card.dataset.selectedProduct = productId;
-
-      const priceDisplay = card.querySelector('[data-price-display]');
-      if (priceDisplay) priceDisplay.textContent = `A$${product.price.toFixed(2)}`;
-
-      const image = card.querySelector('[data-variant-image]');
-      if (image && product.image) {
-        image.src = product.image;
-        image.alt = product.name;
-      }
-
-      card.querySelectorAll('.variant-option').forEach(option => option.classList.remove('is-active'));
-      if (button) button.classList.add('is-active');
-    }
-
-    function addSelectedVariant(cardId) {
-      const card = document.getElementById(cardId);
-      const selectedProductId = card?.dataset.selectedProduct;
-      if (!selectedProductId || !products[selectedProductId]) return;
-      addToCart(selectedProductId);
-    }
-
-    function addToCart(productId) {
-      cart[productId] = (cart[productId] || 0) + 1;
-      saveCart();
-      renderCart();
-      openCart();
-    }
-
-    function updateQty(productId, change) {
-      cart[productId] = (cart[productId] || 0) + change;
-      if (cart[productId] <= 0) delete cart[productId];
-      saveCart();
-      renderCart();
-      if (document.body.classList.contains('checkout-open')) renderCheckoutSummary();
-    }
-
-    function removeFromCart(productId) {
-      delete cart[productId];
-      saveCart();
-      renderCart();
-      if (document.body.classList.contains('checkout-open')) renderCheckoutSummary();
-    }
-
-    function openCheckout() {
-      const items = getCartSummary();
-      if (!items.length) return openCart();
-      document.body.classList.add('checkout-open');
-      updateDeliveryMethod();
-    }
-
-    function closeCheckout() {
-      document.body.classList.remove('checkout-open');
-    }
-
-    function getDeliveryMethod() {
-      return document.querySelector('input[name="deliveryMethod"]:checked')?.value || 'ship';
-    }
-
-    function getProductSubtotal() {
-      return getCartSummary().reduce((sum, item) => sum + item.qty * item.price, 0);
-    }
-
-    function normaliseDiscountCode(value) {
-      return String(value || '').trim().toUpperCase();
-    }
-
-    function isWelcomeDiscountApplied() {
-      return appliedDiscountCode === 'ILOVEMATE';
-    }
-
-    function getDiscountAmount() {
-      if (!isWelcomeDiscountApplied()) return 0;
-      return Math.round(getProductSubtotal() * 0.10 * 100) / 100;
-    }
-
-    function getShippingFee() {
-      // Free shipping is based on product subtotal before discount.
-      const subtotalBeforeDiscount = getProductSubtotal();
-      const method = getDeliveryMethod();
-
-      if (method === 'pickup') return 0;
-      if (subtotalBeforeDiscount >= 59) return 0;
-      return 9;
-    }
-
-    function getOrderTotal() {
-      return Math.max(0, getProductSubtotal() - getDiscountAmount() + getShippingFee());
-    }
-
-    function applyDiscountCode() {
-      const input = document.getElementById('discountCodeInput');
-      const message = document.getElementById('discountMessage');
-      const code = normaliseDiscountCode(input?.value);
-
-      if (!code) {
-        appliedDiscountCode = null;
-        if (message) {
-          message.className = 'discount-message';
-          message.textContent = 'Use ILOVEMATE for 10% off your first order. For first-time customers only. One use per customer. For first-time customers only. One use per customer.';
-        }
-        renderCheckoutSummary();
-        return;
-      }
-
-      if (code === 'ILOVEMATE') {
-        appliedDiscountCode = 'ILOVEMATE';
-        if (input) input.value = 'ILOVEMATE';
-        if (message) {
-          message.className = 'discount-message is-success';
-          message.textContent = 'ILOVEMATE applied — 10% off your product subtotal.';
-        }
-      } else {
-        appliedDiscountCode = null;
-        if (message) {
-          message.className = 'discount-message is-error';
-          message.textContent = 'This discount code is not valid. Please check and try again.';
-        }
-      }
-
-      const placeholder = document.getElementById('paymentPlaceholder');
-      if (placeholder) {
-        placeholder.innerHTML = 'Secure payment will load here after you click Continue to payment.';
-      }
-
-      renderCheckoutSummary();
-    }
-
-    function updateDeliveryMethod() {
-      const method = getDeliveryMethod();
-      const isPickup = method === 'pickup';
-
-      const pickupNote = document.getElementById('pickupNote');
-      const postcodeGroup = document.getElementById('postcodeGroup');
-      const addressGroup = document.getElementById('addressGroup');
-      const noteGroup = document.getElementById('noteGroup');
-      const postcodeInput = document.getElementById('checkoutPostcode');
-      const addressInput = document.getElementById('checkoutAddress');
-
-      pickupNote?.classList.toggle('is-visible', isPickup);
-
-      if (postcodeGroup) postcodeGroup.style.display = isPickup ? 'none' : 'block';
-      if (addressGroup) addressGroup.style.display = isPickup ? 'none' : 'block';
-      if (noteGroup) noteGroup.style.display = isPickup ? 'none' : 'block';
-
-      if (postcodeInput) postcodeInput.required = !isPickup;
-      if (addressInput) addressInput.required = !isPickup;
-
-      renderCheckoutSummary();
-    }
-
-    function renderCheckoutSummary() {
-      const items = getCartSummary();
-      const subtotal = getProductSubtotal();
-      const discountAmount = getDiscountAmount();
-      const shippingFee = getShippingFee();
-      const total = getOrderTotal();
-      const method = getDeliveryMethod();
-      const summary = document.getElementById('checkoutSummary');
-
-      const shippingLabel = method === 'pickup'
-        ? 'Pickup'
-        : subtotal >= 59
-          ? 'Shipping — free for orders A$59+'
-          : 'Shipping — flat rate';
-
-      summary.innerHTML = `
-        <strong>Order summary</strong>
-
-        <div class="checkout-summary-items">
-          ${items.map(item => `
-            <div class="checkout-summary-item">
-              <div>
-                <strong>${item.name}</strong><br>
-                <span>${item.qty} × A$${item.price.toFixed(2)}</span>
-              </div>
-              <strong>A$${(item.qty * item.price).toFixed(2)}</strong>
-            </div>
-          `).join('')}
-        </div>
-
-        <div class="checkout-summary-row">
-          <span>Product subtotal</span>
-          <strong>A$${subtotal.toFixed(2)}</strong>
-        </div>
-
-        ${discountAmount > 0 ? `
-          <div class="checkout-summary-row">
-            <span>Discount — ILOVEMATE</span>
-            <strong>-A$${discountAmount.toFixed(2)}</strong>
-          </div>
-        ` : ''}
-
-        <div class="checkout-summary-row">
-          <span>${shippingLabel}</span>
-          <strong>${shippingFee === 0 ? 'Free' : `A$${shippingFee.toFixed(2)}`}</strong>
-        </div>
-
-        <div class="checkout-summary-row checkout-summary-total">
-          <span>Total</span>
-          <strong>A$${total.toFixed(2)}</strong>
-        </div>
-
-        ${method === 'pickup'
-          ? '<br><span>Pickup address: 18/59 Queens Road, Melbourne VIC 3004</span>'
-          : '<br><span>Free shipping is based on your product subtotal before discount. Orders below A$59: A$9 flat shipping.</span>'
-        }
-      `;
-    }
-
-    async function startSecureCheckout(event) {
-      if (event) event.preventDefault();
-      console.log('Todo Mate checkout button clicked');
-
-      const items = getCartSummary();
-      const placeholder = document.getElementById('paymentPlaceholder');
-
-      if (!placeholder) {
-        alert('Payment area not found.');
-        return;
-      }
-
-      if (!items.length) {
-        placeholder.innerHTML = 'Your cart is empty. Please add at least one product before checkout.';
-        return;
-      }
-
-      const deliveryMethod = getDeliveryMethod();
-      const shippingFee = getShippingFee();
-      const productSubtotal = getProductSubtotal();
-      const discountCode = isWelcomeDiscountApplied() ? 'ILOVEMATE' : '';
-      const discountAmount = getDiscountAmount();
-      const orderTotal = getOrderTotal();
-
-      const customer = {
-        name: document.getElementById('checkoutName')?.value || '',
-        email: document.getElementById('checkoutEmail')?.value || '',
-        phone: document.getElementById('checkoutPhone')?.value || '',
-        address: deliveryMethod === 'pickup'
-          ? 'Pickup: 18/59 Queens Road, Melbourne VIC 3004'
-          : document.getElementById('checkoutAddress')?.value || '',
-        postcode: deliveryMethod === 'pickup'
-          ? '3004'
-          : document.getElementById('checkoutPostcode')?.value || '',
-        note: deliveryMethod === 'pickup'
-          ? 'Pickup order'
-          : document.getElementById('checkoutNote')?.value || ''
-      };
-
-      const payload = {
-        type: 'product_order',
-        currency: 'AUD',
-        items,
-        deliveryMethod,
-        shippingFee,
-        productSubtotal,
-        discountCode,
-        discountAmount,
-        orderTotal,
-        customer,
-        returnUrl: window.location.origin + '/?paymentResult=return'
-      };
-
-      placeholder.innerHTML = 'Loading secure payment...';
-
-      try {
-        const sessionResponse = await fetch('/api/adyen/sessions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        const session = await sessionResponse.json();
-
-        if (!sessionResponse.ok) {
-          console.error('Adyen session error:', session);
-          placeholder.innerHTML =
-            'Secure payment could not be loaded: ' +
-            (session && session.error ? session.error : 'Adyen session API returned an error.');
-          return;
-        }
-
-        placeholder.innerHTML = '<div id="adyen-dropin-container"></div>';
-
-        if (!window.AdyenWeb || !window.AdyenWeb.AdyenCheckout || !window.AdyenWeb.Dropin) {
-          placeholder.innerHTML = 'Adyen Web SDK is not loaded. Please refresh the page and try again.';
-          return;
-        }
-
-        const { AdyenCheckout, Dropin } = window.AdyenWeb;
-
-        const checkout = await AdyenCheckout({
-          environment: 'test',
-          clientKey: 'test_ZCCEK74EORELFIF3D7F5S2JGOY36QIJZ',
-
-          session: {
-            id: session.id,
-            sessionData: session.sessionData
-          },
-
-          amount: {
-            value: Math.round(orderTotal * 100),
-            currency: 'AUD'
-          },
-
-          countryCode: 'AU',
-          locale: 'en-AU',
-
-          onPaymentCompleted: function () {
-            cart = {};
-            saveCart();
-            renderCart();
-
-            placeholder.innerHTML = `
-              <div style="
-                background: #eaf4e8;
-                border: 1px solid rgba(0, 63, 37, 0.18);
-                padding: 30px;
-                text-align: center;
-                color: #003f25;
-              ">
-                <div style="
-                  width: 54px;
-                  height: 54px;
-                  border-radius: 50%;
-                  background: #003f25;
-                  color: #ffffff;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto 18px;
-                  font-size: 28px;
-                  font-weight: 700;
-                ">
-                  ✓
-                </div>
-
-                <h3 style="
-                  margin: 0 0 10px;
-                  font-size: 25px;
-                  letter-spacing: -0.02em;
-                  color: #003f25;
-                ">
-                  Payment received
-                </h3>
-
-                <p style="
-                  margin: 0 auto 18px;
-                  max-width: 540px;
-                  line-height: 1.7;
-                  color: #5f6f67;
-                ">
-                  Thank you for your order. We’re preparing your mate ritual with care.
-                  We will confirm your pickup or delivery details shortly.
-                </p>
-
-                <div style="
-                  margin: 22px auto;
-                  padding: 17px;
-                  max-width: 540px;
-                  background: #ffffff;
-                  border: 1px solid rgba(0, 63, 37, 0.12);
-                  color: #003f25;
-                  line-height: 1.6;
-                ">
-                  Know someone who would love mate?<br>
-                  Share Todo Mate with a friend and invite them to start their own ritual.
-                </div>
-
-                <div style="
-                  display: flex;
-                  justify-content: center;
-                  gap: 12px;
-                  flex-wrap: wrap;
-                  margin-top: 8px;
-                ">
-                  <button
-                    type="button"
-                    onclick="navigator.clipboard.writeText('https://todomate.com.au'); this.innerText='Link copied ✓';"
-                    style="
-                      background: #003f25;
-                      color: #ffffff;
-                      border: none;
-                      padding: 14px 22px;
-                      text-transform: uppercase;
-                      letter-spacing: 0.14em;
-                      font-weight: 800;
-                      cursor: pointer;
-                    "
-                  >
-                    Share with a friend
-                  </button>
-
-                  <button
-                    type="button"
-                    onclick="closeCheckout();"
-                    style="
-                      background: transparent;
-                      color: #003f25;
-                      border: 1px solid rgba(0, 63, 37, 0.35);
-                      padding: 14px 22px;
-                      text-transform: uppercase;
-                      letter-spacing: 0.14em;
-                      font-weight: 800;
-                      cursor: pointer;
-                    "
-                  >
-                    Continue shopping
-                  </button>
-                </div>
-              </div>
-            `;
-          },
-
-          onPaymentFailed: function () {
-            placeholder.innerHTML = 'Payment was not successful. Please try again.';
-          },
-
-          onError: function (error) {
-            console.error('Adyen payment error:', error);
-            placeholder.innerHTML =
-              'Payment could not be completed: ' +
-              (error && error.message ? error.message : 'Please try again.');
-          }
-        });
-
-        new Dropin(checkout, {
-          paymentMethodsConfiguration: {
-            card: {
-              hasHolderName: true,
-              holderNameRequired: true
-            }
-          }
-        }).mount('#adyen-dropin-container');
-      } catch (error) {
-        console.error('Checkout error:', error);
-        placeholder.innerHTML =
-          'Secure payment could not be loaded: ' +
-          (error && error.message ? error.message : 'Please try again or contact us to complete your order.');
-      }
-    }
+    });
 
     renderCart();
-  </script>
-  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/6.36.0/adyen.js"></script>
-
-  <script>
-    // Robust header controls: keeps Search and Menu working even if inline handlers are affected by deployment/minification.
-    (function () {
-      function showKitSuggestionsIfAvailable() {
-        if (typeof renderKitSuggestions === 'function') {
-          renderKitSuggestions();
-        }
-      }
-
-      window.toggleMenu = function () {
-        document.body.classList.toggle('menu-open');
-        document.body.classList.remove('search-open');
-      };
-
-      window.closeMenu = function () {
-        document.body.classList.remove('menu-open');
-      };
-
-      window.openSearch = function () {
-        document.body.classList.add('search-open');
-        document.body.classList.remove('menu-open');
-
-        var input = document.getElementById('searchInput');
-        if (input) {
-          input.value = '';
-          setTimeout(function () { input.focus(); }, 0);
-        }
-
-        showKitSuggestionsIfAvailable();
-      };
-
-      window.closeSearch = function () {
-        document.body.classList.remove('search-open');
-
-        var input = document.getElementById('searchInput');
-        if (input) {
-          input.value = '';
-        }
-      };
-
-      document.addEventListener('DOMContentLoaded', function () {
-        var searchButton = document.querySelector('.search-icon');
-        var menuButton = document.querySelector('.menu-toggle');
-
-        if (searchButton) {
-          searchButton.addEventListener('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            window.openSearch();
-          });
-        }
-
-        if (menuButton) {
-          menuButton.addEventListener('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            window.toggleMenu();
-          });
-        }
-      });
-    })();
-  </script>
-
-
-  <script>
-    // Final robust menu/search binding for mobile Safari and desktop.
-    (function () {
-      function qs(selector) { return document.querySelector(selector); }
-
-      window.toggleMenu = function (event) {
-        if (event && event.preventDefault) event.preventDefault();
-        if (event && event.stopPropagation) event.stopPropagation();
-
-        var willOpen = !document.body.classList.contains('menu-open');
-        document.body.classList.toggle('menu-open', willOpen);
-        document.body.classList.remove('search-open');
-
-        var menuButton = qs('.menu-toggle');
-        if (menuButton) menuButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-      };
-
-      window.closeMenu = function () {
-        document.body.classList.remove('menu-open');
-        var menuButton = qs('.menu-toggle');
-        if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
-      };
-
-      window.openSearch = function (event) {
-        if (event && event.preventDefault) event.preventDefault();
-        if (event && event.stopPropagation) event.stopPropagation();
-
-        document.body.classList.add('search-open');
-        window.closeMenu();
-
-        var input = document.getElementById('searchInput');
-        if (input) {
-          input.value = '';
-          setTimeout(function () { input.focus(); }, 0);
-        }
-
-        if (typeof renderKitSuggestions === 'function') renderKitSuggestions();
-      };
-
-      window.closeSearch = function () {
-        document.body.classList.remove('search-open');
-        var input = document.getElementById('searchInput');
-        if (input) input.value = '';
-      };
-
-      function bindHeaderControls() {
-        var menuButton = qs('.menu-toggle');
-        var searchButton = qs('.search-icon');
-        var dropdown = qs('.menu-dropdown');
-        var searchPanel = qs('.search-panel');
-
-        if (menuButton && !menuButton.dataset.boundFinal) {
-          menuButton.dataset.boundFinal = 'true';
-          menuButton.addEventListener('click', window.toggleMenu, true);
-          menuButton.addEventListener('touchend', window.toggleMenu, true);
-        }
-
-        if (searchButton && !searchButton.dataset.boundFinal) {
-          searchButton.dataset.boundFinal = 'true';
-          searchButton.addEventListener('click', window.openSearch, true);
-          searchButton.addEventListener('touchend', window.openSearch, true);
-        }
-
-        if (dropdown && !dropdown.dataset.boundFinal) {
-          dropdown.dataset.boundFinal = 'true';
-          dropdown.addEventListener('click', function (event) {
-            event.stopPropagation();
-          });
-        }
-
-        if (searchPanel && !searchPanel.dataset.boundFinal) {
-          searchPanel.dataset.boundFinal = 'true';
-          searchPanel.addEventListener('click', function (event) {
-            event.stopPropagation();
-          });
-        }
-
-        document.addEventListener('click', function (event) {
-          var header = qs('.site-header');
-          if (!header) return;
-          if (!header.contains(event.target) && !(dropdown && dropdown.contains(event.target)) && !(searchPanel && searchPanel.contains(event.target))) {
-            window.closeMenu();
-            window.closeSearch();
-          }
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bindHeaderControls);
-      } else {
-        bindHeaderControls();
-      }
-    })();
   </script>
 
 </body>
