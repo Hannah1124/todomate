@@ -3741,160 +3741,49 @@
 }
 
   
+  /* Mobile yerba product grid: keep this page's yerba cards in 2 columns */
+  @media (max-width: 640px) {
+    .yerba-product-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+    }
 
-/* =========================================================
-   Sharing section correction
-   The moved paragraphs stay inside the white card.
-   Desktop uses image text-wrapping instead of creating a third grid column/item.
-========================================================= */
-#sharing .sharing-flow-card {
-  display: block;
-  overflow: hidden;
-}
+    .yerba-product-image {
+      height: 168px !important;
+      padding: 16px !important;
+    }
 
-#sharing .sharing-flow-card::after {
-  content: "";
-  display: block;
-  clear: both;
-}
+    .yerba-product-body {
+      padding: 18px 16px !important;
+    }
 
-#sharing .sharing-flow-card > img {
-  float: left;
-  width: 48%;
-  max-width: 560px;
-  height: 420px;
-  object-fit: cover;
-  margin: 0 36px 22px 0;
-}
+    .yerba-product-body h3 {
+      font-size: 18px !important;
+      line-height: 1.15 !important;
+    }
 
-#sharing .sharing-flow-card .lifestyle-copy,
-#sharing .sharing-flow-card .body-copy {
-  display: block;
-}
+    .yerba-product-body p {
+      font-size: 13px !important;
+      line-height: 1.55 !important;
+    }
 
-#sharing .sharing-flow-card .body-copy {
-  margin-top: 0 !important;
-}
+    .yerba-product-price {
+      font-size: 19px !important;
+    }
 
-@media (max-width: 900px) {
-  #sharing .lifestyle-card,
-  #sharing .sharing-flow-card {
-    padding: 24px 20px !important;
+    .variant-option {
+      min-height: 34px !important;
+      font-size: 10px !important;
+    }
+
+    .yerba-product-card .add-btn {
+      min-height: 44px !important;
+      font-size: 10px !important;
+      padding: 0 10px !important;
+    }
   }
 
-  #sharing .sharing-flow-card > img {
-    float: none;
-    width: 100%;
-    max-width: none;
-    height: auto;
-    margin: 0 0 22px 0;
-  }
-}
-
-
-/* =========================================================
-   Todo Mate guide pages — mobile responsive correction only
-   Scope: guide/article pages.
-   No content, copy, image, or desktop layout changes.
-========================================================= */
-@media (max-width: 900px) {
-  .guide-main {
-    padding: 28px 0 58px !important;
-  }
-
-  .guide-wrap {
-    width: calc(100% - 28px) !important;
-  }
-
-  .guide-article {
-    max-width: none !important;
-  }
-
-  .section-block,
-  .guide-section {
-    margin-bottom: 42px !important;
-    scroll-margin-top: 82px !important;
-  }
-
-  .section-block h2,
-  .guide-section h2,
-  .guide-card h2 {
-    font-size: 34px !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.03em !important;
-    margin-bottom: 18px !important;
-  }
-
-  .lead,
-  .guide-lead {
-    font-size: 17px !important;
-    line-height: 1.62 !important;
-    margin-bottom: 20px !important;
-    max-width: none !important;
-  }
-
-  .body-copy,
-  .guide-card p,
-  .body-copy p {
-    font-size: 16px !important;
-    line-height: 1.65 !important;
-  }
-
-  .body-copy p,
-  .guide-card p {
-    margin-bottom: 17px !important;
-  }
-
-  .guide-card {
-    padding: 28px 22px !important;
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  .guide-text-block {
-    max-width: none !important;
-  }
-
-  .guide-image,
-  .guide-image.clean {
-    margin-top: 22px !important;
-  }
-
-  .set-grid,
-  .tip-grid,
-  .care-grid,
-  .tool-grid,
-  .gourd-grid {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 28px 14px !important;
-  }
-}
-
-@media (max-width: 430px) {
-  .guide-main {
-    padding-top: 22px !important;
-  }
-
-  .guide-wrap {
-    width: calc(100% - 24px) !important;
-  }
-
-  .section-block h2,
-  .guide-section h2,
-  .guide-card h2 {
-    font-size: 31px !important;
-  }
-
-  .guide-card {
-    padding: 26px 20px !important;
-  }
-}
-</style>
+  </style>
 </head>
 <body id="top">
   <div class="top-strip"></div>
@@ -4004,20 +3893,20 @@
           <section class="section-block" id="sharing">
             <div class="label">How South Americans drink mate</div>
             <h2>One cebador, one circle, one rhythm.</h2>
-            <div class="lifestyle-card sharing-flow-card">
+            <div class="lifestyle-card">
               <img src="guide-shared-mate-cebador.png" alt="Friends sharing mate with a cebadora serving the circle">
               <div class="lifestyle-copy">
                 <p>In South America, mate can be personal or social. Some people drink mate alone while working, studying or starting the day. It becomes a quiet habit, almost like a companion.</p>
                 <p>When mate is shared, it has its own rhythm. Usually, one person prepares and pours the mate. This person is often called the <strong>cebador</strong> or <strong>cebadora</strong> — the one who serves the mate.</p>
                 <p>The cebador is not usually changed in the middle. They take care of the water, the gourd and the flow of the circle.</p>
               </div>
-              <div class="body-copy" style="margin-top: 30px;">
-                <p>The gourd is passed to one person at a time. You drink, enjoy the moment, then return it to the cebador, who refills it and passes it to the next person.</p>
-                <p>In a way, the bombilla becomes your little microphone. While you hold the mate, you have your moment — to talk, listen, laugh, or simply enjoy the pause.</p>
-                <p>Mate is often shared with something sweet, like pastries, biscuits or desserts, making it part of a relaxed conversation rather than a rushed drink.</p>
-                <p>There is also a small cultural detail: you usually only say <strong>“thank you”</strong> when you do not want any more mate. If you say thank you too early, the cebador may understand that you are finished.</p>
-                <p>This may feel unusual to people who are new to mate, but culturally it represents trust, closeness and hospitality. Sharing mate is less about serving a drink and more about sharing time.</p>
-              </div>
+            </div>
+            <div class="body-copy" style="margin-top: 30px;">
+              <p>The gourd is passed to one person at a time. You drink, enjoy the moment, then return it to the cebador, who refills it and passes it to the next person.</p>
+              <p>In a way, the bombilla becomes your little microphone. While you hold the mate, you have your moment — to talk, listen, laugh, or simply enjoy the pause.</p>
+              <p>Mate is often shared with something sweet, like pastries, biscuits or desserts, making it part of a relaxed conversation rather than a rushed drink.</p>
+              <p>There is also a small cultural detail: you usually only say <strong>“thank you”</strong> when you do not want any more mate. If you say thank you too early, the cebador may understand that you are finished.</p>
+              <p>This may feel unusual to people who are new to mate, but culturally it represents trust, closeness and hospitality. Sharing mate is less about serving a drink and more about sharing time.</p>
             </div>
           </section>
 
